@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Inner Circle Assessment — Implanted Wisdom</title>
+<link rel="icon" href="favicon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
+:root{--espresso:#17110d;--espresso-deep:#100c09;--espresso-deeper:#0b0807;--ink:#1E1612;
+  --gold:#C9A96E;--gold-soft:#d9c099;--teal:#245C5C;--teal-deep:#1c4a4a;
+  --cream:#F2EEE7;--cream-80:rgba(242,238,231,.85);--cream-60:rgba(242,238,231,.6);
+  --line:rgba(242,238,231,.12);
+  --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--mono:'Courier Prime',monospace;
+  --easing:cubic-bezier(0.22,1,0.36,1);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);font-weight:300;font-size:16px;line-height:1.7;color:var(--cream);background:var(--espresso);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;color:var(--cream)}
+a{color:inherit}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.label{font-weight:500;text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;color:var(--gold)}
+.tm{font-size:.6em;vertical-align:.55em;font-weight:500;font-family:var(--body)}
+.wave{position:fixed;pointer-events:none;z-index:0}
+.wave svg{display:block}
+header.hero{position:relative;z-index:1;padding:84px 0 36px;text-align:center}
+header.hero a.back{display:inline-block;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-60);margin-bottom:22px;text-decoration:none;transition:color .25s}
+header.hero a.back:hover{color:var(--gold)}
+header.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:400}
+header.hero h1 em{font-style:italic;color:var(--gold)}
+header.hero p.sub{max-width:500px;margin:14px auto 0;color:var(--cream-60);font-size:1rem}
+.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(242,238,231,.1)}
+.progressbar>div{height:100%;width:0;background:var(--gold);transition:width .5s var(--easing)}
+section.block{position:relative;z-index:1;background:rgba(242,238,231,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
+.secnum{font-family:var(--mono);color:var(--gold);font-size:.8rem;letter-spacing:.12em}
+section.block h2{font-size:1.45rem;margin:2px 0 4px}
+.hint{color:var(--cream-60);font-size:.9rem;margin-bottom:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:400;font-size:.92rem;margin-bottom:6px;color:var(--cream-80)}
+.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(242,238,231,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
+.field input::placeholder,textarea::placeholder{color:rgba(242,238,231,.4)}
+.field select option{background:var(--espresso-deep);color:var(--cream)}
+.field select:focus,textarea:focus,.field input:focus{outline:none;border-color:var(--gold)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+@media(max-width:640px){.checks{grid-template-columns:1fr}section.block{padding:24px 20px}}
+.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(242,238,231,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
+.checks label:hover{border-color:rgba(201,169,110,.5)}
+.checks label:has(input:checked){border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
+.checks input{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0}
+.checks .field{margin-bottom:0}
+.checks .field label{display:block;border:0;padding:0;background:none;cursor:default}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 60px;position:relative;z-index:1}
+.btn{display:inline-block;font-family:var(--body);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:.82rem;padding:16px 34px;border-radius:10px;cursor:pointer;border:1.5px solid transparent;transition:all .3s var(--easing)}
+.btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
+.btn-line{border-color:var(--gold);color:var(--gold);background:transparent}.btn-line:hover{background:rgba(201,169,110,.1);color:var(--gold-soft)}
+#result{display:none;position:relative;z-index:1}
+.rcard{background:rgba(242,238,231,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
+@media(max-width:640px){.rcard{padding:26px 20px}}
+.band{font-family:var(--display);font-size:2.1rem;color:var(--gold)}
+.plain{list-style:none;padding:0}
+.plain li{padding:9px 0}
+.gapli{color:#d19a7c}.okli{color:#9fd0c3}
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="IW">
+<link rel="apple-touch-icon" href="iw-icon-180.png">
+</head>
+<body>
+<div class="wave" style="left:-6vw;top:-12vh" aria-hidden="true">
+  <svg width="40vw" height="124vh" viewBox="0 0 400 1000" preserveAspectRatio="none">
+    <path d="M0,0 L240,0 C160,140 300,260 210,420 C130,560 250,700 150,840 C90,930 130,980 90,1000 L0,1000 Z" fill="#100c09"/>
+    <path d="M0,0 L150,0 C90,160 190,300 120,460 C60,600 150,760 70,900 C40,950 50,980 30,1000 L0,1000 Z" fill="#0b0807"/>
+  </svg>
+</div>
+<div class="wave" style="right:-6vw;bottom:-12vh" aria-hidden="true">
+  <svg width="36vw" height="124vh" viewBox="0 0 400 1000" preserveAspectRatio="none" style="transform:scaleX(-1)">
+    <path d="M0,0 L220,0 C150,160 280,300 200,460 C120,620 240,760 140,900 C100,960 120,990 80,1000 L0,1000 Z" fill="#100c09"/>
+  </svg>
+</div>
+<div class="progressbar"><div id="pbar"></div></div>
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="assess.html">← All Assessments</a>
+    <div class="label">Partner Assessment · Three of Three</div>
+    <h1>Inner Circle <em>Assessment</em></h1>
+    <p class="sub">The health of your referral network. About three minutes.</p>
+  </div>
+</header>
+
+<div class="wrap">
+<form id="icform" novalidate>
+
+  <section class="block">
+    <div class="secnum">00 / 05</div>
+    <h2>About you</h2>
+    <div class="checks" style="grid-template-columns:1fr 1fr">
+      <div class="field"><label for="ic_name">Surgeon name *</label><input type="text" id="ic_name" required></div>
+      <div class="field"><label for="ic_practice">Practice name *</label><input type="text" id="ic_practice" required></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">01 / 05</div>
+    <h2>Your referral base</h2>
+    <div class="field"><label for="count">Active referring GPs / dentists today</label>
+      <select id="count"><option value="0">None</option><option value="1">1–5</option><option value="2">6–15</option><option value="2">16+</option></select>
+    </div>
+    <p class="hint" style="margin-bottom:8px">Categorize your active referrers — how many fall in each tier?</p>
+    <div class="checks" style="grid-template-columns:1fr 1fr">
+      <div class="field"><label for="tierA">A · 10+ referrals / month</label>
+        <select id="tierA"><option value="">—</option><option>0</option><option>1–2</option><option>3–5</option><option>6+</option></select></div>
+      <div class="field"><label for="tierB">B · 4–6 referrals / month</label>
+        <select id="tierB"><option value="">—</option><option>0</option><option>1–2</option><option>3–5</option><option>6+</option></select></div>
+      <div class="field"><label for="tierC">C · 2–3 referrals / month</label>
+        <select id="tierC"><option value="">—</option><option>0</option><option>1–2</option><option>3–5</option><option>6+</option></select></div>
+      <div class="field"><label for="tierD">D · 1 / month or fewer (incl. a few per year)</label>
+        <select id="tierD"><option value="">—</option><option>0</option><option>1–2</option><option>3–5</option><option>6+</option></select></div>
+    </div>
+    <div class="field" style="margin-top:8px"><label for="program">Do you have a formal referral program?</label>
+      <select id="program"><option value="0">No program</option><option value="1">Informal relationships</option><option value="1">Study club</option><option value="1">Practice relations coordinator</option><option value="2">Formal, structured program tracking contacts &amp; referrals</option></select>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">01B / 05</div>
+    <h2>Retirements &amp; transitions</h2>
+    <p class="hint">Referral bases erode quietly — usually through retirements and practice sales.</p>
+    <div class="field"><label for="retired5">How many of your top-5 referrers have retired in the past 5 years?</label>
+      <select id="retired5"><option value="">Select…</option><option>0</option><option>1</option><option>2</option><option>3+</option></select>
+    </div>
+    <div class="field"><label for="transdrop">When a referring office transitioned to a new dentist, what happened to referrals?</label>
+      <select id="transdrop"><option value="">Select…</option><option>Stayed steady</option><option>Dropped after transition</option><option>Stopped after transition</option><option>Mixed / varies</option><option>Hasn't happened yet</option></select>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">02 / 05</div>
+    <h2>How you stay connected</h2>
+    <p class="hint">Check how you communicate with referrers today.</p>
+    <div class="checks" id="channels">
+      <label><input type="checkbox" value="Calls"> Phone / text</label>
+      <label><input type="checkbox" value="Visits"> In-person visits / lunches</label>
+      <label><input type="checkbox" value="Case updates"> Case status updates back to GP</label>
+      <label><input type="checkbox" value="Events"> CE events / study clubs</label>
+      <label><input type="checkbox" value="Email"> Email newsletters</label>
+      <label><input type="checkbox" value="None"> No regular contact</label>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">03 / 05</div>
+    <h2>Awareness &amp; loyalty</h2>
+    <div class="field"><label for="aware">Do your referrers know you do full-arch?</label>
+      <select id="aware"><option value="0">Not really</option><option value="1">Some do</option><option value="2">Most do</option></select>
+    </div>
+    <p class="hint" style="margin-bottom:8px">Do you track referrals by procedure? (check what you track)</p>
+    <div class="checks" id="trackproc">
+      <label><input type="checkbox" value="Third molars"> Third molars</label>
+      <label><input type="checkbox" value="Implants"> Implants</label>
+      <label><input type="checkbox" value="Full arch"> Full arch</label>
+      <label><input type="checkbox" value="None"> I don't track by procedure</label>
+    </div>
+    <div class="field" style="margin-top:12px"><label for="loyalty">How secure are your top referral relationships?</label>
+      <select id="loyalty"><option value="0">At risk / eroding</option><option value="1">Stable</option><option value="2">Strong &amp; loyal</option></select>
+    </div>
+    <p class="hint" style="margin:12px 0 8px">Which of these pressures worry you? (check all that apply)</p>
+    <div class="checks" id="threats">
+      <label><input type="checkbox" value="Retiring offices"> Retiring offices &amp; transitions to new dentists</label>
+      <label><input type="checkbox" value="DSO infiltration"> DSO infiltration of referring practices</label>
+      <label><input type="checkbox" value="Corporate full-arch centers"> ClearChoice / Nuvia corporate full-arch centers</label>
+      <label><input type="checkbox" value="None"> None of these currently</label>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">04 / 05</div>
+    <h2>The DTC concern</h2>
+    <div class="field"><label for="concern">Do you worry DTC marketing could hurt your GP referrals?</label>
+      <select id="concern"><option value="0">Yes — a real concern</option><option value="1">Somewhat</option><option value="2">No</option></select>
+    </div>
+    <div class="field"><label for="track">Do you track who refers and case outcomes?</label>
+      <select id="track"><option value="0">No</option><option value="1">Partially</option><option value="2">Yes</option></select>
+    </div>
+    <div class="field"><label for="future">Have you thought about how to support existing — and build new — referral relationships, particularly around full-arch?</label>
+      <select id="future"><option value="0">Not yet</option><option value="1">Thought about it, no plan</option><option value="2">Yes, actively working on it</option></select>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">05 / 05</div>
+    <h2>Anything else</h2>
+    <p class="hint">Optional — what's your biggest referral challenge?</p>
+    <textarea id="notes" rows="3" placeholder="e.g., a big referrer started placing their own, or referrals are slowing…"></textarea>
+  </section>
+
+  <div class="actions">
+    <button class="btn btn-gold" type="submit">See My Inner Circle Snapshot →</button>
+  </div>
+</form>
+
+<div id="result">
+  <div class="rcard">
+    <div class="label" style="color:var(--gold-soft)">Your Inner Circle Snapshot</div>
+    <div class="band" id="rBand"></div>
+    <p id="rDesc" style="color:var(--cream-80);margin-top:6px"></p>
+    <h3 style="margin:20px 0 8px">Where IW will focus first</h3>
+    <ul class="plain" id="rGaps"></ul>
+    <p style="margin-top:20px;padding:14px 18px;background:rgba(36,92,92,.35);border-left:3px solid var(--gold);border-radius:4px;color:var(--cream-80)"><strong style="font-weight:500">Inner Circle–focused marketing and development, in conjunction with DTC outreach — the perfect combination to support your community and your future.</strong></p>
+    <div class="actions">
+      <button class="btn btn-gold" id="emailbtn">Email My Results to IW →</button>
+      <button class="btn btn-line" onclick="location.reload()">Retake</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+(function(){
+  var form=document.getElementById('icform');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var nameEl=document.getElementById('ic_name'),practEl=document.getElementById('ic_practice');
+    var okId=true;[nameEl,practEl].forEach(function(el){if(!el.value.trim()){okId=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
+    if(!okId){window.scrollTo({top:0,behavior:'smooth'});return;}
+    function v(id){return +document.getElementById(id).value;}
+    var dims=[
+      ['Referral volume', v('count')],
+      ['Structured program', v('program')],
+      ['Full-arch awareness', v('aware')],
+      ['Relationship strength', v('loyalty')],
+      ['Referral tracking', v('track')],
+      ['Referral growth plan', v('future')]
+    ];
+    var channels=[...document.querySelectorAll('#channels input:checked')].map(x=>x.value);
+    var got=dims.reduce((s,d)=>s+d[1],0), max=dims.length*2;
+    var score=Math.round(got/max*100);
+    var concern=v('concern');
+    var band,desc;
+    if(score>=70){band='Strong Network';desc='A loyal referral base. IW protects it with a branded Inner Circle program and layers DTC on top so both grow together.';}
+    else if(score>=40){band='Growing Network';desc='Real relationships with room to formalize. IW builds structure, communication, and tracking to deepen loyalty.';}
+    else{band='Nascent Network';desc='Early referral base. IW helps build the Inner Circle from the ground up — awareness, communication, and a program that rewards referrers.';}
+
+    var gaps=dims.filter(d=>d[1]<=1).sort((a,b)=>a[1]-b[1]).map(d=>d[0]);
+    if(concern===0) gaps.unshift('Protecting referrals while running DTC');
+    document.getElementById('rBand').textContent=band;
+    document.getElementById('rDesc').textContent=desc;
+    document.getElementById('rGaps').innerHTML=(gaps.length?gaps:['Optimization only']).map(g=>'<li class="gapli">'+g+'</li>').join('');
+
+    var sv=function(id){var el=document.getElementById(id);return el?el.value:'';};
+    var chk=function(sel){return [...document.querySelectorAll(sel+' input:checked')].map(x=>x.value);};
+    var st=function(id){var el=document.getElementById(id);return el&&el.selectedIndex>=0?el.options[el.selectedIndex].text:'';};
+    document.getElementById('emailbtn').onclick=function(){
+      var body=encodeURIComponent(
+'IW Inner Circle Assessment\n'+
+'Surgeon: '+nameEl.value.trim()+'\n'+
+'Practice: '+practEl.value.trim()+'\n'+
+'Score: '+score+'/100 — '+band+'\n'+
+'Active referrers: '+st('count')+' | Program: '+st('program')+'\n'+
+'Tiers A/B/C/D: '+(sv('tierA')||'—')+' / '+(sv('tierB')||'—')+' / '+(sv('tierC')||'—')+' / '+(sv('tierD')||'—')+'\n'+
+'Top-5 retired (5yr): '+(sv('retired5')||'—')+' | Transition impact: '+(sv('transdrop')||'—')+'\n'+
+'Channels: '+(channels.join(', ')||'—')+'\n'+
+'Full-arch awareness: '+st('aware')+' | Loyalty: '+st('loyalty')+'\n'+
+'Tracks by procedure: '+(chk('#trackproc').join(', ')||'—')+' | Threats: '+(chk('#threats').join(', ')||'—')+'\n'+
+'DTC concern: '+st('concern')+' | Referral tracking: '+st('track')+' | Growth plan: '+st('future')+'\n'+
+'Focus areas: '+(gaps.join(', ')||'Optimization only')+'\n'+
+'Notes: '+(document.getElementById('notes').value.trim()||'—'));
+      location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent('IW Inner Circle Assessment — '+nameEl.value.trim())+'&body='+body;
+    };
+
+    form.style.display='none';
+    document.querySelector('header.hero').style.display='none';
+    document.getElementById('result').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
+<script>
+(function(){
+  var bar=document.getElementById('pbar'); if(!bar) return;
+  var form=document.querySelector('form'); if(!form) return;
+  var fields=[].slice.call(form.querySelectorAll('select, textarea, input[type=text]'));
+  var groups={};
+  [].slice.call(form.querySelectorAll('input[type=checkbox]')).forEach(function(c){
+    var g=c.closest('.checks'); if(g){ var id=g.id||'g'; groups[id]=g; }
+  });
+  var total=fields.length+Object.keys(groups).length;
+  var touched={};
+  function update(){
+    var n=Object.keys(touched).length;
+    bar.style.width=Math.min(100,Math.round(n/Math.max(1,total)*100))+'%';
+  }
+  form.addEventListener('change',function(e){
+    var t=e.target;
+    if(t.matches('select, textarea, input[type=text]')){ touched['f'+fields.indexOf(t)]=1; }
+    if(t.matches('input[type=checkbox]')){ var g=t.closest('.checks'); touched['g'+(g&&g.id||'x')]=1; }
+    update();
+  });
+  form.addEventListener('input',function(e){
+    var t=e.target;
+    if(t.matches('textarea, input[type=text]') && t.value.trim()){ touched['f'+fields.indexOf(t)]=1; update(); }
+  });
+})();
+</script>
+</body>
+</html>
