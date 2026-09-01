@@ -159,6 +159,22 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   .pcard h3,.dial .num b,h1,h2,h3,.kv dd,.roadmap li b{color:#000}
   .profile-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
+
+/* ---- mobile comfort: big touch targets, no iOS zoom ---- */
+@media(max-width:640px){
+  .checks{grid-template-columns:1fr !important}
+  .grid2{grid-template-columns:1fr !important}
+  .field label{font-size:1rem;margin-bottom:8px}
+  .field input[type=text],.field input[type=email],.field input[type=tel],.field select,textarea{
+    font-size:16px !important;padding:16px 16px !important;min-height:54px;border-radius:12px}
+  textarea{min-height:120px}
+  .choices{flex-direction:column;align-items:stretch}
+  .choices label{padding:15px 18px;font-size:1rem;width:100%}
+  .checks label{padding:15px 16px;font-size:1rem}
+  .checks input{width:20px;height:20px}
+  .matrix input[type=radio]{width:24px;height:24px}
+  .btn{display:block;width:100%;margin:8px 0 !important;padding:18px 20px}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
