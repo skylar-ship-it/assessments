@@ -103,6 +103,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
     <div class="label">Partner Assessment · Two of Three</div>
     <h1>Current Marketing <em>Assessment</em></h1>
     <p class="sub">How you attract and convert patients today. About three minutes.</p>
+    <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">The purpose of this assessment isn't to measure how much or how little you know — it's to understand where you are today so we can best help you grow on your journey to excellence.</p>
   </div>
 </header>
 
@@ -216,21 +217,19 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <div class="actions">
-    <button class="btn btn-gold" type="submit">See My Marketing Snapshot →</button>
+    <p class="hint" style="margin-bottom:18px">That's everything. Tap below and your email app will open with your answers addressed to the IW team — just hit send.</p>
+    <button class="btn btn-gold" type="submit">Email My Results to IW →</button>
   </div>
 </form>
 
 <div id="result">
-  <div class="rcard">
-    <div class="label" style="color:var(--gold-soft)">Your Marketing Snapshot</div>
-    <div class="band" id="rBand"></div>
-    <p id="rDesc" style="color:var(--cream-80);margin-top:6px"></p>
-    <h3 style="margin:20px 0 8px">Where IW will focus first</h3>
-    <ul class="plain" id="rGaps"></ul>
-    <h3 style="margin:20px 0 8px">Already working for you</h3>
-    <ul class="plain" id="rOk"></ul>
-    <div class="actions">
+  <div class="rcard" style="text-align:center">
+    <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Current Marketing Assessment</div>
+    <h2 style="font-weight:400;margin-top:10px">Thank you, <span id="rName"></span>.</h2>
+    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch">Your email app should have opened with your answers ready to send. If it didn't, tap the button below. Once we receive them, the IW team will review everything and build your customized implementation plan.</p>
+    <div class="actions" style="margin-top:28px">
       <button class="btn btn-gold" id="emailbtn">Email My Results to IW →</button>
+      <a class="btn btn-line" href="assess.html">Back to All Assessments</a>
       <button class="btn btn-line" onclick="location.reload()">Retake</button>
     </div>
   </div>
@@ -264,15 +263,11 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 
     var gaps=dims.filter(d=>d[1]<=1).sort((a,b)=>a[1]-b[1]).map(d=>d[0]);
     var oks=dims.filter(d=>d[1]===2).map(d=>d[0]);
-    document.getElementById('rBand').textContent=band;
-    document.getElementById('rDesc').textContent=desc;
-    document.getElementById('rGaps').innerHTML=(gaps.length?gaps:['Fine-tuning only']).map(g=>'<li class="gapli">'+g+'</li>').join('');
-    document.getElementById('rOk').innerHTML=(oks.length?oks:['Foundation to be built']).map(g=>'<li class="okli">'+g+'</li>').join('');
 
     var chk=function(sel){return [...document.querySelectorAll(sel+' input:checked')].map(x=>x.value);};
     var sv=function(id){var el=document.getElementById(id);return el?el.value:'';};
     var st=function(id){var el=document.getElementById(id);return el&&el.selectedIndex>=0?el.options[el.selectedIndex].text:'';};
-    document.getElementById('emailbtn').onclick=function(){
+    function sendResults(){
       var body=encodeURIComponent(
 'IW Marketing Assessment\n'+
 'Surgeon: '+nameEl.value.trim()+'\n'+
@@ -288,12 +283,15 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 'Focus areas: '+(gaps.join(', ')||'Fine-tuning only')+'\n'+
 'Frustration: '+(document.getElementById('frustration').value.trim()||'—'));
       location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent('IW Marketing Assessment — '+nameEl.value.trim())+'&body='+body;
-    };
+    }
+    document.getElementById('emailbtn').onclick=sendResults;
+    document.getElementById('rName').textContent=nameEl.value.trim().split(' ')[0];
 
     form.style.display='none';
     document.querySelector('header.hero').style.display='none';
     document.getElementById('result').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(sendResults,400);
   });
 })();
 </script>

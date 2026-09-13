@@ -103,6 +103,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
     <div class="label">Partner Assessment · Three of Three</div>
     <h1>Inner Circle <em>Assessment</em></h1>
     <p class="sub">The health of your referral network. About three minutes.</p>
+    <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">The purpose of this assessment isn't to measure how much or how little you know — it's to understand where you are today so we can best help you grow on your journey to excellence.</p>
   </div>
 </header>
 
@@ -211,20 +212,19 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <div class="actions">
-    <button class="btn btn-gold" type="submit">See My Inner Circle Snapshot →</button>
+    <p class="hint" style="margin-bottom:18px">That's everything. Tap below and your email app will open with your answers addressed to the IW team — just hit send.</p>
+    <button class="btn btn-gold" type="submit">Email My Results to IW →</button>
   </div>
 </form>
 
 <div id="result">
-  <div class="rcard">
-    <div class="label" style="color:var(--gold-soft)">Your Inner Circle Snapshot</div>
-    <div class="band" id="rBand"></div>
-    <p id="rDesc" style="color:var(--cream-80);margin-top:6px"></p>
-    <h3 style="margin:20px 0 8px">Where IW will focus first</h3>
-    <ul class="plain" id="rGaps"></ul>
-    <p style="margin-top:20px;padding:14px 18px;background:rgba(36,92,92,.35);border-left:3px solid var(--gold);border-radius:4px;color:var(--cream-80)"><strong style="font-weight:500">Inner Circle–focused marketing and development, in conjunction with DTC outreach — the perfect combination to support your community and your future.</strong></p>
-    <div class="actions">
+  <div class="rcard" style="text-align:center">
+    <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Inner Circle Assessment</div>
+    <h2 style="font-weight:400;margin-top:10px">Thank you, <span id="rName"></span>.</h2>
+    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch">Your email app should have opened with your answers ready to send. If it didn't, tap the button below. Once we receive them, the IW team will review everything and build your customized implementation plan.</p>
+    <div class="actions" style="margin-top:28px">
       <button class="btn btn-gold" id="emailbtn">Email My Results to IW →</button>
+      <a class="btn btn-line" href="assess.html">Back to All Assessments</a>
       <button class="btn btn-line" onclick="location.reload()">Retake</button>
     </div>
   </div>
@@ -259,14 +259,11 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 
     var gaps=dims.filter(d=>d[1]<=1).sort((a,b)=>a[1]-b[1]).map(d=>d[0]);
     if(concern===0) gaps.unshift('Protecting referrals while running DTC');
-    document.getElementById('rBand').textContent=band;
-    document.getElementById('rDesc').textContent=desc;
-    document.getElementById('rGaps').innerHTML=(gaps.length?gaps:['Optimization only']).map(g=>'<li class="gapli">'+g+'</li>').join('');
 
     var sv=function(id){var el=document.getElementById(id);return el?el.value:'';};
     var chk=function(sel){return [...document.querySelectorAll(sel+' input:checked')].map(x=>x.value);};
     var st=function(id){var el=document.getElementById(id);return el&&el.selectedIndex>=0?el.options[el.selectedIndex].text:'';};
-    document.getElementById('emailbtn').onclick=function(){
+    function sendResults(){
       var body=encodeURIComponent(
 'IW Inner Circle Assessment\n'+
 'Surgeon: '+nameEl.value.trim()+'\n'+
@@ -282,12 +279,15 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 'Focus areas: '+(gaps.join(', ')||'Optimization only')+'\n'+
 'Notes: '+(document.getElementById('notes').value.trim()||'—'));
       location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent('IW Inner Circle Assessment — '+nameEl.value.trim())+'&body='+body;
-    };
+    }
+    document.getElementById('emailbtn').onclick=sendResults;
+    document.getElementById('rName').textContent=nameEl.value.trim().split(' ')[0];
 
     form.style.display='none';
     document.querySelector('header.hero').style.display='none';
     document.getElementById('result').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
+    setTimeout(sendResults,400);
   });
 })();
 </script>
