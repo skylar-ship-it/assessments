@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://implantedwisdomcollective.com/og-image.png">
 
-<meta name="description" content="Implanted Wisdom Partner Readiness Assessment — a surgeon-led growth engine for specialty practices.">
+<meta name="description" content="Implanted Wisdom Surgeon Experience Assessment — a surgeon-led growth engine for specialty practices.">
 <link rel="icon" href="favicon.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
@@ -205,6 +205,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     <div class="label">Partner Assessment · One of Three</div>
     <h1>Surgeon Experience <em>Assessment</em></h1>
     <p class="sub">Your clinical and operational baseline. About five minutes.</p>
+    <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">The purpose of this assessment isn't to measure how much or how little you know — it's to understand where you are today so we can best help you grow on your journey to excellence.</p>
   </div>
 </header>
 
@@ -417,7 +418,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
 
   <section class="block">
     <div class="secnum">09 / 09</div>
-    <h2>Readiness &amp; Timeline</h2>
+    <h2>Timeline</h2>
     <p class="hint">When do you want to begin implementation?</p>
     <div class="choices">
       <label><input type="radio" name="timeline" value="now" required> Ready now</label>
@@ -428,74 +429,26 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <div class="submitrow">
-    <button type="submit" class="btn btn-gold">Generate My Readiness Profile</button>
+    <p class="hint" style="margin-bottom:18px">That's everything. Tap below and your email app will open with your answers addressed to the IW team — just hit send.</p>
+    <button type="submit" class="btn btn-gold">Email My Results to IW →</button>
     <p class="err" id="errmsg">Please complete all required fields — missing items are highlighted above.</p>
   </div>
 </form>
 </div>
 
-<!-- ================= PARTNER READINESS PROFILE ================= -->
+<!-- ================= CONFIRMATION ================= -->
 <div id="profile">
   <div class="profile-hero">
     <div class="wrap">
-      <div class="label">Implanted Wisdom · Partner Readiness Profile</div>
-      <h2 id="p_title">Partner Readiness Profile</h2>
-      <div class="who mono" id="p_who"></div>
-      <div class="scorewrap">
-        <div class="dial">
-          <svg width="170" height="170" viewBox="0 0 170 170">
-            <circle cx="85" cy="85" r="74" fill="none" stroke="rgba(247,242,236,.15)" stroke-width="10"/>
-            <circle id="dialarc" cx="85" cy="85" r="74" fill="none" stroke="#C9A96E" stroke-width="10"
-              stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465"/>
-          </svg>
-          <div class="num"><b id="p_score">0</b><span>Readiness / 100</span></div>
-        </div>
-        <div class="bandtag">
-          <div class="label" id="p_bandlabel">Onboarding Path</div>
-          <h3 id="p_band"></h3>
-          <p id="p_banddesc"></p>
-        </div>
+      <div class="label">Implanted Wisdom · Surgeon Experience Assessment</div>
+      <h2>Thank you, <span id="p_name"></span>.</h2>
+      <p class="sub" style="margin-top:18px;max-width:52ch;margin-left:auto;margin-right:auto">Your email app should have opened with your answers ready to send. If it didn't, tap the button below. Once we receive them, the IW clinical team will review everything and build your customized implementation plan.</p>
+      <div class="actions" style="margin-top:34px">
+        <button class="btn btn-gold" id="emailbtn">Email My Results to IW →</button>
+        <a class="btn btn-line" href="assess.html">Back to All Assessments</a>
+        <button class="btn btn-line" onclick="location.reload()">Retake Assessment</button>
+        <p class="smallnote">Implanted Wisdom · A Surgeon-Led Boutique Consultancy · Powered by the Patient-Specific Protocol<span class="tm">™</span></p>
       </div>
-    </div>
-  </div>
-
-  <div class="wrap">
-    <div class="pcard">
-      <h3>Readiness by Pillar</h3>
-      <div class="bars" id="p_bars"></div>
-    </div>
-
-    <div class="pcard">
-      <h3>Case Experience Summary</h3>
-      <dl class="kv" id="p_exp"></dl>
-    </div>
-
-    <div class="pcard">
-      <h3>Technology Stack &amp; Equipment Gaps</h3>
-      <ul class="plain" id="p_equip"></ul>
-    </div>
-
-    <div class="pcard">
-      <h3>Team Composition</h3>
-      <ul class="plain" id="p_team"></ul>
-    </div>
-
-    <div class="pcard tiercard">
-      <div class="label">Recommended Clinical Curriculum</div>
-      <h3 id="p_curr"></h3>
-      <ul class="plain" id="p_currlist"></ul>
-    </div>
-
-    <div class="pcard">
-      <h3>Customized Implementation Roadmap</h3>
-      <ul class="plain roadmap" id="p_roadmap"></ul>
-    </div>
-
-    <div class="actions">
-      <button class="btn btn-gold" id="emailbtn">Email My Results to IW →</button>
-      <button class="btn btn-line" onclick="window.print()">Download / Print Profile</button>
-      <button class="btn btn-line" onclick="location.reload()">Retake Assessment</button>
-      <p class="smallnote">Implanted Wisdom · A Surgeon-Led Boutique Consultancy · Powered by the Patient-Specific Protocol<span class="tm">™</span></p>
     </div>
   </div>
 </div>
@@ -589,105 +542,12 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     const timeline=form.querySelector('[name=timeline]:checked').value;
     const goals=[...form.querySelectorAll('input[name=goal]:checked')].map(el=>el.value);
 
-    /* ---- save profile to the browser so the portal can tailor itself ---- */
-    try{
-      const gaps=r.pillars.slice().sort((x,y)=>(x[1]/x[2])-(y[1]/y[2])).slice(0,2).map(p=>p[0]);
-      const EQ=[['ios','Intraoral scanner'],['pg','Photogrammetry'],['cbct','CBCT'],['printer','3D printer'],['software','Design software'],['mill','In-house mill'],['guides','Guided surgery']];
-      const have={}; form.querySelectorAll('input[name=eq]').forEach(el=>{have[el.value]=el.checked;});
-      const equipment=EQ.map(([k,n])=>({key:k,name:n,have:!!have[k]}));
-      const dwTasks=[...form.querySelectorAll('input[name=dw]:checked')].map(el=>el.value);
-      const profile={
-        name,practice,email:document.getElementById('f_email').value.trim(),
-        score:r.score,band:r.band,curriculum:r.curr,
-        pillars:r.pillars,topGaps:gaps,goals,timeline,
-        equipment,digital:a.digital,volume:a.volume,
-        enthusiasm:document.getElementById('f_enthusiasm').value,
-        casesInitial:document.getElementById('f_casesInitial').value,
-        casesFuture:document.getElementById('f_casesFuture').value,
-        digitalTasks:dwTasks,
-        dayOfSupport:document.getElementById('f_dayof').value,
-        finalProduction:document.getElementById('f_final').value,
-        date:new Date().toISOString()
-      };
-    }catch(e){}
-
-    // ---- render ----
-    document.getElementById('p_who').textContent=`${name} · ${practice} · ${new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}`;
-    document.getElementById('p_band').textContent=r.band;
-    document.getElementById('p_banddesc').textContent=r.desc;
-
-    // dial
-    const arc=document.getElementById('dialarc');
-    document.getElementById('p_score').textContent=r.score;
-    setTimeout(()=>{arc.style.transition='stroke-dashoffset 1.2s ease';arc.style.strokeDashoffset=465-(465*r.score/100);},100);
-
-    // pillar bars
-    document.getElementById('p_bars').innerHTML=r.pillars.map(([label,pts,max])=>{
-      const pct=Math.round(pts/max*100);
-      const cls=pct>=70?'':pct>=40?' mid':' low';
-      return `<div class="row"><div>${label}</div><div class="track"><div class="fill${cls}" style="width:${pct}%"></div></div><div class="pct">${pts}/${max}</div></div>`;
-    }).join('');
-
-    // experience kv
-    const expMap=[['All-on-X full arch',a.aox],['All-on-X same/next-day',a.aoxsd],['FP3 restorations',a.fp3],['FP1 restorations',a.fp1],
-      ['Traditional sequenced care',a.trad],['Guided — individual',a.gsi],['Guided — full arch',a.gsf],
-      ['Zygomatic implants',a.zygo],['Pterygoid implants',a.ptery]];
-    const enth=document.getElementById('f_enthusiasm').value;
-    const ci=document.getElementById('f_casesInitial').value, cf=document.getElementById('f_casesFuture').value;
-    document.getElementById('p_exp').innerHTML=
-      expMap.map(([k,v])=>`<div><dt>${k}</dt><dd>${EXP_LABELS[v]} cases</dd></div>`).join('')+
-      `<div><dt>Annual volume (per provider)</dt><dd>${VOL_LABELS[a.volume]}</dd></div>`+
-      `<div><dt>Digital experience</dt><dd>${DIG_LABELS[a.digital]}</dd></div>`+
-      (enth!==''?`<div><dt>Full-arch enthusiasm</dt><dd>${enth}/10</dd></div>`:'')+
-      (ci?`<div><dt>Target cases/yr (initial)</dt><dd>${ci}</dd></div>`:'')+
-      (cf?`<div><dt>Target cases/yr (experienced)</dt><dd>${cf}</dd></div>`:'');
-
-    // equipment
-    const allEq=[...document.querySelectorAll('#equip input')];
-    const critical={pg:'Required for the same-day digital workflow — highest-priority acquisition.',ios:'Core of the digital pipeline; needed before photogrammetry.',cbct:'Essential for full-arch planning and guided surgery.',software:'Needed for in-house design control.',printer:'Enables same-day provisional delivery.'};
-    document.getElementById('p_equip').innerHTML=allEq.map(el=>{
-      const nm=el.dataset.name;
-      if(el.checked)return `<li class="ok">${nm} — in place</li>`;
-      const note=critical[el.value]?` <em style="color:rgba(242,238,231,.6)">${critical[el.value]}</em>`:'';
-      return `<li class="gap"><b>${nm} — gap.</b>${note}</li>`;
-    }).join('');
-
-    // team
-    const teamRows=[
-      [`${document.getElementById('f_surgeons').value} surgeon(s) placing implants`,true],
-      ['Dedicated treatment coordinator',a.tc],['Full-arch trained surgical assistants',a.sa],
-      ['Established restorative partner(s)',a.rp],['In-house anesthesia',document.getElementById('t_an').checked],
-      [ {3:'In-house lab support',2:'Dedicated outside lab partner',1:'Case-by-case labs',0:'No established lab'}[a.lab], a.lab>=2]
-    ];
-    document.getElementById('p_team').innerHTML=teamRows.map(([t,has])=>`<li class="${has?'ok':'gap'}">${t}${has?'':' — build during onboarding'}</li>`).join('');
-
-    // curriculum
-    document.getElementById('p_curr').textContent=r.curr;
-    document.getElementById('p_currlist').innerHTML=r.currList.map(x=>`<li>${x}</li>`).join('');
-
-    // roadmap
     const tlText={'now':'immediate start','1-3':'start within 1–3 months','3-6':'start within 3–6 months','6+':'exploratory — 6+ month horizon'};
-    const road=[];
-    road.push(`<li><b>Phase 0 — Discovery call (Week 1):</b> Review this profile with the IW clinical team; confirm goals${goals.length?` (${goals.slice(0,3).join(', ')}${goals.length>3?'…':''})`:''} and timeline (${tlText[timeline]}).</li>`);
-    if(r.score<45){
-      road.push('<li><b>Phase 1 — Foundation (Months 1–3):</b> Begin recommended curriculum; equipment acquisition plan for flagged gaps; hire/assign treatment coordinator.</li>');
-      road.push('<li><b>Phase 2 — First cases (Months 3–6):</b> Proctored full-arch cases at your practice; team training on the Patient-Specific Protocol™ workflow.</li>');
-      road.push('<li><b>Phase 3 — Growth engine (Months 6+):</b> Activate IW patient-acquisition and CRM systems once clinical workflow is stable.</li>');
-    }else if(r.score<75){
-      road.push('<li><b>Phase 1 — Clinical acceleration (Months 1–2):</b> Recommended curriculum + workflow digitization; close priority equipment gaps.</li>');
-      road.push('<li><b>Phase 2 — Systems install (Months 2–4):</b> IW growth engine deployment — lead generation, CRM workflows, treatment-coordination playbook.</li>');
-      road.push('<li><b>Phase 3 — Scale (Months 4+):</b> Volume ramp with monthly case review and conversion-rate optimization.</li>');
-    }else{
-      road.push('<li><b>Phase 1 — Advanced integration (Month 1):</b> Advanced curriculum kickoff; same-day workflow optimization audit.</li>');
-      road.push('<li><b>Phase 2 — Growth engine (Months 1–3):</b> Full IW patient-acquisition system deployment with dedicated launch support.</li>');
-      road.push('<li><b>Phase 3 — Partnership expansion (Months 3+):</b> Co-marketing, referral network development, and IW faculty/mentorship opportunities.</li>');
-    }
-    document.getElementById('p_roadmap').innerHTML=road.join('');
 
     // email button
-    document.getElementById('emailbtn').onclick=function(){
+    function sendResults(){
       const body=encodeURIComponent(
-`IW Partner Readiness Profile
+`IW Surgeon Experience Assessment
 Surgeon: ${name} (${document.getElementById('f_email').value})
 Practice: ${practice}
 Specialty: ${document.getElementById('f_spec').value} | Years: ${document.getElementById('f_years').options[document.getElementById('f_years').selectedIndex].text}
@@ -700,14 +560,18 @@ Volume: ${VOL_LABELS[a.volume]} | Digital: ${DIG_LABELS[a.digital]}
 Pillars: ${r.pillars.map(p=>`${p[0]} ${p[1]}/${p[2]}`).join(', ')}
 Goals: ${goals.join(', ')||'—'}
 Workflow notes: ${document.getElementById('f_workflow').value.trim()||'—'}`);
-      location.href=`mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject=${encodeURIComponent('IW Partner Assessment — '+name)}&body=${body}`;
-    };
+      location.href=`mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject=${encodeURIComponent('IW Surgeon Experience Assessment — '+name)}&body=${body}`;
+    }
+    document.getElementById('emailbtn').onclick=sendResults;
 
+    // show confirmation, then open the email
+    document.getElementById('p_name').textContent=name.split(' ')[0]||name;
     form.style.display='none';
     document.querySelector('header.hero').style.display='none';
     document.getElementById('profile').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
     pbar.style.width='100%';
+    setTimeout(sendResults,400);
   });
 })();
 </script>
