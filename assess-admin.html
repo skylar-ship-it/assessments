@@ -10,8 +10,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
 :root{--espresso:#17110d;--espresso-deep:#100c09;--espresso-deeper:#0b0807;--ink:#1E1612;
   --gold:#C9A96E;--gold-soft:#d9c099;--teal:#245C5C;--teal-deep:#1c4a4a;
-  --cream:#F2EEE7;--cream-80:rgba(242,238,231,.85);--cream-60:rgba(242,238,231,.6);
-  --line:rgba(242,238,231,.12);
+  --cream:#FFFFFF;--cream-80:rgba(255,255,255,.92);--cream-60:rgba(255,255,255,.72);
+  --line:rgba(255,255,255,.12);
   --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--mono:'Courier Prime',monospace;
   --easing:cubic-bezier(0.22,1,0.36,1);}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -29,21 +29,21 @@ header.hero a.back:hover{color:var(--gold)}
 header.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:400}
 header.hero h1 em{font-style:italic;color:var(--gold)}
 header.hero p.sub{max-width:500px;margin:14px auto 0;color:var(--cream-60);font-size:1rem}
-.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(242,238,231,.1)}
+.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(255,255,255,.1)}
 .progressbar>div{height:100%;width:0;background:var(--gold);transition:width .5s var(--easing)}
-section.block{position:relative;z-index:1;background:rgba(242,238,231,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
+section.block{position:relative;z-index:1;background:rgba(255,255,255,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
 .secnum{font-family:var(--mono);color:var(--gold);font-size:.8rem;letter-spacing:.12em}
 section.block h2{font-size:1.45rem;margin:2px 0 4px}
 .hint{color:var(--cream-60);font-size:.9rem;margin-bottom:16px}
 .field{margin-bottom:16px}
 .field label{display:block;font-weight:400;font-size:.92rem;margin-bottom:6px;color:var(--cream-80)}
-.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(242,238,231,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
-.field input::placeholder,textarea::placeholder{color:rgba(242,238,231,.4)}
+.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
+.field input::placeholder,textarea::placeholder{color:rgba(255,255,255,.4)}
 .field select option{background:var(--espresso-deep);color:var(--cream)}
 .field select:focus,textarea:focus,.field input:focus{outline:none;border-color:var(--gold)}
 .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
 @media(max-width:640px){.checks{grid-template-columns:1fr}section.block{padding:24px 20px}}
-.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(242,238,231,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
+.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(255,255,255,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
 .checks label:hover{border-color:rgba(201,169,110,.5)}
 .checks label:has(input:checked){border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
 .checks input{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0}
@@ -54,7 +54,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 .btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
 .btn-line{border-color:var(--gold);color:var(--gold);background:transparent}.btn-line:hover{background:rgba(201,169,110,.1);color:var(--gold-soft)}
 #result{display:none;position:relative;z-index:1}
-.rcard{background:rgba(242,238,231,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
+.rcard{background:rgba(255,255,255,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
 @media(max-width:640px){.rcard{padding:26px 20px}}
 .band{font-family:var(--display);font-size:2.1rem;color:var(--gold)}
 .plain{list-style:none;padding:0}
@@ -90,7 +90,7 @@ section.block h2{font-size:1.9rem;margin:6px 0 8px;line-height:1.15}
 .hint,.qlabel{color:var(--cream-80)!important;font-size:1.05rem!important;line-height:1.65;margin-bottom:18px}
 .hint em{color:var(--gold-soft);font-style:italic}
 .field label{font-size:1.02rem;color:var(--cream);margin-bottom:8px;line-height:1.5}
-.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(242,238,231,.26)}
+.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(255,255,255,.26)}
 textarea{min-height:120px;line-height:1.6}
 .choices{gap:12px}
 .choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
@@ -139,7 +139,7 @@ section.block h2{font-size:2.1rem}
 .matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
 @media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
 .choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(242,238,231,.22);border-radius:10px;
+.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:10px;
 .choices label:hover{border-color:var(--gold)}
 .choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
 .choices input{accent-color:var(--espresso);cursor:pointer}
@@ -188,9 +188,8 @@ section.block h2{font-size:2.1rem}
     <a class="back" href="/">← All Assessments</a>
     <div class="label">Front Office</div>
     <h1>Admin &amp; Patient <em>Workflow</em></h1>
-    <p class="sub">For front desk, scheduling, and treatment-coordination staff. About five minutes.</p>
+    <p class="sub">About five minutes of your time</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">Our goal is simply to understand where you are today and how Implanted Wisdom can best support you.</p>
-    <div class="reassure"><b>Only your name and practice are required.</b> Skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -206,20 +205,20 @@ section.block h2{font-size:2.1rem}
   <section class="block">
     <div class="secnum">Step 2 of 6</div>
     <h2>Interest in leading</h2>
-    <p class="hint">Each office will have one <em>Full-Arch Admin Lead</em> — the go-to person for scheduling, patient questions, and communication with IW. It's a role we build around the person, not the other way around.</p>
+    <p class="hint">Each office will have one <em>Full-Arch Admin Lead</em> — the go-to for scheduling, patient questions, and IW communication.</p>
     <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Would you be interested in becoming the Full-Arch Admin Lead for your office?</div><div class="choices"><label><input type="radio" name="ad_lead" value="Yes — I&#x27;d like to lead this"> Yes — I'd like to lead this</label><label><input type="radio" name="ad_lead" value="Maybe — I&#x27;d want to know more first"> Maybe — I'd want to know more first</label><label><input type="radio" name="ad_lead" value="I&#x27;d rather support someone else in the role"> I'd rather support someone else in the role</label><label><input type="radio" name="ad_lead" value="No, not for me"> No, not for me</label></div></div><div class="field"><label for="ad_lead_why">What's behind that answer?</label><textarea id="ad_lead_why" data-label="What&#x27;s behind that answer?" placeholder="e.g., I already handle most implant calls, or I&#x27;m stretched thin right now, or I&#x27;d love to but I&#x27;d need training…"></textarea></div>
   </section>
   <section class="block">
     <div class="secnum">Step 3 of 6</div>
     <h2>Who does what today</h2>
-    <p class="hint">We're mapping how a new patient moves through your office right now — no judgment, just the real picture.</p>
+    <p class="hint">How a new patient moves through your office right now.</p>
     <div class="field"><label for="ad_answers">Who currently answers new-patient calls?</label><input type="text" id="ad_answers" data-label="Who currently answers new-patient calls?" placeholder="Name(s) or role — e.g., &quot;front desk, whoever is free&quot; or &quot;Maria&quot;"></div><div class="field"><label for="ad_schedules">Who schedules implant consults?</label><input type="text" id="ad_schedules" data-label="Who schedules implant consults?" placeholder=""></div><div class="field"><label for="ad_follows">Who follows up with leads who haven't scheduled yet?</label><input type="text" id="ad_follows" data-label="Who follows up with leads who haven&#x27;t scheduled yet?" placeholder="Or &quot;nobody, honestly&quot; — that&#x27;s useful to know"></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Is there a written script or protocol for implant / full-arch calls?</div><div class="choices"><label><input type="radio" name="ad_script" value="Yes, written and followed"> Yes, written and followed</label><label><input type="radio" name="ad_script" value="Informal — we each do our own thing"> Informal — we each do our own thing</label><label><input type="radio" name="ad_script" value="No"> No</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you use a CRM or lead-tracking tool for new-patient inquiries?</div><div class="choices"><label><input type="radio" name="ad_crm" value="Yes, and I use it daily"> Yes, and I use it daily</label><label><input type="radio" name="ad_crm" value="Yes, but it&#x27;s inconsistent"> Yes, but it's inconsistent</label><label><input type="radio" name="ad_crm" value="No"> No</label><label><input type="radio" name="ad_crm" value="Not sure"> Not sure</label></div></div><div class="field"><label for="ad_pms">Scheduling / practice management software you use</label><input type="text" id="ad_pms" data-label="Scheduling / practice management software you use" placeholder="e.g., WinOMS, Carestream, Dentrix, Open Dental…"></div>
   </section>
   <section class="block">
     <div class="secnum">Step 4 of 6</div>
     <h2>Recognizing a full-arch lead</h2>
-    <p class="hint">Most full-arch patients never say "full arch." Here are things patients actually say.</p>
-    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Which of these callers could be a full-arch candidate? Check every one you think might be.</div><div class="checks"><label><input type="checkbox" name="ad_recognize" value="&quot;I need all my teeth replaced.&quot;"> "I need all my teeth replaced."</label><label><input type="checkbox" name="ad_recognize" value="&quot;My dentures don&#x27;t fit anymore.&quot;"> "My dentures don't fit anymore."</label><label><input type="checkbox" name="ad_recognize" value="&quot;I was told I need implants.&quot;"> "I was told I need implants."</label><label><input type="checkbox" name="ad_recognize" value="&quot;I&#x27;m tired of my teeth — I just want them fixed.&quot;"> "I'm tired of my teeth — I just want them fixed."</label><label><input type="checkbox" name="ad_recognize" value="&quot;How much is All-on-4?&quot;"> "How much is All-on-4?"</label><label><input type="checkbox" name="ad_recognize" value="&quot;Can I get teeth in a day?&quot;"> "Can I get teeth in a day?"</label><label><input type="checkbox" name="ad_recognize" value="&quot;I have a lot of broken teeth and I&#x27;m embarrassed.&quot;"> "I have a lot of broken teeth and I'm embarrassed."</label><label><input type="checkbox" name="ad_recognize" value="&quot;My dentist said I should see a specialist.&quot;"> "My dentist said I should see a specialist."</label></div></div><div class="field"><label for="ad_scenario">Walk us through what happens today when someone calls and says, "My dentures don't fit and I was told I need implants." What do you say, and where does the call go?</label><textarea id="ad_scenario" data-label="Walk us through what happens today when someone calls and says, &quot;My dentures don&#x27;t fit and I was told I need implants.&quot; What do you say, and where does the call go?" placeholder="Be as honest as you can — &quot;I take a message and hope the doctor calls back&quot; is a perfectly good answer."></textarea></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How often does someone call or walk in with a story like that?</div><div class="choices"><label><input type="radio" name="ad_freq" value="Daily"> Daily</label><label><input type="radio" name="ad_freq" value="A few times a week"> A few times a week</label><label><input type="radio" name="ad_freq" value="A few times a month"> A few times a month</label><label><input type="radio" name="ad_freq" value="Rarely"> Rarely</label><label><input type="radio" name="ad_freq" value="Not sure"> Not sure</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How familiar are you with what full-arch treatment actually is?</div><div class="choices"><label><input type="radio" name="ad_familiar" value="Never heard of it before today"> Never heard of it before today</label><label><input type="radio" name="ad_familiar" value="Heard of it, but couldn&#x27;t explain it"> Heard of it, but couldn't explain it</label><label><input type="radio" name="ad_familiar" value="Can explain the basics to a patient"> Can explain the basics to a patient</label><label><input type="radio" name="ad_familiar" value="Can explain it confidently, including next steps"> Can explain it confidently, including next steps</label></div></div>
+    <p class="hint">Most full-arch patients never say "full arch."</p>
+    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Which of these callers could be a full-arch candidate?</div><div class="checks"><label><input type="checkbox" name="ad_recognize" value="&quot;I need all my teeth replaced.&quot;"> "I need all my teeth replaced."</label><label><input type="checkbox" name="ad_recognize" value="&quot;My dentures don&#x27;t fit anymore.&quot;"> "My dentures don't fit anymore."</label><label><input type="checkbox" name="ad_recognize" value="&quot;I was told I need implants.&quot;"> "I was told I need implants."</label><label><input type="checkbox" name="ad_recognize" value="&quot;I&#x27;m tired of my teeth — I just want them fixed.&quot;"> "I'm tired of my teeth — I just want them fixed."</label><label><input type="checkbox" name="ad_recognize" value="&quot;How much is All-on-4?&quot;"> "How much is All-on-4?"</label><label><input type="checkbox" name="ad_recognize" value="&quot;Can I get teeth in a day?&quot;"> "Can I get teeth in a day?"</label><label><input type="checkbox" name="ad_recognize" value="&quot;I have a lot of broken teeth and I&#x27;m embarrassed.&quot;"> "I have a lot of broken teeth and I'm embarrassed."</label><label><input type="checkbox" name="ad_recognize" value="&quot;My dentist said I should see a specialist.&quot;"> "My dentist said I should see a specialist."</label></div></div><div class="field"><label for="ad_scenario">Someone calls and says, "My dentures don't fit and I was told I need implants." What happens next?</label><textarea id="ad_scenario" data-label="Someone calls and says, &quot;My dentures don&#x27;t fit and I was told I need implants.&quot; What happens next?" placeholder="Be as honest as you can — &quot;I take a message and hope the doctor calls back&quot; is a perfectly good answer."></textarea></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How often does someone call or walk in with a story like that?</div><div class="choices"><label><input type="radio" name="ad_freq" value="Daily"> Daily</label><label><input type="radio" name="ad_freq" value="A few times a week"> A few times a week</label><label><input type="radio" name="ad_freq" value="A few times a month"> A few times a month</label><label><input type="radio" name="ad_freq" value="Rarely"> Rarely</label><label><input type="radio" name="ad_freq" value="Not sure"> Not sure</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How familiar are you with what full-arch treatment actually is?</div><div class="choices"><label><input type="radio" name="ad_familiar" value="Never heard of it before today"> Never heard of it before today</label><label><input type="radio" name="ad_familiar" value="Heard of it, but couldn&#x27;t explain it"> Heard of it, but couldn't explain it</label><label><input type="radio" name="ad_familiar" value="Can explain the basics to a patient"> Can explain the basics to a patient</label><label><input type="radio" name="ad_familiar" value="Can explain it confidently, including next steps"> Can explain it confidently, including next steps</label></div></div>
   </section>
   <section class="block">
     <div class="secnum">Step 5 of 6</div>
@@ -235,7 +234,7 @@ section.block h2{font-size:2.1rem}
   </section>
 
   <div class="actions">
-    <p class="hint" style="margin-bottom:18px">That's everything. Tap below to send your answers to the IW team.</p>
+    <p class="hint" style="margin-bottom:18px">That's everything.</p>
     <button class="btn btn-gold" type="submit">Submit My Results →</button>
     <p class="err" id="errmsg" style="color:#e8a598;font-size:.9rem;display:none;width:100%">Please add your name and practice so we know who this is from.</p>
   </div>

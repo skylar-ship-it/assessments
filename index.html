@@ -15,8 +15,8 @@
   --espresso-deeper:#0b0807;
   --teal:#245C5C;
   --teal-deep:#1c4a4a;
-  --cream:#F2EEE7;
-  --cream-70:rgba(242,238,231,.8);
+  --cream:#FFFFFF;
+  --cream-70:rgba(255,255,255,.88);
   --gold:#C9A96E;
   --gold-bright:#d9c099;
   --display:'Cormorant Garamond',Georgia,serif;
@@ -192,8 +192,6 @@ a{color:inherit;text-decoration:none}
   <nav>
     <div class="mlabel">Implanted Wisdom</div>
     <a href="assess-surgeon.html">Doctor Readiness &amp; Goals</a>
-    <a href="assess-marketing.html">Current Marketing</a>
-    <a href="assess-circle.html">Inner Circle</a>
     <a href="assess-admin.html">Admin &amp; Patient Workflow</a>
     <a href="assess-assistant.html">Clinical Team Readiness</a>
     <a class="small" href="https://implantedwisdomcollective.com">implantedwisdomcollective.com</a>
@@ -221,10 +219,10 @@ a{color:inherit;text-decoration:none}
     <div class="cta" style="margin-top:40px">
       <div class="rolelabel">I am a…</div>
       <div class="roles">
-        <button class="role" id="roleSurgeon" type="button">
+        <a class="role" href="assess-surgeon.html">
           <span class="rname">Doctor</span>
-          <span class="rdesc">Readiness &amp; goals · three parts · ~15 min</span>
-        </button>
+          <span class="rdesc">Readiness &amp; goals · ~6 min</span>
+        </a>
         <a class="role" href="assess-admin.html">
           <span class="rname">Front Office</span>
           <span class="rdesc">Admin &amp; patient workflow · ~5 min</span>
@@ -238,82 +236,9 @@ a{color:inherit;text-decoration:none}
   </div>
 </section>
 
-<!-- ============ ASSESSMENT EXPERIENCE ============ -->
-<section class="experience" id="assessments">
-  <div class="frame">
-
-    <div class="copycol">
-
-      <div class="assess" data-visual="v1" id="a1">
-        <h2>Doctor Readiness<br>&amp; Goals</h2>
-        <p>Your interest, experience, team, and what you'd need to take on your first cases.</p>
-        <div class="act"><a class="startbtn" id="start1" href="assess-surgeon.html">Start <span class="ar">→</span></a></div>
-        <div class="mvisual" aria-hidden="true" style="position:relative"><img src="surgeon.png" alt="" onerror="this.remove()" onload="this.parentNode.classList.add('hasimg')" style="z-index:1">
-          <svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice"><rect width="600" height="500" fill="#1c4a4a"/><circle cx="430" cy="180" r="150" fill="#245C5C"/><path d="M0,500 C150,340 300,470 600,360 L600,500 Z" fill="#17110d"/><circle cx="180" cy="330" r="56" fill="#C9A96E"/></svg>
-        </div>
-      </div>
-
-      <div class="assess" data-visual="v2" id="a2">
-        <h2>Current<br>Marketing</h2>
-        <p>DTC Marketing — where your leads come from today and what you track.</p>
-        <div class="act"><a class="startbtn" id="start2" href="assess-marketing.html">Start <span class="ar">→</span></a></div>
-        <div class="mvisual" aria-hidden="true" style="position:relative"><img src="mktg.png" alt="" onerror="this.remove()" onload="this.parentNode.classList.add('hasimg')" style="z-index:1">
-          <svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice"><rect width="600" height="500" fill="#17110d"/><path d="M600,0 C420,120 520,300 380,500 L600,500 Z" fill="#100c09"/><circle cx="210" cy="200" r="120" fill="#C9A96E"/><circle cx="210" cy="200" r="70" fill="#17110d"/></svg>
-        </div>
-      </div>
-
-      <div class="assess" data-visual="v3" id="a3">
-        <h2>Inner Circle<br>Referrals</h2>
-        <p>Referral relationships — your GP network and referral health.</p>
-        <div class="act"><a class="startbtn" id="start3" href="assess-circle.html">Start <span class="ar">→</span></a></div>
-        <div class="mvisual" aria-hidden="true" style="position:relative"><img src="inner.png" alt="" onerror="this.remove()" onload="this.parentNode.classList.add('hasimg')" style="z-index:1">
-          <svg viewBox="0 0 600 500" preserveAspectRatio="xMidYMid slice"><rect width="600" height="500" fill="#245C5C"/><circle cx="300" cy="250" r="170" fill="#1c4a4a"/><circle cx="300" cy="250" r="95" fill="#C9A96E"/><path d="M0,0 C180,140 80,320 220,500 L0,500 Z" fill="#1c4a4a"/></svg>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="stagecol">
-      <div class="stage" aria-hidden="true">
-
-        <div class="visual active" id="v1" data-name="surgeon-experience-visual"><img src="surgeon.png" alt="" onerror="this.remove()" onload="this.parentNode.classList.add('hasimg')" style="z-index:1">
-          <svg viewBox="0 0 760 900" preserveAspectRatio="xMidYMid slice">
-            <rect width="760" height="900" fill="#1c4a4a"/>
-            <circle cx="540" cy="300" r="230" fill="#245C5C"/>
-            <path d="M0,900 C200,640 420,820 760,600 L760,900 Z" fill="#17110d"/>
-            <circle cx="230" cy="560" r="86" fill="#C9A96E"/>
-            <path d="M0,0 C140,120 60,280 160,420 L0,420 Z" fill="#245C5C"/>
-          </svg>
-        </div>
-
-        <div class="visual" id="v2" data-name="current-marketing-visual"><img src="mktg.png" alt="" onerror="this.remove()" onload="this.parentNode.classList.add('hasimg')" style="z-index:1">
-          <svg viewBox="0 0 760 900" preserveAspectRatio="xMidYMid slice">
-            <rect width="760" height="900" fill="#17110d"/>
-            <path d="M760,0 C520,180 660,420 480,900 L760,900 Z" fill="#100c09"/>
-            <circle cx="280" cy="330" r="180" fill="#C9A96E"/>
-            <circle cx="280" cy="330" r="104" fill="#17110d"/>
-            <path d="M0,900 C160,760 120,640 300,560 L0,560 Z" fill="#100c09"/>
-          </svg>
-        </div>
-
-        <div class="visual" id="v3" data-name="inner-circle-visual"><img src="inner.png" alt="" onerror="this.remove()" onload="this.parentNode.classList.add('hasimg')" style="z-index:1">
-          <svg viewBox="0 0 760 900" preserveAspectRatio="xMidYMid slice">
-            <rect width="760" height="900" fill="#245C5C"/>
-            <circle cx="380" cy="450" r="260" fill="#1c4a4a"/>
-            <circle cx="380" cy="450" r="140" fill="#C9A96E"/>
-            <path d="M0,0 C220,180 100,420 280,900 L0,900 Z" fill="#1c4a4a"/>
-            <circle cx="620" cy="160" r="70" fill="#C9A96E"/>
-          </svg>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-  <div style="text-align:center;padding:10vh 24px 6vh;max-width:560px;margin:0 auto">
-    <p style="color:var(--cream-70);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase">Implanted Wisdom · A Surgeon-Led Boutique Consultancy</p>
-  </div>
-</section>
+<div style="text-align:center;padding:4vh 24px 6vh;max-width:560px;margin:0 auto;position:relative;z-index:2">
+  <p style="color:var(--cream-70);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase">Implanted Wisdom · A Surgeon-Led Boutique Consultancy</p>
+</div>
 
 <script>
 (function(){
@@ -329,55 +254,7 @@ a{color:inherit;text-decoration:none}
   if(menu){ menu.addEventListener('click',function(e){ if(e.target===menu) setMenu(false); }); }
   document.addEventListener('keydown',function(e){ if(e.key==='Escape') setMenu(false); });
 
-  /* ---- Get Started: scroll into the experience, no navigation ---- */
-  var go=document.getElementById('roleSurgeon'), expSec=document.getElementById('assessments');
-  function showSurgeon(scroll){
-    if(!expSec) return;
-    expSec.classList.add('show');
-    try{ localStorage.setItem('iw_role','surgeon'); }catch(e){}
-    if(scroll) setTimeout(function(){ expSec.scrollIntoView({behavior:'smooth',block:'start'}); },50);
-  }
-  if(go){ go.addEventListener('click',function(){ showSurgeon(true); }); }
-  /* coming back from a surgeon assessment: keep their section visible */
-  try{ if(location.hash==='#assessments'||localStorage.getItem('iw_role')==='surgeon') showSurgeon(false); }catch(e){}
-  document.querySelectorAll('a.role').forEach(function(a){ a.addEventListener('click',function(){ try{ localStorage.setItem('iw_role','team'); }catch(e){} }); });
-
-  /* ---- body background: espresso → teal as the experience begins ---- */
-  var exp=document.getElementById('assessments');
-  var teamSec=null;
-  if('IntersectionObserver' in window && exp){
-    var bgOb=new IntersectionObserver(function(es){
-      es.forEach(function(e){ e.target.__vis=e.isIntersecting; }); document.body.classList.toggle('teal', !!(exp.__vis||(teamSec&&teamSec.__vis)));
-    },{rootMargin:'-30% 0px 0px 0px',threshold:0});
-    bgOb.observe(exp); if(teamSec) bgOb.observe(teamSec);
-  }
-
-  /* ---- active assessment drives the sticky stage crossfade ---- */
-  var sections=[].slice.call(document.querySelectorAll('.assess'));
-  function activate(id){
-    [].slice.call(document.querySelectorAll('.visual')).forEach(function(v){
-      v.classList.toggle('active', v.id===id);
-    });
-  }
-  if('IntersectionObserver' in window){
-    var vOb=new IntersectionObserver(function(es){
-      es.forEach(function(e){
-        if(e.isIntersecting){
-          e.target.classList.add('inview');
-          activate(e.target.getAttribute('data-visual'));
-        }
-      });
-    },{rootMargin:'-40% 0px -40% 0px',threshold:0});
-    sections.forEach(function(s){ vOb.observe(s); });
-
-    /* reveal text when a section approaches even before it's centered */
-    var tOb=new IntersectionObserver(function(es){
-      es.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('inview'); });
-    },{rootMargin:'0px 0px -20% 0px',threshold:.15});
-    sections.forEach(function(s){ tOb.observe(s); });
-  }else{
-    sections.forEach(function(s){ s.classList.add('inview'); });
-  }
+  document.querySelectorAll('a.role').forEach(function(a){ a.addEventListener('click',function(){ try{ localStorage.setItem('iw_role',a.getAttribute('href')); }catch(e){} }); });
 })();
 </script>
 </body>

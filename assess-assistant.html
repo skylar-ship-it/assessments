@@ -10,8 +10,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
 :root{--espresso:#17110d;--espresso-deep:#100c09;--espresso-deeper:#0b0807;--ink:#1E1612;
   --gold:#C9A96E;--gold-soft:#d9c099;--teal:#245C5C;--teal-deep:#1c4a4a;
-  --cream:#F2EEE7;--cream-80:rgba(242,238,231,.85);--cream-60:rgba(242,238,231,.6);
-  --line:rgba(242,238,231,.12);
+  --cream:#FFFFFF;--cream-80:rgba(255,255,255,.92);--cream-60:rgba(255,255,255,.72);
+  --line:rgba(255,255,255,.12);
   --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--mono:'Courier Prime',monospace;
   --easing:cubic-bezier(0.22,1,0.36,1);}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -29,21 +29,21 @@ header.hero a.back:hover{color:var(--gold)}
 header.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:400}
 header.hero h1 em{font-style:italic;color:var(--gold)}
 header.hero p.sub{max-width:500px;margin:14px auto 0;color:var(--cream-60);font-size:1rem}
-.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(242,238,231,.1)}
+.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(255,255,255,.1)}
 .progressbar>div{height:100%;width:0;background:var(--gold);transition:width .5s var(--easing)}
-section.block{position:relative;z-index:1;background:rgba(242,238,231,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
+section.block{position:relative;z-index:1;background:rgba(255,255,255,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
 .secnum{font-family:var(--mono);color:var(--gold);font-size:.8rem;letter-spacing:.12em}
 section.block h2{font-size:1.45rem;margin:2px 0 4px}
 .hint{color:var(--cream-60);font-size:.9rem;margin-bottom:16px}
 .field{margin-bottom:16px}
 .field label{display:block;font-weight:400;font-size:.92rem;margin-bottom:6px;color:var(--cream-80)}
-.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(242,238,231,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
-.field input::placeholder,textarea::placeholder{color:rgba(242,238,231,.4)}
+.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
+.field input::placeholder,textarea::placeholder{color:rgba(255,255,255,.4)}
 .field select option{background:var(--espresso-deep);color:var(--cream)}
 .field select:focus,textarea:focus,.field input:focus{outline:none;border-color:var(--gold)}
 .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
 @media(max-width:640px){.checks{grid-template-columns:1fr}section.block{padding:24px 20px}}
-.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(242,238,231,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
+.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(255,255,255,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
 .checks label:hover{border-color:rgba(201,169,110,.5)}
 .checks label:has(input:checked){border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
 .checks input{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0}
@@ -54,7 +54,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 .btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
 .btn-line{border-color:var(--gold);color:var(--gold);background:transparent}.btn-line:hover{background:rgba(201,169,110,.1);color:var(--gold-soft)}
 #result{display:none;position:relative;z-index:1}
-.rcard{background:rgba(242,238,231,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
+.rcard{background:rgba(255,255,255,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
 @media(max-width:640px){.rcard{padding:26px 20px}}
 .band{font-family:var(--display);font-size:2.1rem;color:var(--gold)}
 .plain{list-style:none;padding:0}
@@ -90,7 +90,7 @@ section.block h2{font-size:1.9rem;margin:6px 0 8px;line-height:1.15}
 .hint,.qlabel{color:var(--cream-80)!important;font-size:1.05rem!important;line-height:1.65;margin-bottom:18px}
 .hint em{color:var(--gold-soft);font-style:italic}
 .field label{font-size:1.02rem;color:var(--cream);margin-bottom:8px;line-height:1.5}
-.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(242,238,231,.26)}
+.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(255,255,255,.26)}
 textarea{min-height:120px;line-height:1.6}
 .choices{gap:12px}
 .choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
@@ -139,7 +139,7 @@ section.block h2{font-size:2.1rem}
 .matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
 @media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
 .choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(242,238,231,.22);border-radius:10px;
+.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:10px;
 .choices label:hover{border-color:var(--gold)}
 .choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
 .choices input{accent-color:var(--espresso);cursor:pointer}
@@ -188,9 +188,8 @@ section.block h2{font-size:2.1rem}
     <a class="back" href="/">← All Assessments</a>
     <div class="label">Surgical Assistant</div>
     <h1>Clinical Team <em>Readiness</em></h1>
-    <p class="sub">For surgical and dental assistants supporting full-arch cases. About five minutes.</p>
+    <p class="sub">About five minutes of your time</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">Our goal is simply to understand where you are today and how Implanted Wisdom can best support you.</p>
-    <div class="reassure"><b>Only your name and practice are required.</b> Skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -206,7 +205,7 @@ section.block h2{font-size:2.1rem}
   <section class="block">
     <div class="secnum">Step 2 of 6</div>
     <h2>Interest in leading</h2>
-    <p class="hint">Each office will have one <em>primary full-arch assistant</em> — the person who owns setup, the digital workflow, and helps train the rest of the team. We build the role around the person.</p>
+    <p class="hint">Each office will have one <em>primary full-arch assistant</em> — the person who owns setup, the digital workflow, and team training.</p>
     <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Would you be interested in becoming the primary full-arch assistant for your office?</div><div class="choices"><label><input type="radio" name="as_lead" value="Yes — I&#x27;d like to lead this"> Yes — I'd like to lead this</label><label><input type="radio" name="as_lead" value="Maybe — I&#x27;d want to know more first"> Maybe — I'd want to know more first</label><label><input type="radio" name="as_lead" value="I&#x27;d rather support someone else in the role"> I'd rather support someone else in the role</label><label><input type="radio" name="as_lead" value="No, not for me"> No, not for me</label></div></div><div class="field"><label for="as_lead_why">What's behind that answer?</label><textarea id="as_lead_why" data-label="What&#x27;s behind that answer?" placeholder="e.g., I love learning new workflows, or I&#x27;m already the go-to for implants, or I&#x27;d worry about time away from other duties…"></textarea></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Would you be willing to attend hands-on training (some of it at Pulver Oral Surgery in Highland, IN)?</div><div class="choices"><label><input type="radio" name="as_training" value="Yes — sign me up"> Yes — sign me up</label><label><input type="radio" name="as_training" value="Yes, if my office supports the time"> Yes, if my office supports the time</label><label><input type="radio" name="as_training" value="Maybe — depends on the details"> Maybe — depends on the details</label><label><input type="radio" name="as_training" value="No"> No</label></div></div>
   </section>
   <section class="block">
@@ -218,13 +217,13 @@ section.block h2{font-size:2.1rem}
   <section class="block">
     <div class="secnum">Step 4 of 6</div>
     <h2>Digital workflow skills</h2>
-    <p class="hint">Be honest — "Never" is a completely fine answer. This tells us exactly where to start.</p>
+    <p class="hint">"Never" is a completely fine answer.</p>
     <div class="q"><div class="qlabel">Case setup<span class="qsub">Preparing the room, trays, and components for a full-arch case</span></div><div class="choices compact"><label><input type="radio" name="as_skill0" data-label="Case setup" value="Never"> Never</label><label><input type="radio" name="as_skill0" data-label="Case setup" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill0" data-label="Case setup" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill0" data-label="Case setup" value="Comfortable solo"> Comfortable solo</label></div></div><div class="q"><div class="qlabel">Intraoral scanning<span class="qsub">iOS scanner (iTero, Trios, Medit…)</span></div><div class="choices compact"><label><input type="radio" name="as_skill1" data-label="Intraoral scanning" value="Never"> Never</label><label><input type="radio" name="as_skill1" data-label="Intraoral scanning" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill1" data-label="Intraoral scanning" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill1" data-label="Intraoral scanning" value="Comfortable solo"> Comfortable solo</label></div></div><div class="q"><div class="qlabel">CBCT capture<span class="qsub">Cone-beam imaging</span></div><div class="choices compact"><label><input type="radio" name="as_skill2" data-label="CBCT capture" value="Never"> Never</label><label><input type="radio" name="as_skill2" data-label="CBCT capture" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill2" data-label="CBCT capture" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill2" data-label="CBCT capture" value="Comfortable solo"> Comfortable solo</label></div></div><div class="q"><div class="qlabel">Photogrammetry<span class="qsub">Implant position capture</span></div><div class="choices compact"><label><input type="radio" name="as_skill3" data-label="Photogrammetry" value="Never"> Never</label><label><input type="radio" name="as_skill3" data-label="Photogrammetry" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill3" data-label="Photogrammetry" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill3" data-label="Photogrammetry" value="Comfortable solo"> Comfortable solo</label></div></div><div class="q"><div class="qlabel">Digital file handling<span class="qsub">Exporting, naming, and sending scans / STL files to the lab or design team</span></div><div class="choices compact"><label><input type="radio" name="as_skill4" data-label="Digital file handling" value="Never"> Never</label><label><input type="radio" name="as_skill4" data-label="Digital file handling" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill4" data-label="Digital file handling" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill4" data-label="Digital file handling" value="Comfortable solo"> Comfortable solo</label></div></div><div class="q"><div class="qlabel">3D printing<span class="qsub">SprintRay or similar — setup, printing, post-processing</span></div><div class="choices compact"><label><input type="radio" name="as_skill5" data-label="3D printing" value="Never"> Never</label><label><input type="radio" name="as_skill5" data-label="3D printing" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill5" data-label="3D printing" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill5" data-label="3D printing" value="Comfortable solo"> Comfortable solo</label></div></div><div class="q"><div class="qlabel">Staining & glazing<span class="qsub">Characterizing printed teeth</span></div><div class="choices compact"><label><input type="radio" name="as_skill6" data-label="Staining &amp; glazing" value="Never"> Never</label><label><input type="radio" name="as_skill6" data-label="Staining &amp; glazing" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill6" data-label="Staining &amp; glazing" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill6" data-label="Staining &amp; glazing" value="Comfortable solo"> Comfortable solo</label></div></div><div class="q"><div class="qlabel">Design software<span class="qsub">Exocad, 3Shape, or similar</span></div><div class="choices compact"><label><input type="radio" name="as_skill7" data-label="Design software" value="Never"> Never</label><label><input type="radio" name="as_skill7" data-label="Design software" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill7" data-label="Design software" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill7" data-label="Design software" value="Comfortable solo"> Comfortable solo</label></div></div>
   </section>
   <section class="block">
     <div class="secnum">Step 5 of 6</div>
     <h2>Hands-on aptitude</h2>
-    <p class="hint">Staining and glazing a printed arch is closer to detail-oriented craft work than to surgery.</p>
+    <p class="hint">Staining and glazing is closer to craft work than surgery.</p>
     <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How comfortable are you with fine, detail-oriented hands-on tasks?</div><div class="choices"><label><input type="radio" name="as_hands" value="1 — Not my strength"> 1 — Not my strength</label><label><input type="radio" name="as_hands" value="2"> 2</label><label><input type="radio" name="as_hands" value="3 — Comfortable"> 3 — Comfortable</label><label><input type="radio" name="as_hands" value="4"> 4</label><label><input type="radio" name="as_hands" value="5 — I love this kind of work"> 5 — I love this kind of work</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you have hobbies or experience with detail work — painting, crafts, nail art, model work, baking decoration, anything like that?</div><div class="choices"><label><input type="radio" name="as_hobby" value="Yes"> Yes</label><label><input type="radio" name="as_hobby" value="A little"> A little</label><label><input type="radio" name="as_hobby" value="Not really"> Not really</label></div></div><div class="field"><label for="as_hobby_what">If yes, what?</label><input type="text" id="as_hobby_what" data-label="If yes, what?" placeholder=""></div>
   </section>
   <section class="block">
@@ -235,7 +234,7 @@ section.block h2{font-size:2.1rem}
   </section>
 
   <div class="actions">
-    <p class="hint" style="margin-bottom:18px">That's everything. Tap below to send your answers to the IW team.</p>
+    <p class="hint" style="margin-bottom:18px">That's everything.</p>
     <button class="btn btn-gold" type="submit">Submit My Results →</button>
     <p class="err" id="errmsg" style="color:#e8a598;font-size:.9rem;display:none;width:100%">Please add your name and practice so we know who this is from.</p>
   </div>
