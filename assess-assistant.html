@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Surgical Assistant Assessment — Implanted Wisdom</title>
+<link rel="icon" href="favicon.png">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
+:root{--espresso:#17110d;--espresso-deep:#100c09;--espresso-deeper:#0b0807;--ink:#1E1612;
+  --gold:#C9A96E;--gold-soft:#d9c099;--teal:#245C5C;--teal-deep:#1c4a4a;
+  --cream:#F2EEE7;--cream-80:rgba(242,238,231,.85);--cream-60:rgba(242,238,231,.6);
+  --line:rgba(242,238,231,.12);
+  --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--mono:'Courier Prime',monospace;
+  --easing:cubic-bezier(0.22,1,0.36,1);}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);font-weight:300;font-size:16px;line-height:1.7;color:var(--cream);background:var(--espresso);-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;color:var(--cream)}
+a{color:inherit}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+.label{font-weight:500;text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;color:var(--gold)}
+.tm{font-size:.6em;vertical-align:.55em;font-weight:500;font-family:var(--body)}
+.wave{position:fixed;pointer-events:none;z-index:0}
+.wave svg{display:block}
+header.hero{position:relative;z-index:1;padding:84px 0 36px;text-align:center}
+header.hero a.back{display:inline-block;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-60);margin-bottom:22px;text-decoration:none;transition:color .25s}
+header.hero a.back:hover{color:var(--gold)}
+header.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:400}
+header.hero h1 em{font-style:italic;color:var(--gold)}
+header.hero p.sub{max-width:500px;margin:14px auto 0;color:var(--cream-60);font-size:1rem}
+.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(242,238,231,.1)}
+.progressbar>div{height:100%;width:0;background:var(--gold);transition:width .5s var(--easing)}
+section.block{position:relative;z-index:1;background:rgba(242,238,231,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
+.secnum{font-family:var(--mono);color:var(--gold);font-size:.8rem;letter-spacing:.12em}
+section.block h2{font-size:1.45rem;margin:2px 0 4px}
+.hint{color:var(--cream-60);font-size:.9rem;margin-bottom:16px}
+.field{margin-bottom:16px}
+.field label{display:block;font-weight:400;font-size:.92rem;margin-bottom:6px;color:var(--cream-80)}
+.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(242,238,231,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
+.field input::placeholder,textarea::placeholder{color:rgba(242,238,231,.4)}
+.field select option{background:var(--espresso-deep);color:var(--cream)}
+.field select:focus,textarea:focus,.field input:focus{outline:none;border-color:var(--gold)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+@media(max-width:640px){.checks{grid-template-columns:1fr}section.block{padding:24px 20px}}
+.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(242,238,231,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
+.checks label:hover{border-color:rgba(201,169,110,.5)}
+.checks label:has(input:checked){border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
+.checks input{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0}
+.checks .field{margin-bottom:0}
+.checks .field label{display:block;border:0;padding:0;background:none;cursor:default}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 60px;position:relative;z-index:1}
+.btn{display:inline-block;font-family:var(--body);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:.82rem;padding:16px 34px;border-radius:10px;cursor:pointer;border:1.5px solid transparent;transition:all .3s var(--easing)}
+.btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
+.btn-line{border-color:var(--gold);color:var(--gold);background:transparent}.btn-line:hover{background:rgba(201,169,110,.1);color:var(--gold-soft)}
+#result{display:none;position:relative;z-index:1}
+.rcard{background:rgba(242,238,231,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
+@media(max-width:640px){.rcard{padding:26px 20px}}
+.band{font-family:var(--display);font-size:2.1rem;color:var(--gold)}
+.plain{list-style:none;padding:0}
+.plain li{padding:9px 0}
+.gapli{color:#d19a7c}.okli{color:#9fd0c3}
+
+/* ---- mobile comfort: big touch targets, no iOS zoom ---- */
+@media(max-width:640px){
+  .checks{grid-template-columns:1fr !important}
+  .grid2{grid-template-columns:1fr !important}
+  .field label{font-size:1rem;margin-bottom:8px}
+  .field input[type=text],.field input[type=email],.field input[type=tel],.field select,textarea{
+    font-size:16px !important;padding:16px 16px !important;min-height:54px;border-radius:12px}
+  textarea{min-height:120px}
+  .choices{flex-direction:column;align-items:stretch}
+  .choices label{padding:15px 18px;font-size:1rem;width:100%}
+  .checks label{padding:15px 16px;font-size:1rem}
+  .checks input{width:20px;height:20px}
+  .matrix input[type=radio]{width:24px;height:24px}
+  .btn{display:block;width:100%;margin:8px 0 !important;padding:18px 20px}
+}
+.matrix{width:100%;border-collapse:collapse;margin-top:6px}
+.matrix th,.matrix td{padding:11px 8px;text-align:center;border-bottom:1px solid var(--line);font-size:.92rem}
+.matrix th{font-weight:500;color:var(--cream-80)}
+.matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:400;color:var(--cream)}
+.matrix td:first-child span{display:block;font-weight:300;font-size:.8rem;color:var(--cream-60)}
+.matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
+@media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
+.choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(242,238,231,.22);border-radius:10px;
+.choices label:hover{border-color:var(--gold)}
+.choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
+.choices input{accent-color:var(--espresso);cursor:pointer}
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+.field textarea{min-height:110px}
+</style>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="IW">
+<link rel="apple-touch-icon" href="iw-icon-180.png">
+</head>
+<body>
+<div class="wave" style="left:-6vw;top:-12vh" aria-hidden="true">
+  <svg width="40vw" height="124vh" viewBox="0 0 400 1000" preserveAspectRatio="none">
+    <path d="M0,0 L240,0 C160,140 300,260 210,420 C130,560 250,700 150,840 C90,930 130,980 90,1000 L0,1000 Z" fill="#100c09"/>
+    <path d="M0,0 L150,0 C90,160 190,300 120,460 C60,600 150,760 70,900 C40,950 50,980 30,1000 L0,1000 Z" fill="#0b0807"/>
+  </svg>
+</div>
+<div class="wave" style="right:-6vw;bottom:-12vh" aria-hidden="true">
+  <svg width="36vw" height="124vh" viewBox="0 0 400 1000" preserveAspectRatio="none" style="transform:scaleX(-1)">
+    <path d="M0,0 L220,0 C150,160 280,300 200,460 C120,620 240,760 140,900 C100,960 120,990 80,1000 L0,1000 Z" fill="#100c09"/>
+  </svg>
+</div>
+<div class="progressbar"><div id="pbar"></div></div>
+<header class="hero">
+  <div class="wrap">
+    <a class="back" href="/">← All Assessments</a>
+    <div class="label">Team Assessment · Surgical Assistant</div>
+    <h1>Surgical Assistant <em>Assessment</em></h1>
+    <p class="sub">For surgical and dental assistants supporting full-arch cases. About five minutes.</p>
+    <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">This isn't a test of how much or how little you know — it's here so we can understand where you are today and give you the right support on your journey to excellence.</p>
+  </div>
+</header>
+
+<div class="wrap">
+<form id="tform" novalidate>
+
+  <section class="block">
+    <div class="secnum">00 / 05</div>
+    <h2>About you</h2>
+    
+    <div class="field"><label for="as_name" style="font-size:1.02rem">Your name *</label><input type="text" id="as_name" required autocomplete="name" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div><div class="field" style="margin-top:14px"><label for="as_practice" style="font-size:1.02rem">Practice / office *</label><input type="text" id="as_practice" required autocomplete="organization" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div><div class="field" style="margin-top:14px"><label for="as_email">Email (optional)</label><input type="email" id="as_email" data-label="Email" autocomplete="email"></div><div class="field"><label for="as_role">Your role</label><select id="as_role" data-label="Your role"><option value="">Select…</option><option>Surgical assistant</option><option>Lead surgical assistant</option><option>Dental assistant</option><option>Hygienist</option><option>Lab / digital technician</option><option>Other</option></select></div><div class="field"><label for="as_years">Years assisting in oral surgery</label><select id="as_years" data-label="Years assisting in oral surgery"><option value="">Select…</option><option>Less than 1</option><option>1–3</option><option>4–7</option><option>8–15</option><option>15+</option></select></div><div class="field"><label for="as_docs">Which doctor(s) do you primarily assist?</label><input type="text" id="as_docs" data-label="Which doctor(s) do you primarily assist?" placeholder=""></div>
+  </section>
+  <section class="block">
+    <div class="secnum">01 / 05</div>
+    <h2>Implant & full-arch experience</h2>
+    
+    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How much chairside experience do you have with single implant placement?</div><div class="choices"><label><input type="radio" name="as_single" value="None yet"> None yet</label><label><input type="radio" name="as_single" value="A handful of cases"> A handful of cases</label><label><input type="radio" name="as_single" value="Regularly"> Regularly</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How much chairside experience do you have with full-arch (All-on-X) surgery?</div><div class="choices"><label><input type="radio" name="as_fa" value="Never seen one"> Never seen one</label><label><input type="radio" name="as_fa" value="Observed, but haven&#x27;t assisted"> Observed, but haven't assisted</label><label><input type="radio" name="as_fa" value="Assisted a few"> Assisted a few</label><label><input type="radio" name="as_fa" value="Assist regularly"> Assist regularly</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Which parts of a full-arch case are you comfortable with? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="as_steps" value="Tray &amp; room setup for full-arch"> Tray & room setup for full-arch</label><label><input type="checkbox" name="as_steps" value="Extractions &amp; bone reduction support"> Extractions & bone reduction support</label><label><input type="checkbox" name="as_steps" value="Multi-unit abutment handling"> Multi-unit abutment handling</label><label><input type="checkbox" name="as_steps" value="Immediate-load / conversion prosthesis"> Immediate-load / conversion prosthesis</label><label><input type="checkbox" name="as_steps" value="Occlusion check &amp; adjustments"> Occlusion check & adjustments</label><label><input type="checkbox" name="as_steps" value="Post-op instructions &amp; follow-up"> Post-op instructions & follow-up</label><label><input type="checkbox" name="as_steps" value="Sedation / anesthesia support"> Sedation / anesthesia support</label><label><input type="checkbox" name="as_steps" value="None yet — that&#x27;s why I&#x27;m here"> None yet — that's why I'm here</label></div></div>
+  </section>
+  <section class="block">
+    <div class="secnum">02 / 05</div>
+    <h2>Digital workflow skills</h2>
+    <p class="hint">Be honest — "Never" is a completely fine answer. This tells us exactly where to start.</p>
+    <table class="matrix"><thead><tr><th>Skill</th><th>Never</th><th>Watched it done</th><th>Done with help</th><th>Comfortable solo</th></tr></thead><tbody><tr><td>Intraoral scanning<span>iOS scanner (iTero, Trios, Medit…)</span></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Never"></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Watched it done"></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Done with help"></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Comfortable solo"></td></tr><tr><td>CBCT capture<span>Cone-beam imaging</span></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Never"></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Watched it done"></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Done with help"></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Comfortable solo"></td></tr><tr><td>Photogrammetry<span>Implant position capture</span></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Never"></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Watched it done"></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Done with help"></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Comfortable solo"></td></tr><tr><td>3D printing<span>SprintRay or similar — setup, printing, post-processing</span></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Never"></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Watched it done"></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Done with help"></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Comfortable solo"></td></tr><tr><td>Staining & glazing<span>Characterizing printed teeth</span></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Never"></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Watched it done"></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Done with help"></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Comfortable solo"></td></tr><tr><td>Design software<span>Exocad, 3Shape, or similar</span></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Never"></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Watched it done"></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Done with help"></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Comfortable solo"></td></tr></tbody></table>
+  </section>
+  <section class="block">
+    <div class="secnum">03 / 05</div>
+    <h2>Hands-on aptitude</h2>
+    <p class="hint">Staining and glazing a printed arch is closer to detail-oriented craft work than to surgery.</p>
+    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How comfortable are you with fine, detail-oriented hands-on tasks?</div><div class="choices"><label><input type="radio" name="as_hands" value="1 — Not my strength"> 1 — Not my strength</label><label><input type="radio" name="as_hands" value="2"> 2</label><label><input type="radio" name="as_hands" value="3 — Comfortable"> 3 — Comfortable</label><label><input type="radio" name="as_hands" value="4"> 4</label><label><input type="radio" name="as_hands" value="5 — I love this kind of work"> 5 — I love this kind of work</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you have hobbies or experience with detail work — painting, crafts, nail art, model work, baking decoration, anything like that?</div><div class="choices"><label><input type="radio" name="as_hobby" value="Yes"> Yes</label><label><input type="radio" name="as_hobby" value="A little"> A little</label><label><input type="radio" name="as_hobby" value="Not really"> Not really</label></div></div><div class="field"><label for="as_hobby_what">If yes, what?</label><input type="text" id="as_hobby_what" data-label="If yes, what?" placeholder=""></div>
+  </section>
+  <section class="block">
+    <div class="secnum">04 / 05</div>
+    <h2>Being the assistant lead</h2>
+    <p class="hint">Each office will have one lead assistant for the full-arch program — the person who owns setup, the digital workflow, and training the rest of the team.</p>
+    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Would you be interested in being that person for your office?</div><div class="choices"><label><input type="radio" name="as_lead" value="Yes — I&#x27;d like to lead this"> Yes — I'd like to lead this</label><label><input type="radio" name="as_lead" value="Maybe — I&#x27;d want to know more first"> Maybe — I'd want to know more first</label><label><input type="radio" name="as_lead" value="I&#x27;d rather support someone else in the role"> I'd rather support someone else in the role</label><label><input type="radio" name="as_lead" value="No, not for me"> No, not for me</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">What would help you feel prepared? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="as_needs" value="Hands-on training day"> Hands-on training day</label><label><input type="checkbox" name="as_needs" value="Step-by-step tray setup guide"> Step-by-step tray setup guide</label><label><input type="checkbox" name="as_needs" value="Video library of each step"> Video library of each step</label><label><input type="checkbox" name="as_needs" value="Shadowing a case at Pulver Oral Surgery"> Shadowing a case at Pulver Oral Surgery</label><label><input type="checkbox" name="as_needs" value="Scanner &amp; printer training"> Scanner & printer training</label><label><input type="checkbox" name="as_needs" value="Staining &amp; glazing workshop"> Staining & glazing workshop</label><label><input type="checkbox" name="as_needs" value="Regular check-ins with the IW team"> Regular check-ins with the IW team</label><label><input type="checkbox" name="as_needs" value="A written description of the role"> A written description of the role</label></div></div><div class="field"><label for="as_concern">Any concerns or questions about the program?</label><textarea id="as_concern" data-label="Any concerns or questions about the program?" placeholder="e.g., time away from other duties, learning curve, who to ask when something goes wrong…"></textarea></div>
+  </section>
+  <section class="block">
+    <div class="secnum">05 / 05</div>
+    <h2>In your words</h2>
+    
+    <div class="field"><label for="as_want">What would make this program a success for you?</label><textarea id="as_want" data-label="What would make this program a success for you?" placeholder="e.g., feeling confident running the workflow without the doctor hovering, learning skills that grow my career…"></textarea></div>
+  </section>
+
+  <div class="actions">
+    <p class="hint" style="margin-bottom:18px">That's everything. Tap below to send your answers to the IW team.</p>
+    <button class="btn btn-gold" type="submit">Submit My Results →</button>
+    <p class="err" id="errmsg" style="color:#e8a598;font-size:.9rem;display:none;width:100%">Please add your name and practice so we know who this is from.</p>
+  </div>
+</form>
+
+<div id="result">
+  <div class="rcard" style="text-align:center">
+    <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Surgical Assistant Assessment</div>
+    <h2 style="font-weight:400;margin-top:10px">Thank you, <span id="rName"></span>.</h2>
+    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch"><span id="sendstate">Sending your answers…</span> The IW team will review everything and build the onboarding plan around your team.</p>
+    <div class="actions" style="margin-top:28px">
+      <button class="btn btn-gold" id="emailbtn" style="display:none">Email My Results Instead →</button>
+      <a class="btn btn-line" href="/">Back to All Assessments</a>
+      <button class="btn btn-line" onclick="location.reload()">Retake</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+/* ========= SAVE SETTINGS =========
+   Formspree form ID (from formspree.io → your form → "Integration").
+   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
+var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
+
+/* remember who they are across assessments (stored only in this browser) */
+var IW_IDS={name:'as_name',practice:'as_practice',email:'as_email'};
+function iwRemember(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&el.value.trim()) o[k]=el.value.trim(); } localStorage.setItem('iw_identity',JSON.stringify(o)); }catch(e){} }
+function iwPrefill(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&!el.value&&o[k]) el.value=o[k]; } }catch(e){} }
+document.addEventListener('DOMContentLoaded',iwPrefill);
+</script>
+<script>
+(function(){
+  var TITLE='IW Surgical Assistant Assessment';
+  var form=document.getElementById('tform'), pbar=document.getElementById('pbar');
+  var nameEl=document.getElementById('as_name'), practEl=document.getElementById('as_practice'), emailEl=document.getElementById('as_email');
+
+  function updateProgress(){
+    var secs=[].slice.call(form.querySelectorAll('section.block')), done=0;
+    secs.forEach(function(s){ if([].slice.call(s.querySelectorAll('input,select,textarea')).some(function(el){ return (el.type==='radio'||el.type==='checkbox')?el.checked:el.value.trim(); })) done++; });
+    pbar.style.width=Math.round(done/secs.length*100)+'%';
+  }
+  form.addEventListener('input',updateProgress); form.addEventListener('change',updateProgress);
+
+  /* serialize every answered field, section by section */
+  function bodyText(){
+    var lines=[TITLE,'Name: '+nameEl.value.trim()+(emailEl&&emailEl.value.trim()?' ('+emailEl.value.trim()+')':''),'Practice: '+practEl.value.trim()];
+    [].slice.call(form.querySelectorAll('section.block')).forEach(function(sec){
+      var h=sec.querySelector('h2'); lines.push('','== '+(h?h.textContent.trim():'')+' ==');
+      var seenGroup={};
+      [].slice.call(sec.querySelectorAll('input,select,textarea')).forEach(function(el){
+        if(el===nameEl||el===practEl||el===emailEl) return;
+        if(el.type==='radio'||el.type==='checkbox'){
+          if(seenGroup[el.name]) return; seenGroup[el.name]=1;
+          var group=[].slice.call(sec.querySelectorAll('[name="'+el.name+'"]'));
+          var vals=group.filter(function(g){return g.checked;}).map(function(g){return g.value;});
+          var lbl=el.getAttribute('data-label')||(function(){var q=el.closest('.q');var p=q?q.querySelector('.qlabel'):null;return p?p.textContent.trim():'';})();
+          lines.push((lbl?lbl+': ':'')+(vals.length?vals.join(', '):'—'));
+        }else{
+          var lab=el.getAttribute('data-label')||el.id;
+          lines.push(lab+': '+(el.value.trim()||'—'));
+        }
+      });
+    });
+    return lines.join('\n');
+  }
+  function sendEmail(){ location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent(TITLE+' — '+nameEl.value.trim())+'&body='+encodeURIComponent(bodyText()); }
+  function submitResults(){
+    var st=document.getElementById('sendstate'), eb=document.getElementById('emailbtn');
+    if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
+    st.textContent='Sending your answers…';
+    fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({assessment:TITLE,name:nameEl.value.trim(),email:emailEl?emailEl.value.trim():'',practice:practEl.value.trim(),_subject:TITLE+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
+    .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true, firstBad=null;
+    [nameEl,practEl].forEach(function(el){ if(!el.value.trim()){ ok=false; el.style.borderColor='#8c2f2f'; if(!firstBad) firstBad=el; } else el.style.borderColor=''; });
+    document.getElementById('errmsg').style.display=ok?'none':'block';
+    if(!ok){ firstBad.scrollIntoView({behavior:'smooth',block:'center'}); firstBad.focus(); return; }
+    document.getElementById('emailbtn').onclick=sendEmail;
+    document.getElementById('rName').textContent=nameEl.value.trim().split(' ')[0];
+    form.style.display='none';
+    document.querySelector('header.hero').style.display='none';
+    document.getElementById('result').style.display='block';
+    window.scrollTo({top:0,behavior:'smooth'});
+    pbar.style.width='100%';
+    iwRemember();
+    submitResults();
+  });
+})();
+</script>
+</body>
+</html>

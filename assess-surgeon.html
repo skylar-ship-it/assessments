@@ -213,7 +213,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
 <form id="assessform" novalidate>
 
   <section class="block">
-    <div class="secnum">01 / 10</div>
+    <div class="secnum">01 / 11</div>
     <h2>Practice Profile</h2>
     <p class="hint">Who you are and where you practice.</p>
     <div class="grid2">
@@ -268,7 +268,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">02 / 10</div>
+    <div class="secnum">02 / 11</div>
     <h2>Case Experience by Procedure</h2>
     <p class="hint">Approximate lifetime case counts as primary surgeon.</p>
     <table class="matrix">
@@ -297,7 +297,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">03 / 10</div>
+    <div class="secnum">03 / 11</div>
     <h2>Annual Full-Arch Volume</h2>
     <p class="hint">Arches per year, per individual provider — current pace.</p>
     <div class="choices">
@@ -310,7 +310,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">04 / 10</div>
+    <div class="secnum">04 / 11</div>
     <h2>Digital Workflow Experience</h2>
     <p class="hint">Which best describes your current digital experience?</p>
     <div class="choices" style="flex-direction:column;align-items:flex-start">
@@ -334,7 +334,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">05 / 10</div>
+    <div class="secnum">05 / 11</div>
     <h2>Current Equipment</h2>
     <p class="hint">Check everything currently in your practice.</p>
     <div class="checks" id="equip">
@@ -349,7 +349,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">06 / 10</div>
+    <div class="secnum">06 / 11</div>
     <h2>Team Structure</h2>
     <div class="grid2">
       <div class="field"><label for="f_surgeons">Surgeons placing implants</label>
@@ -394,14 +394,14 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">07 / 10</div>
+    <div class="secnum">07 / 11</div>
     <h2>Current Full-Arch Workflow</h2>
     <p class="hint">Briefly describe your current protocol from consult to final prosthesis (or write "not yet offering").</p>
     <textarea id="f_workflow" placeholder="e.g., CBCT + guided placement, conversion denture day-of, lab-fabricated final at 4 months…"></textarea>
   </section>
 
   <section class="block">
-    <div class="secnum">08 / 10</div>
+    <div class="secnum">08 / 11</div>
     <h2>Clinical Goals &amp; Training Interests</h2>
     <p class="hint">Check all that apply.</p>
     <div class="checks">
@@ -417,14 +417,28 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">09 / 10</div>
+    <div class="secnum">09 / 11</div>
+    <h2>Your Personal Interest in Full-Arch</h2>
+    <p class="hint">Setting the practice aside for a moment — do <em>you</em> personally want to bring full-arch cases into your own practice and workflow?</p>
+    <div class="choices">
+      <label><input type="radio" name="interest" value="Yes — I want to make full-arch a core part of my practice"> Yes — I want full-arch to be a core part of my practice</label>
+      <label><input type="radio" name="interest" value="Yes — a few cases a month would be a welcome addition"> Yes — even a few cases a month would be a welcome addition</label>
+      <label><input type="radio" name="interest" value="Open to it, but have reservations"> I'm open to it, but I have reservations</label>
+      <label><input type="radio" name="interest" value="Not right now"> Not right now</label>
+    </div>
+    <div class="field" style="margin-top:18px"><label for="f_interest_why">What's driving that answer? (workload, reimbursement, confidence, team, anything else)</label>
+      <textarea id="f_interest_why" placeholder="e.g., Interested, but concerned about chair time compared to thirds and whether my assistants can support it…"></textarea></div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">10 / 11</div>
     <h2>What You Want From the IW Program</h2>
     <p class="hint">In your own words — what are you hoping to get out of working with Implanted Wisdom? What would make this a success for you and your practice?</p>
     <textarea id="f_want" placeholder="e.g., I want to confidently offer same-day full-arch, build a team that can run the workflow without me, and grow to 50+ arches a year…"></textarea>
   </section>
 
   <section class="block">
-    <div class="secnum">10 / 10</div>
+    <div class="secnum">11 / 11</div>
     <h2>Timeline</h2>
     <p class="hint">When do you want to begin implementation?</p>
     <div class="choices">
@@ -462,9 +476,10 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
 
 <script>
 /* ========= SAVE SETTINGS =========
-   Submissions are saved in the IW portal and a copy is emailed via Formspree (set in the portal backend). */
-/* Answers go to the IW portal (saved to the surgeon's login, then forwarded to Formspree for the email). */
-var IW_ENDPOINT='https://portal.implantedwisdom.com/webhooks/onboarding?json=1&step=surgeon';
+   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
+   Submissions are stored in your Formspree dashboard and emailed to you.
+   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
+var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
 
 /* remember who they are across the three assessments (stored only in this browser) */
 var IW_IDS={name:'f_name',practice:'f_practice',email:'f_email'};
@@ -571,6 +586,8 @@ Specialty: ${document.getElementById('f_spec').value||'—'} | Years: ${document
 Enthusiasm: ${document.getElementById('f_enthusiasm').value||'—'}/10 | Cases/yr initial: ${document.getElementById('f_casesInitial').value||'—'} | future: ${document.getElementById('f_casesFuture').value||'—'}
 Score: ${r.score}/100 — ${r.band}
 Curriculum: ${r.curr}
+Personal interest in full-arch: ${(form.querySelector('[name=interest]:checked')||{}).value||'—'}
+Why: ${document.getElementById('f_interest_why').value.trim()||'—'}
 Timeline: ${tlText[timeline]}
 Experience: AoX ${EXP_LABELS[a.aox]}, FP1 ${EXP_LABELS[a.fp1]}, Zygo ${EXP_LABELS[a.zygo]}, Ptery ${EXP_LABELS[a.ptery]}
 Volume: ${VOL_LABELS[a.volume]||'—'} | Digital: ${DIG_LABELS[a.digital]||'—'}
@@ -585,7 +602,7 @@ What they want from IW: ${document.getElementById('f_want').value.trim()||'—'}
       if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
       st.textContent='Sending your answers…';
       fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({assessment:'IW Surgeon Experience Assessment',name:name,email:document.getElementById('f_email').value.trim().toLowerCase(),equipment:eqChecked.map(function(el){return el.value;}),goals:goals,timeline:timeline,score:r.score,band:r.band,practice:practice,_subject:'IW Surgeon Experience Assessment'+' — '+name,submitted:new Date().toLocaleString(),results:bodyText()})})
+        body:JSON.stringify({assessment:'IW Surgeon Experience Assessment',name:name,email:document.getElementById('f_email').value.trim(),practice:practice,_subject:'IW Surgeon Experience Assessment'+' — '+name,submitted:new Date().toLocaleString(),results:bodyText()})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
       .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
     }
