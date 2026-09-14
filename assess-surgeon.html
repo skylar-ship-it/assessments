@@ -221,8 +221,8 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
       <div class="field"><label for="f_practice">Practice name *</label><input type="text" id="f_practice" required></div>
       <div class="field"><label for="f_email">Email *</label><input type="email" id="f_email" required></div>
       <div class="field"><label for="f_phone">Phone</label><input type="tel" id="f_phone"></div>
-      <div class="field"><label for="f_spec">Specialty *</label>
-        <select id="f_spec" required>
+      <div class="field"><label for="f_spec">Specialty</label>
+        <select id="f_spec">
           <option value="">Select…</option>
           <option>Oral &amp; Maxillofacial Surgery</option>
           <option>Periodontics</option>
@@ -231,8 +231,8 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
           <option>Other</option>
         </select>
       </div>
-      <div class="field"><label for="f_years">Years in practice *</label>
-        <select id="f_years" required>
+      <div class="field"><label for="f_years">Years in practice</label>
+        <select id="f_years">
           <option value="">Select…</option>
           <option value="0">In residency / &lt; 1 year</option>
           <option value="1">1–5 years</option>
@@ -244,8 +244,8 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     <div style="margin-top:22px;padding-top:18px;border-top:1px dashed rgba(242,238,231,.15)">
       <p class="hint" style="margin-bottom:12px"><strong style="font-weight:500;color:var(--ink)">Your full-arch vision.</strong> How do you see full-arch fitting into your practice?</p>
       <div class="field" style="margin-bottom:14px">
-        <label for="f_enthusiasm">My excitement and enthusiasm to move fully into full-arch (0 = less likely · 10 = most likely) *</label>
-        <select id="f_enthusiasm" required>
+        <label for="f_enthusiasm">My excitement and enthusiasm to move fully into full-arch (0 = less likely · 10 = most likely)</label>
+        <select id="f_enthusiasm">
           <option value="">Select 0–10…</option>
           <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
           <option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option>
@@ -275,23 +275,23 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
       <thead><tr><th>Procedure</th><th>None</th><th>1–10</th><th>11–50</th><th>51–200</th><th>200+</th></tr></thead>
       <tbody>
         <tr><td>All-on-X full arch<span>Fixed full-arch on 4–6 implants</span></td>
-          <td><input type="radio" name="exp_aox" value="0" required></td><td><input type="radio" name="exp_aox" value="1"></td><td><input type="radio" name="exp_aox" value="2"></td><td><input type="radio" name="exp_aox" value="3"></td><td><input type="radio" name="exp_aox" value="4"></td></tr>
+          <td><input type="radio" name="exp_aox" value="0"></td><td><input type="radio" name="exp_aox" value="1"></td><td><input type="radio" name="exp_aox" value="2"></td><td><input type="radio" name="exp_aox" value="3"></td><td><input type="radio" name="exp_aox" value="4"></td></tr>
         <tr><td>All-on-X same-day / next-day delivery<span>Immediate-load workflow with day-of or next-day prosthesis</span></td>
-          <td><input type="radio" name="exp_aoxsd" value="0" required></td><td><input type="radio" name="exp_aoxsd" value="1"></td><td><input type="radio" name="exp_aoxsd" value="2"></td><td><input type="radio" name="exp_aoxsd" value="3"></td><td><input type="radio" name="exp_aoxsd" value="4"></td></tr>
+          <td><input type="radio" name="exp_aoxsd" value="0"></td><td><input type="radio" name="exp_aoxsd" value="1"></td><td><input type="radio" name="exp_aoxsd" value="2"></td><td><input type="radio" name="exp_aoxsd" value="3"></td><td><input type="radio" name="exp_aoxsd" value="4"></td></tr>
         <tr><td>FP3 restorations<span>Fixed full-arch prosthesis with prosthetic pink</span></td>
-          <td><input type="radio" name="exp_fp3" value="0" required></td><td><input type="radio" name="exp_fp3" value="1"></td><td><input type="radio" name="exp_fp3" value="2"></td><td><input type="radio" name="exp_fp3" value="3"></td><td><input type="radio" name="exp_fp3" value="4"></td></tr>
+          <td><input type="radio" name="exp_fp3" value="0"></td><td><input type="radio" name="exp_fp3" value="1"></td><td><input type="radio" name="exp_fp3" value="2"></td><td><input type="radio" name="exp_fp3" value="3"></td><td><input type="radio" name="exp_fp3" value="4"></td></tr>
         <tr><td>FP1 restorations<span>Tooth-only fixed prosthesis, no pink</span></td>
-          <td><input type="radio" name="exp_fp1" value="0" required></td><td><input type="radio" name="exp_fp1" value="1"></td><td><input type="radio" name="exp_fp1" value="2"></td><td><input type="radio" name="exp_fp1" value="3"></td><td><input type="radio" name="exp_fp1" value="4"></td></tr>
+          <td><input type="radio" name="exp_fp1" value="0"></td><td><input type="radio" name="exp_fp1" value="1"></td><td><input type="radio" name="exp_fp1" value="2"></td><td><input type="radio" name="exp_fp1" value="3"></td><td><input type="radio" name="exp_fp1" value="4"></td></tr>
         <tr><td>Traditional sequenced implant care<span>Full-mouth extraction, grafting, immediate/future placement, healing, referral to dentist for prosthesis</span></td>
-          <td><input type="radio" name="exp_trad" value="0" required></td><td><input type="radio" name="exp_trad" value="1"></td><td><input type="radio" name="exp_trad" value="2"></td><td><input type="radio" name="exp_trad" value="3"></td><td><input type="radio" name="exp_trad" value="4"></td></tr>
+          <td><input type="radio" name="exp_trad" value="0"></td><td><input type="radio" name="exp_trad" value="1"></td><td><input type="radio" name="exp_trad" value="2"></td><td><input type="radio" name="exp_trad" value="3"></td><td><input type="radio" name="exp_trad" value="4"></td></tr>
         <tr><td>Guided surgery — individual implant<span>Static/dynamic guide for single-implant placement</span></td>
-          <td><input type="radio" name="exp_gsi" value="0" required></td><td><input type="radio" name="exp_gsi" value="1"></td><td><input type="radio" name="exp_gsi" value="2"></td><td><input type="radio" name="exp_gsi" value="3"></td><td><input type="radio" name="exp_gsi" value="4"></td></tr>
+          <td><input type="radio" name="exp_gsi" value="0"></td><td><input type="radio" name="exp_gsi" value="1"></td><td><input type="radio" name="exp_gsi" value="2"></td><td><input type="radio" name="exp_gsi" value="3"></td><td><input type="radio" name="exp_gsi" value="4"></td></tr>
         <tr><td>Guided surgery — full arch<span>Guided full-arch treatment</span></td>
-          <td><input type="radio" name="exp_gsf" value="0" required></td><td><input type="radio" name="exp_gsf" value="1"></td><td><input type="radio" name="exp_gsf" value="2"></td><td><input type="radio" name="exp_gsf" value="3"></td><td><input type="radio" name="exp_gsf" value="4"></td></tr>
+          <td><input type="radio" name="exp_gsf" value="0"></td><td><input type="radio" name="exp_gsf" value="1"></td><td><input type="radio" name="exp_gsf" value="2"></td><td><input type="radio" name="exp_gsf" value="3"></td><td><input type="radio" name="exp_gsf" value="4"></td></tr>
         <tr><td>Zygomatic implants<span>Zygoma-anchored, severe maxillary atrophy</span></td>
-          <td><input type="radio" name="exp_zygo" value="0" required></td><td><input type="radio" name="exp_zygo" value="1"></td><td><input type="radio" name="exp_zygo" value="2"></td><td><input type="radio" name="exp_zygo" value="3"></td><td><input type="radio" name="exp_zygo" value="4"></td></tr>
+          <td><input type="radio" name="exp_zygo" value="0"></td><td><input type="radio" name="exp_zygo" value="1"></td><td><input type="radio" name="exp_zygo" value="2"></td><td><input type="radio" name="exp_zygo" value="3"></td><td><input type="radio" name="exp_zygo" value="4"></td></tr>
         <tr><td>Pterygoid implants<span>Posterior maxilla, graftless</span></td>
-          <td><input type="radio" name="exp_ptery" value="0" required></td><td><input type="radio" name="exp_ptery" value="1"></td><td><input type="radio" name="exp_ptery" value="2"></td><td><input type="radio" name="exp_ptery" value="3"></td><td><input type="radio" name="exp_ptery" value="4"></td></tr>
+          <td><input type="radio" name="exp_ptery" value="0"></td><td><input type="radio" name="exp_ptery" value="1"></td><td><input type="radio" name="exp_ptery" value="2"></td><td><input type="radio" name="exp_ptery" value="3"></td><td><input type="radio" name="exp_ptery" value="4"></td></tr>
       </tbody>
     </table>
   </section>
@@ -301,7 +301,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     <h2>Annual Full-Arch Volume</h2>
     <p class="hint">Arches per year, per individual provider — current pace.</p>
     <div class="choices">
-      <label><input type="radio" name="volume" value="0" required> 0 — not yet offering</label>
+      <label><input type="radio" name="volume" value="0"> 0 — not yet offering</label>
       <label><input type="radio" name="volume" value="3"> 1–12 arches</label>
       <label><input type="radio" name="volume" value="7"> 13–36 arches</label>
       <label><input type="radio" name="volume" value="11"> 37–100 arches</label>
@@ -314,7 +314,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     <h2>Digital Workflow Experience</h2>
     <p class="hint">Which best describes your current digital experience?</p>
     <div class="choices" style="flex-direction:column;align-items:flex-start">
-      <label><input type="radio" name="digital" value="0" required> No digital experience</label>
+      <label><input type="radio" name="digital" value="0"> No digital experience</label>
       <label><input type="radio" name="digital" value="4"> Minimum digital experience — our lab comes in with a scanner and uses it when needed</label>
       <label><input type="radio" name="digital" value="8"> Partial digital experience — IOS scans taken and sent to the lab for implant guides; scan-body impressions for referral offices; upper/lower + bite for night guards</label>
       <label><input type="radio" name="digital" value="12"> Full digital experience — IOS scans taken and implant guides made in-house</label>
@@ -356,7 +356,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
         <select id="f_surgeons"><option value="1">1</option><option value="2">2</option><option value="3">3+</option></select>
       </div>
       <div class="field"><label for="f_lab">Lab support</label>
-        <select id="f_lab" required>
+        <select id="f_lab">
           <option value="">Select…</option>
           <option value="3">Fully in-house lab technician</option>
           <option value="2">Dedicated outside lab partner</option>
@@ -428,7 +428,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     <h2>Timeline</h2>
     <p class="hint">When do you want to begin implementation?</p>
     <div class="choices">
-      <label><input type="radio" name="timeline" value="now" required> Ready now</label>
+      <label><input type="radio" name="timeline" value="now"> Ready now</label>
       <label><input type="radio" name="timeline" value="1-3"> 1–3 months</label>
       <label><input type="radio" name="timeline" value="3-6"> 3–6 months</label>
       <label><input type="radio" name="timeline" value="6+"> 6+ months / exploring</label>
@@ -438,7 +438,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   <div class="submitrow">
     <p class="hint" style="margin-bottom:18px">That's everything. Tap below to send your answers to the IW team.</p>
     <button type="submit" class="btn btn-gold">Submit My Results →</button>
-    <p class="err" id="errmsg">Please complete all required fields — missing items are highlighted above.</p>
+    <p class="err" id="errmsg">Please add your name, practice, and email so we know who this is from.</p>
   </div>
 </form>
 </div>
@@ -488,7 +488,7 @@ var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
   const VOL_LABELS={0:'0 — not yet offering',3:'1–12 arches/yr',7:'13–36 arches/yr',11:'37–100 arches/yr',15:'100+ arches/yr'};
   const DIG_LABELS={0:'No digital experience',4:'Minimum digital (lab brings scanner)',8:'Partial digital (IOS to lab)',12:'Full digital (guides in-house)',15:'All-on-X digital (photogrammetry, same-day)'};
 
-  function val(name){const el=form.querySelector(`[name="${name}"]:checked`);return el?+el.value:null;}
+  function val(name){const el=form.querySelector(`[name="${name}"]:checked`);return el?+el.value:0;}
 
   window.computeProfile=function(a){
     // ---- pillar scores ----
@@ -530,13 +530,11 @@ var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
   form.addEventListener('submit',function(e){
     e.preventDefault();
     // validate
-    const need=['f_name','f_practice','f_email','f_spec','f_years','f_enthusiasm'];
-    let ok=true;
-    need.forEach(id=>{const el=document.getElementById(id);if(!el.value.trim()){ok=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
-    reqNames.forEach(n=>{if(val(n)===null)ok=false;});
-    if(!document.getElementById('f_lab').value)ok=false;
+    const need=['f_name','f_practice','f_email'];
+    let ok=true, firstBad=null;
+    need.forEach(id=>{const el=document.getElementById(id);if(!el.value.trim()){ok=false;el.style.borderColor='#8c2f2f';if(!firstBad)firstBad=el;}else el.style.borderColor='';});
     document.getElementById('errmsg').style.display=ok?'none':'block';
-    if(!ok){window.scrollTo({top:0,behavior:'smooth'});return;}
+    if(!ok){firstBad.scrollIntoView({behavior:'smooth',block:'center'});firstBad.focus();return;}
 
     // gather
     const eqChecked=[...form.querySelectorAll('input[name=eq]:checked')];
@@ -548,15 +546,15 @@ var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
       tc:document.getElementById('t_tc').checked,
       sa:document.getElementById('t_sa').checked,
       rp:document.getElementById('t_rp').checked,
-      lab:+document.getElementById('f_lab').value
+      lab:+document.getElementById('f_lab').value||0
     };
     const r=computeProfile(a);
     const name=document.getElementById('f_name').value.trim();
     const practice=document.getElementById('f_practice').value.trim();
-    const timeline=form.querySelector('[name=timeline]:checked').value;
+    const tlEl=form.querySelector('[name=timeline]:checked'); const timeline=tlEl?tlEl.value:'';
     const goals=[...form.querySelectorAll('input[name=goal]:checked')].map(el=>el.value);
 
-    const tlText={'now':'immediate start','1-3':'start within 1–3 months','3-6':'start within 3–6 months','6+':'exploratory — 6+ month horizon'};
+    const tlText={'now':'immediate start','1-3':'start within 1–3 months','3-6':'start within 3–6 months','6+':'exploratory — 6+ month horizon','':'—'};
 
     // email button
     function bodyText(){
@@ -564,13 +562,13 @@ var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
 `IW Surgeon Experience Assessment
 Surgeon: ${name} (${document.getElementById('f_email').value})
 Practice: ${practice}
-Specialty: ${document.getElementById('f_spec').value} | Years: ${document.getElementById('f_years').options[document.getElementById('f_years').selectedIndex].text}
-Enthusiasm: ${document.getElementById('f_enthusiasm').value}/10 | Cases/yr initial: ${document.getElementById('f_casesInitial').value||'—'} | future: ${document.getElementById('f_casesFuture').value||'—'}
+Specialty: ${document.getElementById('f_spec').value||'—'} | Years: ${document.getElementById('f_years').value?document.getElementById('f_years').selectedOptions[0].text:'—'}
+Enthusiasm: ${document.getElementById('f_enthusiasm').value||'—'}/10 | Cases/yr initial: ${document.getElementById('f_casesInitial').value||'—'} | future: ${document.getElementById('f_casesFuture').value||'—'}
 Score: ${r.score}/100 — ${r.band}
 Curriculum: ${r.curr}
 Timeline: ${tlText[timeline]}
 Experience: AoX ${EXP_LABELS[a.aox]}, FP1 ${EXP_LABELS[a.fp1]}, Zygo ${EXP_LABELS[a.zygo]}, Ptery ${EXP_LABELS[a.ptery]}
-Volume: ${VOL_LABELS[a.volume]} | Digital: ${DIG_LABELS[a.digital]}
+Volume: ${VOL_LABELS[a.volume]||'—'} | Digital: ${DIG_LABELS[a.digital]||'—'}
 Pillars: ${r.pillars.map(p=>`${p[0]} ${p[1]}/${p[2]}`).join(', ')}
 Goals: ${goals.join(', ')||'—'}
 Workflow notes: ${document.getElementById('f_workflow').value.trim()||'—'}
