@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<title>Front Office Assessment — Implanted Wisdom</title>
+<title>Admin & Patient Workflow — Implanted Wisdom</title>
 <link rel="icon" href="favicon.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
@@ -76,23 +76,6 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   .matrix input[type=radio]{width:24px;height:24px}
   .btn{display:block;width:100%;margin:8px 0 !important;padding:18px 20px}
 }
-.matrix{width:100%;border-collapse:collapse;margin-top:6px}
-.matrix th,.matrix td{padding:11px 8px;text-align:center;border-bottom:1px solid var(--line);font-size:.92rem}
-.matrix th{font-weight:500;color:var(--cream-80)}
-.matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:400;color:var(--cream)}
-.matrix td:first-child span{display:block;font-weight:300;font-size:.8rem;color:var(--cream-60)}
-.matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
-@media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
-.choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(242,238,231,.22);border-radius:10px;
-.choices label:hover{border-color:var(--gold)}
-.choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
-.choices input{accent-color:var(--espresso);cursor:pointer}
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
-.field textarea{min-height:110px}
 
 /* ============ readability pass ============ */
 body{font-size:18px;line-height:1.75}
@@ -124,6 +107,34 @@ textarea{min-height:120px;line-height:1.6}
   section.block h2{font-size:1.65rem}
   .choices label,.checks label{padding:16px 18px}
 }
+.matrix{width:100%;border-collapse:collapse;margin-top:6px}
+.matrix th,.matrix td{padding:11px 8px;text-align:center;border-bottom:1px solid var(--line);font-size:.92rem}
+.matrix th{font-weight:500;color:var(--cream-80)}
+.matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:400;color:var(--cream)}
+.matrix td:first-child span{display:block;font-weight:300;font-size:.8rem;color:var(--cream-60)}
+.matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
+@media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
+.choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(242,238,231,.22);border-radius:10px;
+.choices label:hover{border-color:var(--gold)}
+.choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
+.choices input{accent-color:var(--espresso);cursor:pointer}
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.choices input{width:20px;height:20px}
+.choices label,.checks label{padding:16px 18px}
+.choices.compact label{padding:12px 16px}
+.choices.compact{flex-direction:row;flex-wrap:wrap}
+.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}
+.choices.compact label input{display:none}
+
+.choices.compact label{padding:12px 16px}
+@media(max-width:640px){.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+.field textarea{min-height:110px}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -148,11 +159,11 @@ textarea{min-height:120px;line-height:1.6}
 <header class="hero">
   <div class="wrap">
     <a class="back" href="/">← All Assessments</a>
-    <div class="label">Team Assessment · Front Office</div>
-    <h1>Front Office <em>Assessment</em></h1>
-    <p class="sub">For front desk, scheduling, and treatment-coordination staff. About four minutes.</p>
-    <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">This isn't a test of how much or how little you know — it's here so we can understand where you are today and give you the right support on your journey to excellence.</p>
-    <div class="reassure"><b>There are no wrong answers.</b> Only your name and practice are required — skip anything that doesn't apply, and use your best guess where you're unsure.</div>
+    <div class="label">Front Office</div>
+    <h1>Admin &amp; Patient <em>Workflow</em></h1>
+    <p class="sub">For front desk, scheduling, and treatment-coordination staff. About five minutes.</p>
+    <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">There are no right or wrong answers — the goal is simply to understand where you are today and how Implanted Wisdom can best support you.</p>
+    <div class="reassure"><b>Only your name and practice are required.</b> Skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -167,33 +178,33 @@ textarea{min-height:120px;line-height:1.6}
   </section>
   <section class="block">
     <div class="secnum">Step 2 of 6</div>
-    <h2>Full-arch familiarity</h2>
-    <p class="hint">Full-arch means replacing an entire upper or lower set of teeth with a fixed bridge on implants — patients often call it "All-on-4," "All-on-X," or "teeth in a day."</p>
-    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How familiar are you with full-arch implant treatment?</div><div class="choices"><label><input type="radio" name="ad_familiar" value="Never heard of it before today"> Never heard of it before today</label><label><input type="radio" name="ad_familiar" value="Heard of it, but couldn&#x27;t explain it"> Heard of it, but couldn't explain it</label><label><input type="radio" name="ad_familiar" value="Can explain the basics to a patient"> Can explain the basics to a patient</label><label><input type="radio" name="ad_familiar" value="Can explain it confidently, including next steps"> Can explain it confidently, including next steps</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Which of these have you heard patients say on the phone or at the desk? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="ad_terms" value="All-on-4 / All-on-X"> All-on-4 / All-on-X</label><label><input type="checkbox" name="ad_terms" value="Teeth in a day"> Teeth in a day</label><label><input type="checkbox" name="ad_terms" value="Permanent dentures"> Permanent dentures</label><label><input type="checkbox" name="ad_terms" value="Snap-in dentures"> Snap-in dentures</label><label><input type="checkbox" name="ad_terms" value="Full-mouth implants"> Full-mouth implants</label><label><input type="checkbox" name="ad_terms" value="Implant dentures"> Implant dentures</label><label><input type="checkbox" name="ad_terms" value="Hybrid / fixed bridge"> Hybrid / fixed bridge</label><label><input type="checkbox" name="ad_terms" value="Zygomatic implants"> Zygomatic implants</label><label><input type="checkbox" name="ad_terms" value="None of these"> None of these</label></div></div>
+    <h2>Interest in leading</h2>
+    <p class="hint">Each office will have one <em>Full-Arch Admin Lead</em> — the go-to person for scheduling, patient questions, and communication with IW. It's a role we build around the person, not the other way around.</p>
+    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Would you be interested in becoming the Full-Arch Admin Lead for your office?</div><div class="choices"><label><input type="radio" name="ad_lead" value="Yes — I&#x27;d like to lead this"> Yes — I'd like to lead this</label><label><input type="radio" name="ad_lead" value="Maybe — I&#x27;d want to know more first"> Maybe — I'd want to know more first</label><label><input type="radio" name="ad_lead" value="I&#x27;d rather support someone else in the role"> I'd rather support someone else in the role</label><label><input type="radio" name="ad_lead" value="No, not for me"> No, not for me</label></div></div><div class="field"><label for="ad_lead_why">What's behind that answer?</label><textarea id="ad_lead_why" data-label="What&#x27;s behind that answer?" placeholder="e.g., I already handle most implant calls, or I&#x27;m stretched thin right now, or I&#x27;d love to but I&#x27;d need training…"></textarea></div>
   </section>
   <section class="block">
     <div class="secnum">Step 3 of 6</div>
-    <h2>Handling patient inquiries</h2>
-    <p class="hint">How implant and full-arch questions reach you today.</p>
-    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How often does someone call or walk in asking about implants or replacing all their teeth?</div><div class="choices"><label><input type="radio" name="ad_freq" value="Daily"> Daily</label><label><input type="radio" name="ad_freq" value="A few times a week"> A few times a week</label><label><input type="radio" name="ad_freq" value="A few times a month"> A few times a month</label><label><input type="radio" name="ad_freq" value="Rarely"> Rarely</label><label><input type="radio" name="ad_freq" value="Not sure"> Not sure</label></div></div><div class="field"><label for="ad_today">What happens today when a patient calls asking about full-mouth implants? Walk us through it.</label><textarea id="ad_today" data-label="What happens today when a patient calls asking about full-mouth implants? Walk us through it." placeholder="e.g., I take a message for the doctor, or I schedule a regular consult, or I&#x27;m not sure what to do with those calls…"></textarea></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How confident are you scheduling a full-arch consult and explaining what to expect?</div><div class="choices"><label><input type="radio" name="ad_conf" value="1 — Not at all"> 1 — Not at all</label><label><input type="radio" name="ad_conf" value="2"> 2</label><label><input type="radio" name="ad_conf" value="3 — Somewhat"> 3 — Somewhat</label><label><input type="radio" name="ad_conf" value="4"> 4</label><label><input type="radio" name="ad_conf" value="5 — Very confident"> 5 — Very confident</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">What do you currently collect on an implant inquiry? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="ad_collect" value="Name &amp; phone"> Name & phone</label><label><input type="checkbox" name="ad_collect" value="How they heard about us"> How they heard about us</label><label><input type="checkbox" name="ad_collect" value="What they&#x27;re hoping for"> What they're hoping for</label><label><input type="checkbox" name="ad_collect" value="Timeline / urgency"> Timeline / urgency</label><label><input type="checkbox" name="ad_collect" value="Insurance details"> Insurance details</label><label><input type="checkbox" name="ad_collect" value="Budget or financing questions"> Budget or financing questions</label><label><input type="checkbox" name="ad_collect" value="Photos or records"> Photos or records</label><label><input type="checkbox" name="ad_collect" value="Nothing formal — varies by call"> Nothing formal — varies by call</label></div></div>
+    <h2>Who does what today</h2>
+    <p class="hint">We're mapping how a new patient moves through your office right now — no judgment, just the real picture.</p>
+    <div class="field"><label for="ad_answers">Who currently answers new-patient calls?</label><input type="text" id="ad_answers" data-label="Who currently answers new-patient calls?" placeholder="Name(s) or role — e.g., &quot;front desk, whoever is free&quot; or &quot;Maria&quot;"></div><div class="field"><label for="ad_schedules">Who schedules implant consults?</label><input type="text" id="ad_schedules" data-label="Who schedules implant consults?" placeholder=""></div><div class="field"><label for="ad_follows">Who follows up with leads who haven't scheduled yet?</label><input type="text" id="ad_follows" data-label="Who follows up with leads who haven&#x27;t scheduled yet?" placeholder="Or &quot;nobody, honestly&quot; — that&#x27;s useful to know"></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Is there a written script or protocol for implant / full-arch calls?</div><div class="choices"><label><input type="radio" name="ad_script" value="Yes, written and followed"> Yes, written and followed</label><label><input type="radio" name="ad_script" value="Informal — we each do our own thing"> Informal — we each do our own thing</label><label><input type="radio" name="ad_script" value="No"> No</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you use a CRM or lead-tracking tool for new-patient inquiries?</div><div class="choices"><label><input type="radio" name="ad_crm" value="Yes, and I use it daily"> Yes, and I use it daily</label><label><input type="radio" name="ad_crm" value="Yes, but it&#x27;s inconsistent"> Yes, but it's inconsistent</label><label><input type="radio" name="ad_crm" value="No"> No</label><label><input type="radio" name="ad_crm" value="Not sure"> Not sure</label></div></div><div class="field"><label for="ad_pms">Scheduling / practice management software you use</label><input type="text" id="ad_pms" data-label="Scheduling / practice management software you use" placeholder="e.g., WinOMS, Carestream, Dentrix, Open Dental…"></div>
   </section>
   <section class="block">
     <div class="secnum">Step 4 of 6</div>
-    <h2>Systems & scripts</h2>
-    
-    <div class="field"><label for="ad_pms">Scheduling / practice management software you use</label><input type="text" id="ad_pms" data-label="Scheduling / practice management software you use" placeholder="e.g., WinOMS, Carestream, Dentrix, Open Dental…"></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you use a CRM or lead-tracking tool for new-patient inquiries?</div><div class="choices"><label><input type="radio" name="ad_crm" value="Yes, and I use it daily"> Yes, and I use it daily</label><label><input type="radio" name="ad_crm" value="Yes, but it&#x27;s inconsistent"> Yes, but it's inconsistent</label><label><input type="radio" name="ad_crm" value="No"> No</label><label><input type="radio" name="ad_crm" value="Not sure"> Not sure</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Is there a script or protocol for implant / full-arch calls?</div><div class="choices"><label><input type="radio" name="ad_script" value="Yes, written and followed"> Yes, written and followed</label><label><input type="radio" name="ad_script" value="Informal — we each do our own thing"> Informal — we each do our own thing</label><label><input type="radio" name="ad_script" value="No"> No</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you discuss financing or payment options with patients?</div><div class="choices"><label><input type="radio" name="ad_fin" value="Yes, regularly"> Yes, regularly</label><label><input type="radio" name="ad_fin" value="Occasionally"> Occasionally</label><label><input type="radio" name="ad_fin" value="No — someone else does"> No — someone else does</label><label><input type="radio" name="ad_fin" value="No — we don&#x27;t offer financing"> No — we don't offer financing</label></div></div>
+    <h2>Recognizing a full-arch lead</h2>
+    <p class="hint">Most full-arch patients never say "full arch." Here are things patients actually say.</p>
+    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Which of these callers could be a full-arch candidate? Check every one you think might be.</div><div class="checks"><label><input type="checkbox" name="ad_recognize" value="&quot;I need all my teeth replaced.&quot;"> "I need all my teeth replaced."</label><label><input type="checkbox" name="ad_recognize" value="&quot;My dentures don&#x27;t fit anymore.&quot;"> "My dentures don't fit anymore."</label><label><input type="checkbox" name="ad_recognize" value="&quot;I was told I need implants.&quot;"> "I was told I need implants."</label><label><input type="checkbox" name="ad_recognize" value="&quot;I&#x27;m tired of my teeth — I just want them fixed.&quot;"> "I'm tired of my teeth — I just want them fixed."</label><label><input type="checkbox" name="ad_recognize" value="&quot;How much is All-on-4?&quot;"> "How much is All-on-4?"</label><label><input type="checkbox" name="ad_recognize" value="&quot;Can I get teeth in a day?&quot;"> "Can I get teeth in a day?"</label><label><input type="checkbox" name="ad_recognize" value="&quot;I have a lot of broken teeth and I&#x27;m embarrassed.&quot;"> "I have a lot of broken teeth and I'm embarrassed."</label><label><input type="checkbox" name="ad_recognize" value="&quot;My dentist said I should see a specialist.&quot;"> "My dentist said I should see a specialist."</label></div></div><div class="field"><label for="ad_scenario">Walk us through what happens today when someone calls and says, "My dentures don't fit and I was told I need implants." What do you say, and where does the call go?</label><textarea id="ad_scenario" data-label="Walk us through what happens today when someone calls and says, &quot;My dentures don&#x27;t fit and I was told I need implants.&quot; What do you say, and where does the call go?" placeholder="Be as honest as you can — &quot;I take a message and hope the doctor calls back&quot; is a perfectly good answer."></textarea></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How often does someone call or walk in with a story like that?</div><div class="choices"><label><input type="radio" name="ad_freq" value="Daily"> Daily</label><label><input type="radio" name="ad_freq" value="A few times a week"> A few times a week</label><label><input type="radio" name="ad_freq" value="A few times a month"> A few times a month</label><label><input type="radio" name="ad_freq" value="Rarely"> Rarely</label><label><input type="radio" name="ad_freq" value="Not sure"> Not sure</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How familiar are you with what full-arch treatment actually is?</div><div class="choices"><label><input type="radio" name="ad_familiar" value="Never heard of it before today"> Never heard of it before today</label><label><input type="radio" name="ad_familiar" value="Heard of it, but couldn&#x27;t explain it"> Heard of it, but couldn't explain it</label><label><input type="radio" name="ad_familiar" value="Can explain the basics to a patient"> Can explain the basics to a patient</label><label><input type="radio" name="ad_familiar" value="Can explain it confidently, including next steps"> Can explain it confidently, including next steps</label></div></div>
   </section>
   <section class="block">
     <div class="secnum">Step 5 of 6</div>
-    <h2>Being the office lead</h2>
-    <p class="hint">Each office will have one front-office point person for the full-arch program — the go-to for scheduling, patient questions, and communication with IW.</p>
-    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Would you be interested in being that person for your office?</div><div class="choices"><label><input type="radio" name="ad_lead" value="Yes — I&#x27;d like to lead this"> Yes — I'd like to lead this</label><label><input type="radio" name="ad_lead" value="Maybe — I&#x27;d want to know more first"> Maybe — I'd want to know more first</label><label><input type="radio" name="ad_lead" value="I&#x27;d rather support someone else in the role"> I'd rather support someone else in the role</label><label><input type="radio" name="ad_lead" value="No, not for me"> No, not for me</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">What would help you feel prepared? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="ad_needs" value="Phone scripts &amp; FAQs"> Phone scripts & FAQs</label><label><input type="checkbox" name="ad_needs" value="Plain-English terminology guide"> Plain-English terminology guide</label><label><input type="checkbox" name="ad_needs" value="Financing conversation training"> Financing conversation training</label><label><input type="checkbox" name="ad_needs" value="Consult scheduling protocol"> Consult scheduling protocol</label><label><input type="checkbox" name="ad_needs" value="Shadowing a full-arch consult"> Shadowing a full-arch consult</label><label><input type="checkbox" name="ad_needs" value="Regular check-ins with the IW team"> Regular check-ins with the IW team</label><label><input type="checkbox" name="ad_needs" value="A written description of the role"> A written description of the role</label></div></div><div class="field"><label for="ad_concern">Any concerns or questions about the program?</label><textarea id="ad_concern" data-label="Any concerns or questions about the program?" placeholder="e.g., workload, how to handle pricing questions, who to send calls to…"></textarea></div>
+    <h2>Handling the conversation</h2>
+    
+    <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How confident are you scheduling a full-arch consult and explaining what to expect?</div><div class="choices"><label><input type="radio" name="ad_conf" value="1 — Not at all"> 1 — Not at all</label><label><input type="radio" name="ad_conf" value="2"> 2</label><label><input type="radio" name="ad_conf" value="3 — Somewhat"> 3 — Somewhat</label><label><input type="radio" name="ad_conf" value="4"> 4</label><label><input type="radio" name="ad_conf" value="5 — Very confident"> 5 — Very confident</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">What do you currently collect on an implant inquiry? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="ad_collect" value="Name &amp; phone"> Name & phone</label><label><input type="checkbox" name="ad_collect" value="How they heard about us"> How they heard about us</label><label><input type="checkbox" name="ad_collect" value="What they&#x27;re hoping for"> What they're hoping for</label><label><input type="checkbox" name="ad_collect" value="Timeline / urgency"> Timeline / urgency</label><label><input type="checkbox" name="ad_collect" value="Insurance details"> Insurance details</label><label><input type="checkbox" name="ad_collect" value="Budget or financing questions"> Budget or financing questions</label><label><input type="checkbox" name="ad_collect" value="Photos or records"> Photos or records</label><label><input type="checkbox" name="ad_collect" value="Nothing formal — varies by call"> Nothing formal — varies by call</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you discuss financing or payment options with patients?</div><div class="choices"><label><input type="radio" name="ad_fin" value="Yes, regularly"> Yes, regularly</label><label><input type="radio" name="ad_fin" value="Occasionally"> Occasionally</label><label><input type="radio" name="ad_fin" value="No — someone else does"> No — someone else does</label><label><input type="radio" name="ad_fin" value="No — we don&#x27;t offer financing"> No — we don't offer financing</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">What would help you feel prepared? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="ad_needs" value="Phone scripts &amp; FAQs"> Phone scripts & FAQs</label><label><input type="checkbox" name="ad_needs" value="Plain-English terminology guide"> Plain-English terminology guide</label><label><input type="checkbox" name="ad_needs" value="Financing conversation training"> Financing conversation training</label><label><input type="checkbox" name="ad_needs" value="Consult scheduling protocol"> Consult scheduling protocol</label><label><input type="checkbox" name="ad_needs" value="Shadowing a full-arch consult"> Shadowing a full-arch consult</label><label><input type="checkbox" name="ad_needs" value="Regular check-ins with the IW team"> Regular check-ins with the IW team</label><label><input type="checkbox" name="ad_needs" value="A written description of the lead role"> A written description of the lead role</label></div></div>
   </section>
   <section class="block">
     <div class="secnum">Step 6 of 6</div>
     <h2>In your words</h2>
     
-    <div class="field"><label for="ad_want">What would make this program a success for you and your office?</label><textarea id="ad_want" data-label="What would make this program a success for you and your office?" placeholder="e.g., feeling confident answering these calls, clear handoffs to the doctor, patients getting scheduled faster…"></textarea></div>
+    <div class="field"><label for="ad_want">What would make this program a success for you and your office?</label><textarea id="ad_want" data-label="What would make this program a success for you and your office?" placeholder="e.g., feeling confident answering these calls, clear handoffs to the doctor, patients getting scheduled faster…"></textarea></div><div class="field"><label for="ad_concern">Any concerns or questions?</label><textarea id="ad_concern" data-label="Any concerns or questions?" placeholder="e.g., workload, how to handle pricing questions, who to send calls to…"></textarea></div>
   </section>
 
   <div class="actions">
@@ -205,9 +216,9 @@ textarea{min-height:120px;line-height:1.6}
 
 <div id="result">
   <div class="rcard" style="text-align:center">
-    <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Front Office Assessment</div>
+    <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Admin & Patient Workflow</div>
     <h2 style="font-weight:400;margin-top:10px">Thank you, <span id="rName"></span>.</h2>
-    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch"><span id="sendstate">Sending your answers…</span> The IW team will review everything and build the onboarding plan around your team.</p>
+    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch"><span id="sendstate">Sending your answers…</span> The IW team will review everything and build the implementation plan around you and your team.</p>
     <div class="actions" style="margin-top:28px">
       <button class="btn btn-gold" id="emailbtn" style="display:none">Email My Results Instead →</button>
       <a class="btn btn-line" href="/">Back to All Assessments</a>
@@ -231,7 +242,7 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
 </script>
 <script>
 (function(){
-  var TITLE='IW Front Office Assessment';
+  var TITLE='IW Admin & Patient Workflow';
   var form=document.getElementById('tform'), pbar=document.getElementById('pbar');
   var nameEl=document.getElementById('ad_name'), practEl=document.getElementById('ad_practice'), emailEl=document.getElementById('ad_email');
 
