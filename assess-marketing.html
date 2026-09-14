@@ -217,8 +217,8 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <div class="actions">
-    <p class="hint" style="margin-bottom:18px">That's everything. Tap below and your email app will open with your answers addressed to the IW team — just hit send.</p>
-    <button class="btn btn-gold" type="submit">Email My Results to IW →</button>
+    <p class="hint" style="margin-bottom:18px">That's everything. Tap below to send your answers to the IW team.</p>
+    <button class="btn btn-gold" type="submit">Submit My Results →</button>
   </div>
 </form>
 
@@ -226,9 +226,9 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   <div class="rcard" style="text-align:center">
     <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Current Marketing Assessment</div>
     <h2 style="font-weight:400;margin-top:10px">Thank you, <span id="rName"></span>.</h2>
-    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch">Your email app should have opened with your answers ready to send. If it didn't, tap the button below. Once we receive them, the IW team will review everything and build your customized implementation plan.</p>
+    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch"><span id="sendstate">Sending your answers…</span> the IW team will review everything and build your customized implementation plan.</p>
     <div class="actions" style="margin-top:28px">
-      <button class="btn btn-gold" id="emailbtn">Email My Results to IW →</button>
+      <button class="btn btn-gold" id="emailbtn" style="display:none">Email My Results Instead →</button>
       <a class="btn btn-line" href="/">Back to All Assessments</a>
       <button class="btn btn-line" onclick="location.reload()">Retake</button>
     </div>
@@ -236,6 +236,13 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 </div>
 </div>
 
+<script>
+/* ========= SAVE SETTINGS =========
+   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
+   Submissions are stored in your Formspree dashboard and emailed to you.
+   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
+var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
+</script>
 <script>
 (function(){
   var form=document.getElementById('mform');
@@ -267,8 +274,8 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
     var chk=function(sel){return [...document.querySelectorAll(sel+' input:checked')].map(x=>x.value);};
     var sv=function(id){var el=document.getElementById(id);return el?el.value:'';};
     var st=function(id){var el=document.getElementById(id);return el&&el.selectedIndex>=0?el.options[el.selectedIndex].text:'';};
-    function sendResults(){
-      var body=encodeURIComponent(
+    function bodyText(){
+      return (
 'IW Marketing Assessment\n'+
 'Surgeon: '+nameEl.value.trim()+'\n'+
 'Practice: '+practEl.value.trim()+'\n'+
@@ -282,16 +289,25 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 'Tracking: '+st('track')+' | Owner: '+st('owner')+'\n'+
 'Focus areas: '+(gaps.join(', ')||'Fine-tuning only')+'\n'+
 'Frustration: '+(document.getElementById('frustration').value.trim()||'—'));
-      location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent('IW Marketing Assessment — '+nameEl.value.trim())+'&body='+body;
     }
-    document.getElementById('emailbtn').onclick=sendResults;
+    function sendEmail(){ location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent('IW Marketing Assessment'+' — '+nameEl.value.trim())+'&body='+encodeURIComponent(bodyText()); }
+    function submitResults(){
+      var st=document.getElementById('sendstate'), eb=document.getElementById('emailbtn');
+      if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
+      st.textContent='Sending your answers…';
+      fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({assessment:'IW Marketing Assessment',name:nameEl.value.trim(),email:'',practice:practEl.value.trim(),_subject:'IW Marketing Assessment'+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
+      .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
+    }
+    document.getElementById('emailbtn').onclick=sendEmail;
     document.getElementById('rName').textContent=nameEl.value.trim().split(' ')[0];
 
     form.style.display='none';
     document.querySelector('header.hero').style.display='none';
     document.getElementById('result').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
-    setTimeout(sendResults,400);
+    submitResults();
   });
 })();
 </script>

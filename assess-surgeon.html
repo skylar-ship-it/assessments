@@ -436,8 +436,8 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <div class="submitrow">
-    <p class="hint" style="margin-bottom:18px">That's everything. Tap below and your email app will open with your answers addressed to the IW team — just hit send.</p>
-    <button type="submit" class="btn btn-gold">Email My Results to IW →</button>
+    <p class="hint" style="margin-bottom:18px">That's everything. Tap below to send your answers to the IW team.</p>
+    <button type="submit" class="btn btn-gold">Submit My Results →</button>
     <p class="err" id="errmsg">Please complete all required fields — missing items are highlighted above.</p>
   </div>
 </form>
@@ -449,9 +449,9 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     <div class="wrap">
       <div class="label">Implanted Wisdom · Surgeon Experience Assessment</div>
       <h2>Thank you, <span id="p_name"></span>.</h2>
-      <p class="sub" style="margin-top:18px;max-width:52ch;margin-left:auto;margin-right:auto">Your email app should have opened with your answers ready to send. If it didn't, tap the button below. Once we receive them, the IW clinical team will review everything and build your customized implementation plan.</p>
+      <p class="sub" style="margin-top:18px;max-width:52ch;margin-left:auto;margin-right:auto"><span id="sendstate">Sending your answers…</span> the IW clinical team will review everything and build your customized implementation plan.</p>
       <div class="actions" style="margin-top:34px">
-        <button class="btn btn-gold" id="emailbtn">Email My Results to IW →</button>
+        <button class="btn btn-gold" id="emailbtn" style="display:none">Email My Results Instead →</button>
         <a class="btn btn-line" href="/">Back to All Assessments</a>
         <button class="btn btn-line" onclick="location.reload()">Retake Assessment</button>
         <p class="smallnote">Implanted Wisdom · A Surgeon-Led Boutique Consultancy · Powered by the Patient-Specific Protocol<span class="tm">™</span></p>
@@ -460,6 +460,13 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </div>
 </div>
 
+<script>
+/* ========= SAVE SETTINGS =========
+   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
+   Submissions are stored in your Formspree dashboard and emailed to you.
+   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
+var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
+</script>
 <script>
 (function(){
   const form=document.getElementById('assessform');
@@ -552,8 +559,8 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     const tlText={'now':'immediate start','1-3':'start within 1–3 months','3-6':'start within 3–6 months','6+':'exploratory — 6+ month horizon'};
 
     // email button
-    function sendResults(){
-      const body=encodeURIComponent(
+    function bodyText(){
+      return (
 `IW Surgeon Experience Assessment
 Surgeon: ${name} (${document.getElementById('f_email').value})
 Practice: ${practice}
@@ -568,9 +575,18 @@ Pillars: ${r.pillars.map(p=>`${p[0]} ${p[1]}/${p[2]}`).join(', ')}
 Goals: ${goals.join(', ')||'—'}
 Workflow notes: ${document.getElementById('f_workflow').value.trim()||'—'}
 What they want from IW: ${document.getElementById('f_want').value.trim()||'—'}`);
-      location.href=`mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject=${encodeURIComponent('IW Surgeon Experience Assessment — '+name)}&body=${body}`;
     }
-    document.getElementById('emailbtn').onclick=sendResults;
+    function sendEmail(){ location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent('IW Surgeon Experience Assessment'+' — '+name)+'&body='+encodeURIComponent(bodyText()); }
+    function submitResults(){
+      var st=document.getElementById('sendstate'), eb=document.getElementById('emailbtn');
+      if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
+      st.textContent='Sending your answers…';
+      fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify({assessment:'IW Surgeon Experience Assessment',name:name,email:document.getElementById('f_email').value.trim(),practice:practice,_subject:'IW Surgeon Experience Assessment'+' — '+name,submitted:new Date().toLocaleString(),results:bodyText()})})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
+      .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
+    }
+    document.getElementById('emailbtn').onclick=sendEmail;
 
     // show confirmation, then open the email
     document.getElementById('p_name').textContent=name.split(' ')[0]||name;
@@ -579,7 +595,7 @@ What they want from IW: ${document.getElementById('f_want').value.trim()||'—'}
     document.getElementById('profile').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
     pbar.style.width='100%';
-    setTimeout(sendResults,400);
+    submitResults();
   });
 })();
 </script>
