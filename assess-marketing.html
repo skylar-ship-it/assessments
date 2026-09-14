@@ -76,6 +76,37 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   .matrix input[type=radio]{width:24px;height:24px}
   .btn{display:block;width:100%;margin:8px 0 !important;padding:18px 20px}
 }
+
+/* ============ readability pass ============ */
+body{font-size:18px;line-height:1.75}
+.wrap{max-width:760px}
+header.hero p.sub{font-size:1.08rem;color:var(--cream-80);max-width:560px}
+.reassure{max-width:600px;margin:26px auto 0;padding:16px 22px;border:1px solid rgba(201,169,110,.35);border-radius:14px;background:rgba(201,169,110,.07);font-size:1rem;line-height:1.7;color:var(--cream)}
+.reassure b{font-weight:500;color:var(--gold-soft)}
+section.block{padding:38px 36px;margin:30px 0;border-radius:20px}
+@media(max-width:640px){section.block{padding:28px 20px}}
+.secnum{font-family:var(--body);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.9}
+section.block h2{font-size:1.9rem;margin:6px 0 8px;line-height:1.15}
+.hint,.qlabel{color:var(--cream-80)!important;font-size:1.05rem!important;line-height:1.65;margin-bottom:18px}
+.hint em{color:var(--gold-soft);font-style:italic}
+.field label{font-size:1.02rem;color:var(--cream);margin-bottom:8px;line-height:1.5}
+.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(242,238,231,.26)}
+textarea{min-height:120px;line-height:1.6}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks{gap:12px}
+.checks label{padding:15px 18px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks input,.choices input{width:20px;height:20px}
+.q{margin-bottom:28px}
+.q:last-child{margin-bottom:0}
+.qlabel .qsub{display:block;font-size:.9rem;color:var(--cream-60);margin-top:2px}
+.hint.tip{font-size:.95rem!important;color:var(--cream-60)!important;margin-top:-6px}
+.submitrow .hint,.actions .hint{font-size:1.05rem!important}
+@media(max-width:640px){
+  body{font-size:17px}
+  section.block h2{font-size:1.65rem}
+  .choices label,.checks label{padding:16px 18px}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -104,6 +135,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
     <h1>Current Marketing <em>Assessment</em></h1>
     <p class="sub">How you attract and convert patients today. About three minutes.</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">The purpose of this assessment isn't to measure how much or how little you know — it's to understand where you are today so we can best help you grow on your journey to excellence.</p>
+    <div class="reassure"><b>There are no wrong answers.</b> Only your name and practice are required — skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -111,15 +143,14 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 <form id="mform" novalidate>
 
   <section class="block">
-    <div class="secnum">00 / 05</div>
+    <div class="secnum">Step 1 of 6</div>
     <h2>About you</h2>
     <div class="field"><label for="m_name" style="font-size:1.02rem">Surgeon name *</label><input type="text" id="m_name" required autocomplete="name" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
     <div class="field" style="margin-top:14px"><label for="m_practice" style="font-size:1.02rem">Practice name *</label><input type="text" id="m_practice" required autocomplete="organization" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
-    <div class="field" style="margin-top:14px"><label for="m_email" style="font-size:1.02rem">Email *</label><input type="email" id="m_email" required autocomplete="email" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
   </section>
 
   <section class="block">
-    <div class="secnum">01 / 05</div>
+    <div class="secnum">Step 2 of 6</div>
     <h2>Where patients come from today</h2>
     <p class="hint">Check every source you currently rely on.</p>
     <div class="checks" id="sources">
@@ -153,7 +184,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">02 / 05</div>
+    <div class="secnum">Step 3 of 6</div>
     <h2>Spend &amp; paid acquisition</h2>
     <div class="field"><label for="spend">Approx. monthly marketing spend per office</label>
       <select id="spend"><option value="0">$0 — none</option><option value="1">Under $2,000</option><option value="2">$2,000–$5,000</option><option value="3">$5,000–$10,000</option><option value="4">$10,000+</option></select>
@@ -186,7 +217,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">03 / 05</div>
+    <div class="secnum">Step 4 of 6</div>
     <h2>Systems &amp; follow-up</h2>
     <div class="field"><label for="crm">CRM / lead management</label>
       <select id="crm"><option value="0">None / spreadsheet</option><option value="1">Basic CRM</option><option value="2">Full marketing CRM with automations</option><option value="1">Other CRM</option></select>
@@ -200,7 +231,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">04 / 05</div>
+    <div class="secnum">Step 5 of 6</div>
     <h2>Tracking &amp; ownership</h2>
     <div class="field"><label for="track">Do you track cost-per-lead and consult→close conversion?</label>
       <select id="track"><option value="0">No</option><option value="1">Partially</option><option value="2">Yes, closely</option></select>
@@ -211,7 +242,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">05 / 05</div>
+    <div class="secnum">Step 6 of 6</div>
     <h2>Biggest frustration</h2>
     <p class="hint">Optional — what's not working about your marketing right now?</p>
     <textarea id="frustration" rows="3" placeholder="e.g., leads don't answer, no idea what's working, referrals slowing…"></textarea>
@@ -239,12 +270,13 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 
 <script>
 /* ========= SAVE SETTINGS =========
-   Submissions are saved in the IW portal and a copy is emailed via Formspree (set in the portal backend). */
-/* Answers go to the IW portal (saved to the surgeon's login, then forwarded to Formspree for the email). */
-var IW_ENDPOINT='https://portal.implantedwisdom.com/webhooks/onboarding?json=1&step=marketing';
+   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
+   Submissions are stored in your Formspree dashboard and emailed to you.
+   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
+var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
 
 /* remember who they are across the three assessments (stored only in this browser) */
-var IW_IDS={name:'m_name',practice:'m_practice',email:'m_email'};
+var IW_IDS={name:'m_name',practice:'m_practice'};
 function iwRemember(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&el.value.trim()) o[k]=el.value.trim(); } localStorage.setItem('iw_identity',JSON.stringify(o)); }catch(e){} }
 function iwPrefill(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&!el.value&&o[k]) el.value=o[k]; } }catch(e){} }
 document.addEventListener('DOMContentLoaded',iwPrefill);
@@ -254,8 +286,8 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
   var form=document.getElementById('mform');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var nameEl=document.getElementById('m_name'),practEl=document.getElementById('m_practice'),emailEl=document.getElementById('m_email');
-    var okId=true;[nameEl,practEl,emailEl].forEach(function(el){if(!el.value.trim()){okId=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
+    var nameEl=document.getElementById('m_name'),practEl=document.getElementById('m_practice');
+    var okId=true;[nameEl,practEl].forEach(function(el){if(!el.value.trim()){okId=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
     if(!okId){window.scrollTo({top:0,behavior:'smooth'});return;}
     function v(id){return +document.getElementById(id).value;}
     var sources=[...document.querySelectorAll('#sources input:checked')].map(x=>x.value);
@@ -302,7 +334,7 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
       if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
       st.textContent='Sending your answers…';
       fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({assessment:'IW Marketing Assessment',name:nameEl.value.trim(),email:emailEl.value.trim().toLowerCase(),practice:practEl.value.trim(),_subject:'IW Marketing Assessment'+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
+        body:JSON.stringify({assessment:'IW Marketing Assessment',name:nameEl.value.trim(),email:'',practice:practEl.value.trim(),_subject:'IW Marketing Assessment'+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
       .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
     }

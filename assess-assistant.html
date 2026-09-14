@@ -93,6 +93,45 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 .matrix input[type=radio]{width:24px;height:24px}
 .choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
 .field textarea{min-height:110px}
+
+/* ============ readability pass ============ */
+body{font-size:18px;line-height:1.75}
+.wrap{max-width:760px}
+header.hero p.sub{font-size:1.08rem;color:var(--cream-80);max-width:560px}
+.reassure{max-width:600px;margin:26px auto 0;padding:16px 22px;border:1px solid rgba(201,169,110,.35);border-radius:14px;background:rgba(201,169,110,.07);font-size:1rem;line-height:1.7;color:var(--cream)}
+.reassure b{font-weight:500;color:var(--gold-soft)}
+section.block{padding:38px 36px;margin:30px 0;border-radius:20px}
+@media(max-width:640px){section.block{padding:28px 20px}}
+.secnum{font-family:var(--body);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.9}
+section.block h2{font-size:1.9rem;margin:6px 0 8px;line-height:1.15}
+.hint,.qlabel{color:var(--cream-80)!important;font-size:1.05rem!important;line-height:1.65;margin-bottom:18px}
+.hint em{color:var(--gold-soft);font-style:italic}
+.field label{font-size:1.02rem;color:var(--cream);margin-bottom:8px;line-height:1.5}
+.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(242,238,231,.26)}
+textarea{min-height:120px;line-height:1.6}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks{gap:12px}
+.checks label{padding:15px 18px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks input,.choices input{width:20px;height:20px}
+.q{margin-bottom:28px}
+.q:last-child{margin-bottom:0}
+.qlabel .qsub{display:block;font-size:.9rem;color:var(--cream-60);margin-top:2px}
+.hint.tip{font-size:.95rem!important;color:var(--cream-60)!important;margin-top:-6px}
+.submitrow .hint,.actions .hint{font-size:1.05rem!important}
+@media(max-width:640px){
+  body{font-size:17px}
+  section.block h2{font-size:1.65rem}
+  .choices label,.checks label{padding:16px 18px}
+}
+
+/* compact scale pills (short numeric answers) stay in a row on mobile */
+.choices.compact label{padding:12px 16px}
+@media(max-width:640px){
+  .choices.compact{flex-direction:row;flex-wrap:wrap}
+  .choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}
+  .choices.compact label input{display:none}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -121,6 +160,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
     <h1>Surgical Assistant <em>Assessment</em></h1>
     <p class="sub">For surgical and dental assistants supporting full-arch cases. About five minutes.</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">This isn't a test of how much or how little you know — it's here so we can understand where you are today and give you the right support on your journey to excellence.</p>
+    <div class="reassure"><b>There are no wrong answers.</b> Only your name and practice are required — skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -128,37 +168,42 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 <form id="tform" novalidate>
 
   <section class="block">
-    <div class="secnum">00 / 05</div>
+    <div class="secnum">Step 1 of 6</div>
     <h2>About you</h2>
     
     <div class="field"><label for="as_name" style="font-size:1.02rem">Your name *</label><input type="text" id="as_name" required autocomplete="name" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div><div class="field" style="margin-top:14px"><label for="as_practice" style="font-size:1.02rem">Practice / office *</label><input type="text" id="as_practice" required autocomplete="organization" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div><div class="field" style="margin-top:14px"><label for="as_email">Email (optional)</label><input type="email" id="as_email" data-label="Email" autocomplete="email"></div><div class="field"><label for="as_role">Your role</label><select id="as_role" data-label="Your role"><option value="">Select…</option><option>Surgical assistant</option><option>Lead surgical assistant</option><option>Dental assistant</option><option>Hygienist</option><option>Lab / digital technician</option><option>Other</option></select></div><div class="field"><label for="as_years">Years assisting in oral surgery</label><select id="as_years" data-label="Years assisting in oral surgery"><option value="">Select…</option><option>Less than 1</option><option>1–3</option><option>4–7</option><option>8–15</option><option>15+</option></select></div><div class="field"><label for="as_docs">Which doctor(s) do you primarily assist?</label><input type="text" id="as_docs" data-label="Which doctor(s) do you primarily assist?" placeholder=""></div>
   </section>
   <section class="block">
-    <div class="secnum">01 / 05</div>
+    <div class="secnum">Step 2 of 6</div>
     <h2>Implant & full-arch experience</h2>
     
     <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How much chairside experience do you have with single implant placement?</div><div class="choices"><label><input type="radio" name="as_single" value="None yet"> None yet</label><label><input type="radio" name="as_single" value="A handful of cases"> A handful of cases</label><label><input type="radio" name="as_single" value="Regularly"> Regularly</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How much chairside experience do you have with full-arch (All-on-X) surgery?</div><div class="choices"><label><input type="radio" name="as_fa" value="Never seen one"> Never seen one</label><label><input type="radio" name="as_fa" value="Observed, but haven&#x27;t assisted"> Observed, but haven't assisted</label><label><input type="radio" name="as_fa" value="Assisted a few"> Assisted a few</label><label><input type="radio" name="as_fa" value="Assist regularly"> Assist regularly</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Which parts of a full-arch case are you comfortable with? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="as_steps" value="Tray &amp; room setup for full-arch"> Tray & room setup for full-arch</label><label><input type="checkbox" name="as_steps" value="Extractions &amp; bone reduction support"> Extractions & bone reduction support</label><label><input type="checkbox" name="as_steps" value="Multi-unit abutment handling"> Multi-unit abutment handling</label><label><input type="checkbox" name="as_steps" value="Immediate-load / conversion prosthesis"> Immediate-load / conversion prosthesis</label><label><input type="checkbox" name="as_steps" value="Occlusion check &amp; adjustments"> Occlusion check & adjustments</label><label><input type="checkbox" name="as_steps" value="Post-op instructions &amp; follow-up"> Post-op instructions & follow-up</label><label><input type="checkbox" name="as_steps" value="Sedation / anesthesia support"> Sedation / anesthesia support</label><label><input type="checkbox" name="as_steps" value="None yet — that&#x27;s why I&#x27;m here"> None yet — that's why I'm here</label></div></div>
   </section>
   <section class="block">
-    <div class="secnum">02 / 05</div>
+    <div class="secnum">Step 3 of 6</div>
     <h2>Digital workflow skills</h2>
     <p class="hint">Be honest — "Never" is a completely fine answer. This tells us exactly where to start.</p>
-    <table class="matrix"><thead><tr><th>Skill</th><th>Never</th><th>Watched it done</th><th>Done with help</th><th>Comfortable solo</th></tr></thead><tbody><tr><td>Intraoral scanning<span>iOS scanner (iTero, Trios, Medit…)</span></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Never"></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Watched it done"></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Done with help"></td><td><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Comfortable solo"></td></tr><tr><td>CBCT capture<span>Cone-beam imaging</span></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Never"></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Watched it done"></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Done with help"></td><td><input type="radio" name="as_skill1" data-label="CBCT capture" value="Comfortable solo"></td></tr><tr><td>Photogrammetry<span>Implant position capture</span></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Never"></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Watched it done"></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Done with help"></td><td><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Comfortable solo"></td></tr><tr><td>3D printing<span>SprintRay or similar — setup, printing, post-processing</span></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Never"></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Watched it done"></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Done with help"></td><td><input type="radio" name="as_skill3" data-label="3D printing" value="Comfortable solo"></td></tr><tr><td>Staining & glazing<span>Characterizing printed teeth</span></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Never"></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Watched it done"></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Done with help"></td><td><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Comfortable solo"></td></tr><tr><td>Design software<span>Exocad, 3Shape, or similar</span></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Never"></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Watched it done"></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Done with help"></td><td><input type="radio" name="as_skill5" data-label="Design software" value="Comfortable solo"></td></tr></tbody></table>
+    <div class="q"><div class="qlabel">Intraoral scanning<span class="qsub">iOS scanner (iTero, Trios, Medit…)</span></div><div class="choices compact"><label><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Never"> Never</label><label><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill0" data-label="Intraoral scanning" value="Comfortable solo"> Comfortable solo</label></div></div>
+<div class="q"><div class="qlabel">CBCT capture<span class="qsub">Cone-beam imaging</span></div><div class="choices compact"><label><input type="radio" name="as_skill1" data-label="CBCT capture" value="Never"> Never</label><label><input type="radio" name="as_skill1" data-label="CBCT capture" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill1" data-label="CBCT capture" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill1" data-label="CBCT capture" value="Comfortable solo"> Comfortable solo</label></div></div>
+<div class="q"><div class="qlabel">Photogrammetry<span class="qsub">Implant position capture</span></div><div class="choices compact"><label><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Never"> Never</label><label><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill2" data-label="Photogrammetry" value="Comfortable solo"> Comfortable solo</label></div></div>
+<div class="q"><div class="qlabel">3D printing<span class="qsub">SprintRay or similar — setup, printing, post-processing</span></div><div class="choices compact"><label><input type="radio" name="as_skill3" data-label="3D printing" value="Never"> Never</label><label><input type="radio" name="as_skill3" data-label="3D printing" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill3" data-label="3D printing" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill3" data-label="3D printing" value="Comfortable solo"> Comfortable solo</label></div></div>
+<div class="q"><div class="qlabel">Staining & glazing<span class="qsub">Characterizing printed teeth</span></div><div class="choices compact"><label><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Never"> Never</label><label><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill4" data-label="Staining &amp; glazing" value="Comfortable solo"> Comfortable solo</label></div></div>
+<div class="q"><div class="qlabel">Design software<span class="qsub">Exocad, 3Shape, or similar</span></div><div class="choices compact"><label><input type="radio" name="as_skill5" data-label="Design software" value="Never"> Never</label><label><input type="radio" name="as_skill5" data-label="Design software" value="Watched it done"> Watched it done</label><label><input type="radio" name="as_skill5" data-label="Design software" value="Done with help"> Done with help</label><label><input type="radio" name="as_skill5" data-label="Design software" value="Comfortable solo"> Comfortable solo</label></div></div>
   </section>
   <section class="block">
-    <div class="secnum">03 / 05</div>
+    <div class="secnum">Step 4 of 6</div>
     <h2>Hands-on aptitude</h2>
     <p class="hint">Staining and glazing a printed arch is closer to detail-oriented craft work than to surgery.</p>
     <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">How comfortable are you with fine, detail-oriented hands-on tasks?</div><div class="choices"><label><input type="radio" name="as_hands" value="1 — Not my strength"> 1 — Not my strength</label><label><input type="radio" name="as_hands" value="2"> 2</label><label><input type="radio" name="as_hands" value="3 — Comfortable"> 3 — Comfortable</label><label><input type="radio" name="as_hands" value="4"> 4</label><label><input type="radio" name="as_hands" value="5 — I love this kind of work"> 5 — I love this kind of work</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you have hobbies or experience with detail work — painting, crafts, nail art, model work, baking decoration, anything like that?</div><div class="choices"><label><input type="radio" name="as_hobby" value="Yes"> Yes</label><label><input type="radio" name="as_hobby" value="A little"> A little</label><label><input type="radio" name="as_hobby" value="Not really"> Not really</label></div></div><div class="field"><label for="as_hobby_what">If yes, what?</label><input type="text" id="as_hobby_what" data-label="If yes, what?" placeholder=""></div>
   </section>
   <section class="block">
-    <div class="secnum">04 / 05</div>
+    <div class="secnum">Step 5 of 6</div>
     <h2>Being the assistant lead</h2>
     <p class="hint">Each office will have one lead assistant for the full-arch program — the person who owns setup, the digital workflow, and training the rest of the team.</p>
     <div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Would you be interested in being that person for your office?</div><div class="choices"><label><input type="radio" name="as_lead" value="Yes — I&#x27;d like to lead this"> Yes — I'd like to lead this</label><label><input type="radio" name="as_lead" value="Maybe — I&#x27;d want to know more first"> Maybe — I'd want to know more first</label><label><input type="radio" name="as_lead" value="I&#x27;d rather support someone else in the role"> I'd rather support someone else in the role</label><label><input type="radio" name="as_lead" value="No, not for me"> No, not for me</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">What would help you feel prepared? Check all that apply.</div><div class="checks"><label><input type="checkbox" name="as_needs" value="Hands-on training day"> Hands-on training day</label><label><input type="checkbox" name="as_needs" value="Step-by-step tray setup guide"> Step-by-step tray setup guide</label><label><input type="checkbox" name="as_needs" value="Video library of each step"> Video library of each step</label><label><input type="checkbox" name="as_needs" value="Shadowing a case at Pulver Oral Surgery"> Shadowing a case at Pulver Oral Surgery</label><label><input type="checkbox" name="as_needs" value="Scanner &amp; printer training"> Scanner & printer training</label><label><input type="checkbox" name="as_needs" value="Staining &amp; glazing workshop"> Staining & glazing workshop</label><label><input type="checkbox" name="as_needs" value="Regular check-ins with the IW team"> Regular check-ins with the IW team</label><label><input type="checkbox" name="as_needs" value="A written description of the role"> A written description of the role</label></div></div><div class="field"><label for="as_concern">Any concerns or questions about the program?</label><textarea id="as_concern" data-label="Any concerns or questions about the program?" placeholder="e.g., time away from other duties, learning curve, who to ask when something goes wrong…"></textarea></div>
   </section>
   <section class="block">
-    <div class="secnum">05 / 05</div>
+    <div class="secnum">Step 6 of 6</div>
     <h2>In your words</h2>
     
     <div class="field"><label for="as_want">What would make this program a success for you?</label><textarea id="as_want" data-label="What would make this program a success for you?" placeholder="e.g., feeling confident running the workflow without the doctor hovering, learning skills that grow my career…"></textarea></div>

@@ -76,6 +76,37 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   .matrix input[type=radio]{width:24px;height:24px}
   .btn{display:block;width:100%;margin:8px 0 !important;padding:18px 20px}
 }
+
+/* ============ readability pass ============ */
+body{font-size:18px;line-height:1.75}
+.wrap{max-width:760px}
+header.hero p.sub{font-size:1.08rem;color:var(--cream-80);max-width:560px}
+.reassure{max-width:600px;margin:26px auto 0;padding:16px 22px;border:1px solid rgba(201,169,110,.35);border-radius:14px;background:rgba(201,169,110,.07);font-size:1rem;line-height:1.7;color:var(--cream)}
+.reassure b{font-weight:500;color:var(--gold-soft)}
+section.block{padding:38px 36px;margin:30px 0;border-radius:20px}
+@media(max-width:640px){section.block{padding:28px 20px}}
+.secnum{font-family:var(--body);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.9}
+section.block h2{font-size:1.9rem;margin:6px 0 8px;line-height:1.15}
+.hint,.qlabel{color:var(--cream-80)!important;font-size:1.05rem!important;line-height:1.65;margin-bottom:18px}
+.hint em{color:var(--gold-soft);font-style:italic}
+.field label{font-size:1.02rem;color:var(--cream);margin-bottom:8px;line-height:1.5}
+.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(242,238,231,.26)}
+textarea{min-height:120px;line-height:1.6}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks{gap:12px}
+.checks label{padding:15px 18px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks input,.choices input{width:20px;height:20px}
+.q{margin-bottom:28px}
+.q:last-child{margin-bottom:0}
+.qlabel .qsub{display:block;font-size:.9rem;color:var(--cream-60);margin-top:2px}
+.hint.tip{font-size:.95rem!important;color:var(--cream-60)!important;margin-top:-6px}
+.submitrow .hint,.actions .hint{font-size:1.05rem!important}
+@media(max-width:640px){
+  body{font-size:17px}
+  section.block h2{font-size:1.65rem}
+  .choices label,.checks label{padding:16px 18px}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -104,6 +135,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
     <h1>Inner Circle <em>Assessment</em></h1>
     <p class="sub">The health of your referral network. About three minutes.</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">The purpose of this assessment isn't to measure how much or how little you know — it's to understand where you are today so we can best help you grow on your journey to excellence.</p>
+    <div class="reassure"><b>There are no wrong answers.</b> Only your name and practice are required — skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -111,15 +143,14 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 <form id="icform" novalidate>
 
   <section class="block">
-    <div class="secnum">00 / 05</div>
+    <div class="secnum">Step 1 of 6</div>
     <h2>About you</h2>
     <div class="field"><label for="ic_name" style="font-size:1.02rem">Surgeon name *</label><input type="text" id="ic_name" required autocomplete="name" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
     <div class="field" style="margin-top:14px"><label for="ic_practice" style="font-size:1.02rem">Practice name *</label><input type="text" id="ic_practice" required autocomplete="organization" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
-    <div class="field" style="margin-top:14px"><label for="ic_email" style="font-size:1.02rem">Email *</label><input type="email" id="ic_email" required autocomplete="email" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
   </section>
 
   <section class="block">
-    <div class="secnum">01 / 05</div>
+    <div class="secnum">Step 2 of 6</div>
     <h2>Your referral base</h2>
     <div class="field"><label for="count">Active referring GPs / dentists today</label>
       <select id="count"><option value="0">None</option><option value="1">1–5</option><option value="2">6–15</option><option value="2">16+</option></select>
@@ -153,7 +184,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">02 / 05</div>
+    <div class="secnum">Step 3 of 6</div>
     <h2>How you stay connected</h2>
     <p class="hint">Check how you communicate with referrers today.</p>
     <div class="checks" id="channels">
@@ -167,7 +198,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">03 / 05</div>
+    <div class="secnum">Step 4 of 6</div>
     <h2>Awareness &amp; loyalty</h2>
     <div class="field"><label for="aware">Do your referrers know you do full-arch?</label>
       <select id="aware"><option value="0">Not really</option><option value="1">Some do</option><option value="2">Most do</option></select>
@@ -192,7 +223,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">04 / 05</div>
+    <div class="secnum">Step 5 of 6</div>
     <h2>The DTC concern</h2>
     <div class="field"><label for="concern">Do you worry DTC marketing could hurt your GP referrals?</label>
       <select id="concern"><option value="0">Yes — a real concern</option><option value="1">Somewhat</option><option value="2">No</option></select>
@@ -206,7 +237,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
   </section>
 
   <section class="block">
-    <div class="secnum">05 / 05</div>
+    <div class="secnum">Step 6 of 6</div>
     <h2>Anything else</h2>
     <p class="hint">Optional — what's your biggest referral challenge?</p>
     <textarea id="notes" rows="3" placeholder="e.g., a big referrer started placing their own, or referrals are slowing…"></textarea>
@@ -234,12 +265,13 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 
 <script>
 /* ========= SAVE SETTINGS =========
-   Submissions are saved in the IW portal and a copy is emailed via Formspree (set in the portal backend). */
-/* Answers go to the IW portal (saved to the surgeon's login, then forwarded to Formspree for the email). */
-var IW_ENDPOINT='https://portal.implantedwisdom.com/webhooks/onboarding?json=1&step=inner';
+   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
+   Submissions are stored in your Formspree dashboard and emailed to you.
+   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
+var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
 
 /* remember who they are across the three assessments (stored only in this browser) */
-var IW_IDS={name:'ic_name',practice:'ic_practice',email:'ic_email'};
+var IW_IDS={name:'ic_name',practice:'ic_practice'};
 function iwRemember(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&el.value.trim()) o[k]=el.value.trim(); } localStorage.setItem('iw_identity',JSON.stringify(o)); }catch(e){} }
 function iwPrefill(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&!el.value&&o[k]) el.value=o[k]; } }catch(e){} }
 document.addEventListener('DOMContentLoaded',iwPrefill);
@@ -249,8 +281,8 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
   var form=document.getElementById('icform');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var nameEl=document.getElementById('ic_name'),practEl=document.getElementById('ic_practice'),emailEl=document.getElementById('ic_email');
-    var okId=true;[nameEl,practEl,emailEl].forEach(function(el){if(!el.value.trim()){okId=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
+    var nameEl=document.getElementById('ic_name'),practEl=document.getElementById('ic_practice');
+    var okId=true;[nameEl,practEl].forEach(function(el){if(!el.value.trim()){okId=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
     if(!okId){window.scrollTo({top:0,behavior:'smooth'});return;}
     function v(id){return +document.getElementById(id).value;}
     var dims=[
@@ -298,7 +330,7 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
       if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
       st.textContent='Sending your answers…';
       fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({assessment:'IW Inner Circle Assessment',name:nameEl.value.trim(),email:emailEl.value.trim().toLowerCase(),practice:practEl.value.trim(),_subject:'IW Inner Circle Assessment'+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
+        body:JSON.stringify({assessment:'IW Inner Circle Assessment',name:nameEl.value.trim(),email:'',practice:practEl.value.trim(),_subject:'IW Inner Circle Assessment'+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
       .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
     }

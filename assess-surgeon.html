@@ -175,6 +175,45 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   .matrix input[type=radio]{width:24px;height:24px}
   .btn{display:block;width:100%;margin:8px 0 !important;padding:18px 20px}
 }
+
+/* ============ readability pass ============ */
+body{font-size:18px;line-height:1.75}
+.wrap{max-width:760px}
+header.hero p.sub{font-size:1.08rem;color:var(--cream-80);max-width:560px}
+.reassure{max-width:600px;margin:26px auto 0;padding:16px 22px;border:1px solid rgba(201,169,110,.35);border-radius:14px;background:rgba(201,169,110,.07);font-size:1rem;line-height:1.7;color:var(--cream)}
+.reassure b{font-weight:500;color:var(--gold-soft)}
+section.block{padding:38px 36px;margin:30px 0;border-radius:20px}
+@media(max-width:640px){section.block{padding:28px 20px}}
+.secnum{font-family:var(--body);font-size:.82rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.9}
+section.block h2{font-size:1.9rem;margin:6px 0 8px;line-height:1.15}
+.hint,.qlabel{color:var(--cream-80)!important;font-size:1.05rem!important;line-height:1.65;margin-bottom:18px}
+.hint em{color:var(--gold-soft);font-style:italic}
+.field label{font-size:1.02rem;color:var(--cream);margin-bottom:8px;line-height:1.5}
+.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(242,238,231,.26)}
+textarea{min-height:120px;line-height:1.6}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks{gap:12px}
+.checks label{padding:15px 18px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.checks input,.choices input{width:20px;height:20px}
+.q{margin-bottom:28px}
+.q:last-child{margin-bottom:0}
+.qlabel .qsub{display:block;font-size:.9rem;color:var(--cream-60);margin-top:2px}
+.hint.tip{font-size:.95rem!important;color:var(--cream-60)!important;margin-top:-6px}
+.submitrow .hint,.actions .hint{font-size:1.05rem!important}
+@media(max-width:640px){
+  body{font-size:17px}
+  section.block h2{font-size:1.65rem}
+  .choices label,.checks label{padding:16px 18px}
+}
+
+/* compact scale pills (short numeric answers) stay in a row on mobile */
+.choices.compact label{padding:12px 16px}
+@media(max-width:640px){
+  .choices.compact{flex-direction:row;flex-wrap:wrap}
+  .choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}
+  .choices.compact label input{display:none}
+}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -206,6 +245,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
     <h1>Surgeon Experience <em>Assessment</em></h1>
     <p class="sub">Your clinical and operational baseline. About five minutes.</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">The purpose of this assessment isn't to measure how much or how little you know — it's to understand where you are today so we can best help you grow on your journey to excellence.</p>
+    <div class="reassure"><b>There are no wrong answers.</b> Only your name and practice are required — skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -213,7 +253,21 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
 <form id="assessform" novalidate>
 
   <section class="block">
-    <div class="secnum">01 / 11</div>
+    <div class="secnum">Step 1 of 11</div>
+    <h2>Your Personal Interest in Full-Arch</h2>
+    <p class="hint">Setting the practice aside for a moment — do <em>you</em> personally want to bring full-arch cases into your own practice and workflow?</p>
+    <div class="choices">
+      <label><input type="radio" name="interest" value="Yes — I want to make full-arch a core part of my practice"> Yes — I want full-arch to be a core part of my practice</label>
+      <label><input type="radio" name="interest" value="Yes — a few cases a month would be a welcome addition"> Yes — even a few cases a month would be a welcome addition</label>
+      <label><input type="radio" name="interest" value="Open to it, but have reservations"> I'm open to it, but I have reservations</label>
+      <label><input type="radio" name="interest" value="Not right now"> Not right now</label>
+    </div>
+    <div class="field" style="margin-top:18px"><label for="f_interest_why">What's driving that answer? (workload, reimbursement, confidence, team, anything else)</label>
+      <textarea id="f_interest_why" placeholder="e.g., Interested, but concerned about chair time compared to thirds and whether my assistants can support it…"></textarea></div>
+  </section>
+
+  <section class="block">
+    <div class="secnum">Step 2 of 11</div>
     <h2>Practice Profile</h2>
     <p class="hint">Who you are and where you practice.</p>
     <div class="grid2">
@@ -242,7 +296,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
       </div>
     </div>
     <div style="margin-top:22px;padding-top:18px;border-top:1px dashed rgba(242,238,231,.15)">
-      <p class="hint" style="margin-bottom:12px"><strong style="font-weight:500;color:var(--ink)">Your full-arch vision.</strong> How do you see full-arch fitting into your practice?</p>
+      <p class="hint" style="margin-bottom:12px"><strong style="font-weight:500;color:var(--gold-soft)">Your full-arch vision.</strong> How do you see full-arch fitting into your practice?</p>
       <div class="field" style="margin-bottom:14px">
         <label for="f_enthusiasm">My excitement and enthusiasm to move fully into full-arch (0 = less likely · 10 = most likely)</label>
         <select id="f_enthusiasm">
@@ -268,36 +322,22 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">02 / 11</div>
+    <div class="secnum">Step 3 of 11</div>
     <h2>Case Experience by Procedure</h2>
     <p class="hint">Approximate lifetime case counts as primary surgeon.</p>
-    <table class="matrix">
-      <thead><tr><th>Procedure</th><th>None</th><th>1–10</th><th>11–50</th><th>51–200</th><th>200+</th></tr></thead>
-      <tbody>
-        <tr><td>All-on-X full arch<span>Fixed full-arch on 4–6 implants</span></td>
-          <td><input type="radio" name="exp_aox" value="0"></td><td><input type="radio" name="exp_aox" value="1"></td><td><input type="radio" name="exp_aox" value="2"></td><td><input type="radio" name="exp_aox" value="3"></td><td><input type="radio" name="exp_aox" value="4"></td></tr>
-        <tr><td>All-on-X same-day / next-day delivery<span>Immediate-load workflow with day-of or next-day prosthesis</span></td>
-          <td><input type="radio" name="exp_aoxsd" value="0"></td><td><input type="radio" name="exp_aoxsd" value="1"></td><td><input type="radio" name="exp_aoxsd" value="2"></td><td><input type="radio" name="exp_aoxsd" value="3"></td><td><input type="radio" name="exp_aoxsd" value="4"></td></tr>
-        <tr><td>FP3 restorations<span>Fixed full-arch prosthesis with prosthetic pink</span></td>
-          <td><input type="radio" name="exp_fp3" value="0"></td><td><input type="radio" name="exp_fp3" value="1"></td><td><input type="radio" name="exp_fp3" value="2"></td><td><input type="radio" name="exp_fp3" value="3"></td><td><input type="radio" name="exp_fp3" value="4"></td></tr>
-        <tr><td>FP1 restorations<span>Tooth-only fixed prosthesis, no pink</span></td>
-          <td><input type="radio" name="exp_fp1" value="0"></td><td><input type="radio" name="exp_fp1" value="1"></td><td><input type="radio" name="exp_fp1" value="2"></td><td><input type="radio" name="exp_fp1" value="3"></td><td><input type="radio" name="exp_fp1" value="4"></td></tr>
-        <tr><td>Traditional sequenced implant care<span>Full-mouth extraction, grafting, immediate/future placement, healing, referral to dentist for prosthesis</span></td>
-          <td><input type="radio" name="exp_trad" value="0"></td><td><input type="radio" name="exp_trad" value="1"></td><td><input type="radio" name="exp_trad" value="2"></td><td><input type="radio" name="exp_trad" value="3"></td><td><input type="radio" name="exp_trad" value="4"></td></tr>
-        <tr><td>Guided surgery — individual implant<span>Static/dynamic guide for single-implant placement</span></td>
-          <td><input type="radio" name="exp_gsi" value="0"></td><td><input type="radio" name="exp_gsi" value="1"></td><td><input type="radio" name="exp_gsi" value="2"></td><td><input type="radio" name="exp_gsi" value="3"></td><td><input type="radio" name="exp_gsi" value="4"></td></tr>
-        <tr><td>Guided surgery — full arch<span>Guided full-arch treatment</span></td>
-          <td><input type="radio" name="exp_gsf" value="0"></td><td><input type="radio" name="exp_gsf" value="1"></td><td><input type="radio" name="exp_gsf" value="2"></td><td><input type="radio" name="exp_gsf" value="3"></td><td><input type="radio" name="exp_gsf" value="4"></td></tr>
-        <tr><td>Zygomatic implants<span>Zygoma-anchored, severe maxillary atrophy</span></td>
-          <td><input type="radio" name="exp_zygo" value="0"></td><td><input type="radio" name="exp_zygo" value="1"></td><td><input type="radio" name="exp_zygo" value="2"></td><td><input type="radio" name="exp_zygo" value="3"></td><td><input type="radio" name="exp_zygo" value="4"></td></tr>
-        <tr><td>Pterygoid implants<span>Posterior maxilla, graftless</span></td>
-          <td><input type="radio" name="exp_ptery" value="0"></td><td><input type="radio" name="exp_ptery" value="1"></td><td><input type="radio" name="exp_ptery" value="2"></td><td><input type="radio" name="exp_ptery" value="3"></td><td><input type="radio" name="exp_ptery" value="4"></td></tr>
-      </tbody>
-    </table>
+    <div class="q"><div class="qlabel">All-on-X full arch<span class="qsub">Fixed full-arch on 4–6 implants</span></div><div class="choices compact"><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="0"> None</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="1"> 1–10</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="2"> 11–50</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="3"> 51–200</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">All-on-X same-day / next-day delivery<span class="qsub">Immediate-load workflow with day-of or next-day prosthesis</span></div><div class="choices compact"><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="0"> None</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="1"> 1–10</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="2"> 11–50</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="3"> 51–200</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">FP3 restorations<span class="qsub">Fixed full-arch prosthesis with prosthetic pink</span></div><div class="choices compact"><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="0"> None</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="1"> 1–10</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="2"> 11–50</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="3"> 51–200</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">FP1 restorations<span class="qsub">Tooth-only fixed prosthesis, no pink</span></div><div class="choices compact"><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="0"> None</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="1"> 1–10</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="2"> 11–50</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="3"> 51–200</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">Traditional sequenced implant care<span class="qsub">Full-mouth extraction, grafting, immediate/future placement, healing, referral to dentist for prosthesis</span></div><div class="choices compact"><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="0"> None</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="1"> 1–10</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="2"> 11–50</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="3"> 51–200</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">Guided surgery — individual implant<span class="qsub">Static/dynamic guide for single-implant placement</span></div><div class="choices compact"><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="0"> None</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="1"> 1–10</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="2"> 11–50</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="3"> 51–200</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">Guided surgery — full arch<span class="qsub">Guided full-arch treatment</span></div><div class="choices compact"><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="0"> None</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="1"> 1–10</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="2"> 11–50</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="3"> 51–200</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">Zygomatic implants<span class="qsub">Zygoma-anchored, severe maxillary atrophy</span></div><div class="choices compact"><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="0"> None</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="1"> 1–10</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="2"> 11–50</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="3"> 51–200</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="4"> 200+</label></div></div>
+<div class="q"><div class="qlabel">Pterygoid implants<span class="qsub">Posterior maxilla, graftless</span></div><div class="choices compact"><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="0"> None</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="1"> 1–10</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="2"> 11–50</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="3"> 51–200</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="4"> 200+</label></div></div>
   </section>
 
   <section class="block">
-    <div class="secnum">03 / 11</div>
+    <div class="secnum">Step 4 of 11</div>
     <h2>Annual Full-Arch Volume</h2>
     <p class="hint">Arches per year, per individual provider — current pace.</p>
     <div class="choices">
@@ -310,7 +350,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">04 / 11</div>
+    <div class="secnum">Step 5 of 11</div>
     <h2>Digital Workflow Experience</h2>
     <p class="hint">Which best describes your current digital experience?</p>
     <div class="choices" style="flex-direction:column;align-items:flex-start">
@@ -334,7 +374,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">05 / 11</div>
+    <div class="secnum">Step 6 of 11</div>
     <h2>Current Equipment</h2>
     <p class="hint">Check everything currently in your practice.</p>
     <div class="checks" id="equip">
@@ -349,7 +389,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">06 / 11</div>
+    <div class="secnum">Step 7 of 11</div>
     <h2>Team Structure</h2>
     <div class="grid2">
       <div class="field"><label for="f_surgeons">Surgeons placing implants</label>
@@ -394,14 +434,14 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">07 / 11</div>
+    <div class="secnum">Step 8 of 11</div>
     <h2>Current Full-Arch Workflow</h2>
     <p class="hint">Briefly describe your current protocol from consult to final prosthesis (or write "not yet offering").</p>
     <textarea id="f_workflow" placeholder="e.g., CBCT + guided placement, conversion denture day-of, lab-fabricated final at 4 months…"></textarea>
   </section>
 
   <section class="block">
-    <div class="secnum">08 / 11</div>
+    <div class="secnum">Step 9 of 11</div>
     <h2>Clinical Goals &amp; Training Interests</h2>
     <p class="hint">Check all that apply.</p>
     <div class="checks">
@@ -417,28 +457,14 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">09 / 11</div>
-    <h2>Your Personal Interest in Full-Arch</h2>
-    <p class="hint">Setting the practice aside for a moment — do <em>you</em> personally want to bring full-arch cases into your own practice and workflow?</p>
-    <div class="choices">
-      <label><input type="radio" name="interest" value="Yes — I want to make full-arch a core part of my practice"> Yes — I want full-arch to be a core part of my practice</label>
-      <label><input type="radio" name="interest" value="Yes — a few cases a month would be a welcome addition"> Yes — even a few cases a month would be a welcome addition</label>
-      <label><input type="radio" name="interest" value="Open to it, but have reservations"> I'm open to it, but I have reservations</label>
-      <label><input type="radio" name="interest" value="Not right now"> Not right now</label>
-    </div>
-    <div class="field" style="margin-top:18px"><label for="f_interest_why">What's driving that answer? (workload, reimbursement, confidence, team, anything else)</label>
-      <textarea id="f_interest_why" placeholder="e.g., Interested, but concerned about chair time compared to thirds and whether my assistants can support it…"></textarea></div>
-  </section>
-
-  <section class="block">
-    <div class="secnum">10 / 11</div>
+    <div class="secnum">Step 10 of 11</div>
     <h2>What You Want From the IW Program</h2>
     <p class="hint">In your own words — what are you hoping to get out of working with Implanted Wisdom? What would make this a success for you and your practice?</p>
     <textarea id="f_want" placeholder="e.g., I want to confidently offer same-day full-arch, build a team that can run the workflow without me, and grow to 50+ arches a year…"></textarea>
   </section>
 
   <section class="block">
-    <div class="secnum">11 / 11</div>
+    <div class="secnum">Step 11 of 11</div>
     <h2>Timeline</h2>
     <p class="hint">When do you want to begin implementation?</p>
     <div class="choices">
