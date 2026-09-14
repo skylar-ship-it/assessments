@@ -5,160 +5,61 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="robots" content="noindex">
 <title>Doctor Readiness & Goals — Implanted Wisdom</title>
-<meta property="og:title" content="Doctor Readiness & Goals — Implanted Wisdom">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://implantedwisdomcollective.com/og-image.png">
-<meta property="og:url" content="https://implantedwisdomcollective.com/surgeon-assessment.html">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://implantedwisdomcollective.com/og-image.png">
-
-<meta name="description" content="Implanted Wisdom Doctor Readiness & Goals — a surgeon-led growth engine for specialty practices.">
 <link rel="icon" href="favicon.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
-:root{
-  --espresso:#17110d; --espresso-deep:#100c09; --espresso-deeper:#0b0807;
-  --ink:#1E1612; --gold:#C9A96E; --gold-soft:#d9c099;
-  --teal:#245C5C; --teal-deep:#1c4a4a;
-  --cream:#FFFFFF; --cream-80:rgba(255,255,255,.92); --cream-60:rgba(255,255,255,.72);
+:root{--espresso:#17110d;--espresso-deep:#100c09;--espresso-deeper:#0b0807;--ink:#1E1612;
+  --gold:#C9A96E;--gold-soft:#d9c099;--teal:#245C5C;--teal-deep:#1c4a4a;
+  --cream:#FFFFFF;--cream-80:rgba(255,255,255,.92);--cream-60:rgba(255,255,255,.72);
   --line:rgba(255,255,255,.12);
-  --display:'Cormorant Garamond', Georgia, serif;
-  --body:'Jost', system-ui, sans-serif;
-  --mono:'Courier Prime', monospace;
-  --easing:cubic-bezier(0.22,1,0.36,1);
-}
+  --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--mono:'Courier Prime',monospace;
+  --easing:cubic-bezier(0.22,1,0.36,1);}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
 body{font-family:var(--body);font-weight:300;font-size:16px;line-height:1.7;color:var(--cream);background:var(--espresso);-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.15;color:var(--cream)}
 a{color:inherit}
-.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 .label{font-weight:500;text-transform:uppercase;letter-spacing:.3em;font-size:.72rem;color:var(--gold)}
-.mono{font-family:var(--mono)}
 .tm{font-size:.6em;vertical-align:.55em;font-weight:500;font-family:var(--body)}
-
 .wave{position:fixed;pointer-events:none;z-index:0}
 .wave svg{display:block}
-header.hero,.progressbar,.wrap,#profile{position:relative;z-index:1}
-
-/* Header */
-header.hero{padding:88px 0 40px;text-align:center}
-header.hero h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:400}
-header.hero h1 em{font-style:italic;color:var(--gold)}
-header.hero p.sub{max-width:520px;margin:16px auto 0;color:var(--cream-60);font-size:1.02rem}
+header.hero{position:relative;z-index:1;padding:84px 0 36px;text-align:center}
 header.hero a.back{display:inline-block;font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cream-60);margin-bottom:22px;text-decoration:none;transition:color .25s}
 header.hero a.back:hover{color:var(--gold)}
-
-/* Progress bar */
+header.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:400}
+header.hero h1 em{font-style:italic;color:var(--gold)}
+header.hero p.sub{max-width:500px;margin:14px auto 0;color:var(--cream-60);font-size:1rem}
 .progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(255,255,255,.1)}
 .progressbar>div{height:100%;width:0;background:var(--gold);transition:width .5s var(--easing)}
-
-/* Sections */
-section.block{background:rgba(255,255,255,.045);border-radius:16px;margin:28px 0;padding:36px 38px}
-section.block h2{font-size:1.6rem;margin-bottom:4px}
-section.block .hint{color:var(--cream-60);font-size:.92rem;margin-bottom:18px}
-.secnum{font-family:var(--mono);color:var(--gold);font-size:.82rem;letter-spacing:.12em}
-form{padding:24px 0 10px}
-
-/* Fields */
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px 22px}
-@media(max-width:640px){.grid2{grid-template-columns:1fr}section.block{padding:26px 20px}}
+section.block{position:relative;z-index:1;background:rgba(255,255,255,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
+.secnum{font-family:var(--mono);color:var(--gold);font-size:.8rem;letter-spacing:.12em}
+section.block h2{font-size:1.45rem;margin:2px 0 4px}
+.hint{color:var(--cream-60);font-size:.9rem;margin-bottom:16px}
+.field{margin-bottom:16px}
 .field label{display:block;font-weight:400;font-size:.92rem;margin-bottom:6px;color:var(--cream-80)}
-.field input[type=text],.field input[type=email],.field input[type=tel],.field select,textarea{
-  width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:8px;
-  font-family:var(--body);font-size:.98rem;background:rgba(0,0,0,.24);color:var(--cream)}
+.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
 .field input::placeholder,textarea::placeholder{color:rgba(255,255,255,.4)}
 .field select option{background:var(--espresso-deep);color:var(--cream)}
-.field input:focus,.field select:focus,textarea:focus{outline:none;border-color:var(--gold)}
-textarea{min-height:96px;resize:vertical}
-
-/* Experience matrix */
-.matrix{width:100%;border-collapse:collapse;margin-top:6px}
-.matrix th,.matrix td{padding:11px 8px;text-align:center;border-bottom:1px solid var(--line);font-size:.92rem}
-.matrix th{font-weight:500;color:var(--cream-80)}
-.matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:400;color:var(--cream)}
-.matrix td:first-child span{display:block;font-weight:300;font-size:.8rem;color:var(--cream-60)}
-.matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
-@media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
-
-/* Choices */
-.choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:10px;
-  padding:10px 18px;cursor:pointer;font-size:.93rem;background:transparent;transition:all .25s var(--easing);color:var(--cream-80)}
-.choices label:hover{border-color:var(--gold)}
-.choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
-.choices input{accent-color:var(--espresso);cursor:pointer}
-.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;margin-top:6px}
-@media(max-width:640px){.checks{grid-template-columns:1fr}}
-.checks label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.95rem;padding:11px 14px;
-  border:1px solid rgba(255,255,255,.16);border-radius:10px;background:transparent;transition:all .25s var(--easing);color:var(--cream-80)}
+.field select:focus,textarea:focus,.field input:focus{outline:none;border-color:var(--gold)}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
+@media(max-width:640px){.checks{grid-template-columns:1fr}section.block{padding:24px 20px}}
+.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(255,255,255,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
 .checks label:hover{border-color:rgba(201,169,110,.5)}
 .checks label:has(input:checked){border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
-.checks input{width:17px;height:17px;margin-top:3px;accent-color:var(--gold);flex-shrink:0}
-
-/* Submit */
-.submitrow{text-align:center;padding:14px 0 70px}
-.btn{display:inline-block;font-family:var(--body);font-weight:500;letter-spacing:.22em;text-transform:uppercase;
-  font-size:.84rem;padding:18px 46px;border-radius:10px;border:none;cursor:pointer;transition:all .3s var(--easing)}
-.btn-gold{background:var(--gold);color:var(--ink)}
-.btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
-.btn-line{background:transparent;border:1.5px solid var(--gold);color:var(--gold);padding:14px 30px;margin:6px}
-.btn-line:hover{background:rgba(201,169,110,.1);color:var(--gold-soft)}
-.err{color:#e8a598;font-size:.9rem;margin-top:14px;display:none}
-
-/* ===== Profile ===== */
-#profile{display:none}
-.profile-hero{padding:80px 0 48px;text-align:center}
-.profile-hero h2{font-size:clamp(1.9rem,4.5vw,2.9rem);font-weight:400}
-.profile-hero .who{color:var(--gold-soft);font-family:var(--mono);margin-top:10px;font-size:.92rem}
-.scorewrap{display:flex;justify-content:center;gap:56px;flex-wrap:wrap;align-items:center;margin-top:36px}
-.dial{position:relative;width:170px;height:170px}
-.dial svg{transform:rotate(-90deg)}
-.dial .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.dial .num b{font-family:var(--display);font-size:3rem;font-weight:500;line-height:1;color:var(--cream)}
-.dial .num span{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft)}
-.bandtag{text-align:left;max-width:330px}
-.bandtag .label{margin-bottom:6px}
-.bandtag h3{font-size:1.7rem;font-weight:500}
-.bandtag p{color:var(--cream-60);font-size:.95rem;margin-top:6px}
-
-.pcard{background:rgba(255,255,255,.045);border-radius:16px;margin:26px 0;padding:34px 38px}
-@media(max-width:640px){.pcard{padding:24px 20px}}
-.pcard h3{font-size:1.35rem;margin-bottom:16px}
-.bars .row{display:grid;grid-template-columns:170px 1fr 60px;gap:14px;align-items:center;margin:11px 0;font-size:.93rem;color:var(--cream-80)}
-@media(max-width:640px){.bars .row{grid-template-columns:110px 1fr 50px;font-size:.82rem}}
-.bars .track{height:8px;background:rgba(255,255,255,.12);border-radius:99px;overflow:hidden}
-.bars .fill{height:100%;background:var(--gold);border-radius:99px;transition:width .8s var(--easing)}
-.bars .fill.low{background:#a56a4e}
-.bars .fill.mid{background:var(--gold-soft)}
-.bars .pct{font-family:var(--mono);text-align:right;color:var(--cream-60)}
-
-.kv{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px;font-size:.95rem}
-@media(max-width:640px){.kv{grid-template-columns:1fr}}
-.kv div{display:flex;justify-content:space-between;gap:12px;padding:8px 0}
-.kv dt{color:var(--cream-60)}
-.kv dd{font-weight:400;text-align:right;color:var(--cream)}
-
-ul.plain{list-style:none}
-ul.plain li{padding:9px 0 9px 26px;position:relative;font-size:.96rem;color:var(--cream-80)}
-ul.plain li::before{content:"—";position:absolute;left:0;color:var(--gold)}
-ul.plain li.gap::before{content:"▲";font-size:.7rem;top:13px;color:#d19a7c}
-ul.plain li.ok::before{content:"✓";color:#9fd0c3}
-.roadmap li b{font-weight:500;color:var(--cream)}
-.tiercard{background:var(--teal-deep)}
-.tiercard h3{color:var(--cream)}
-.tiercard .label{color:var(--gold-soft)}
-.actions{text-align:center;padding:10px 0 80px}
-.smallnote{font-size:.78rem;color:var(--cream-60);text-align:center;margin-top:18px}
-
-@media print{
-  body{background:#fff;color:#000}
-  #assessform,.progressbar,.actions,header.hero,.wave{display:none!important}
-  #profile{display:block!important}
-  .pcard{break-inside:avoid;background:#fff;border:1px solid #ccc}
-  .pcard h3,.dial .num b,h1,h2,h3,.kv dd,.roadmap li b{color:#000}
-  .profile-hero{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-}
+.checks input{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0}
+.checks .field{margin-bottom:0}
+.checks .field label{display:block;border:0;padding:0;background:none;cursor:default}
+.actions{display:flex;flex-wrap:wrap;gap:14px;margin:28px 0 60px;position:relative;z-index:1}
+.btn{display:inline-block;font-family:var(--body);font-weight:500;text-transform:uppercase;letter-spacing:.2em;font-size:.82rem;padding:16px 34px;border-radius:10px;cursor:pointer;border:1.5px solid transparent;transition:all .3s var(--easing)}
+.btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
+.btn-line{border-color:var(--gold);color:var(--gold);background:transparent}.btn-line:hover{background:rgba(201,169,110,.1);color:var(--gold-soft)}
+#result{display:none;position:relative;z-index:1}
+.rcard{background:rgba(255,255,255,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
+@media(max-width:640px){.rcard{padding:26px 20px}}
+.band{font-family:var(--display);font-size:2.1rem;color:var(--gold)}
+.plain{list-style:none;padding:0}
+.plain li{padding:9px 0}
+.gapli{color:#d19a7c}.okli{color:#9fd0c3}
 
 /* ---- mobile comfort: big touch targets, no iOS zoom ---- */
 @media(max-width:640px){
@@ -207,14 +108,6 @@ textarea{min-height:120px;line-height:1.6}
   .choices label,.checks label{padding:16px 18px}
 }
 
-/* compact scale pills (short numeric answers) stay in a row on mobile */
-.choices.compact label{padding:12px 16px}
-@media(max-width:640px){
-  .choices.compact{flex-direction:row;flex-wrap:wrap}
-  .choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}
-  .choices.compact label input{display:none}
-}
-
 /* ============ big type ============ */
 html{font-size:21px}
 body{font-size:1rem;line-height:1.7}
@@ -238,6 +131,104 @@ section.block h2{font-size:2.1rem}
   .choices.compact label{padding:14px 12px;font-size:1rem}
   .field input[type=text],.field input[type=email],.field input[type=tel],.field select,textarea{font-size:1.05rem!important}
 }
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.choices input{width:20px;height:20px}
+.choices label,.checks label{padding:16px 18px}
+.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
+.choices.compact label{padding:14px 20px}
+.choices.compact label{padding:14px 12px;font-size:1rem}
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.choices input{width:20px;height:20px}
+.choices label,.checks label{padding:16px 18px}
+.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
+.choices.compact label{padding:14px 20px}
+.choices.compact label{padding:14px 12px;font-size:1rem}
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.choices input{width:20px;height:20px}
+.choices label,.checks label{padding:16px 18px}
+.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
+.choices.compact label{padding:14px 20px}
+.choices.compact label{padding:14px 12px;font-size:1rem}
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.choices input{width:20px;height:20px}
+.choices label,.checks label{padding:16px 18px}
+.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
+.choices.compact label{padding:14px 20px}
+.choices.compact label{padding:14px 12px;font-size:1rem}
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.choices input{width:20px;height:20px}
+.choices label,.checks label{padding:16px 18px}
+.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
+.choices.compact label{padding:14px 20px}
+.choices.compact label{padding:14px 12px;font-size:1rem}
+.matrix{width:100%;border-collapse:collapse;margin-top:6px}
+.matrix th,.matrix td{padding:11px 8px;text-align:center;border-bottom:1px solid var(--line);font-size:.92rem}
+.matrix th{font-weight:500;color:var(--cream-80)}
+.matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:400;color:var(--cream)}
+.matrix td:first-child span{display:block;font-weight:300;font-size:.8rem;color:var(--cream-60)}
+.matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
+@media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
+.choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:10px;
+.choices label:hover{border-color:var(--gold)}
+.choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
+.choices input{accent-color:var(--espresso);cursor:pointer}
+.choices{flex-direction:column;align-items:stretch}
+.choices label{padding:15px 18px;font-size:1rem;width:100%}
+.matrix input[type=radio]{width:24px;height:24px}
+.choices{gap:12px}
+.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
+.choices input{width:20px;height:20px}
+.choices label,.checks label{padding:16px 18px}
+.choices.compact label{padding:12px 16px}
+.choices.compact{flex-direction:row;flex-wrap:wrap}
+.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}
+.choices.compact label input{display:none}
+.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
+.choices.compact label{padding:14px 20px}
+.choices.compact label{padding:14px 12px;font-size:1rem}
+.choices.compact label{padding:12px 16px}
+.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+.choices.compact label{padding:12px 16px}
+.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+.choices.compact label{padding:12px 16px}
+.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+.choices.compact label{padding:12px 16px}
+.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+.choices.compact label{padding:12px 16px}
+.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+
+.choices.compact label{padding:12px 16px}
+@media(max-width:640px){.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+.checks input[type=text]{width:100%!important;height:auto!important;min-height:54px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px 22px}
+.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
+.field textarea{min-height:110px}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -247,9 +238,6 @@ section.block h2{font-size:2.1rem}
 <link rel="apple-touch-icon" href="iw-icon-180.png">
 </head>
 <body>
-
-<div class="progressbar"><div id="pbar"></div></div>
-
 <div class="wave" style="left:-6vw;top:-12vh" aria-hidden="true">
   <svg width="40vw" height="124vh" viewBox="0 0 400 1000" preserveAspectRatio="none">
     <path d="M0,0 L240,0 C160,140 300,260 210,420 C130,560 250,700 150,840 C90,930 130,980 90,1000 L0,1000 Z" fill="#100c09"/>
@@ -261,11 +249,11 @@ section.block h2{font-size:2.1rem}
     <path d="M0,0 L220,0 C150,160 280,300 200,460 C120,620 240,760 140,900 C100,960 120,990 80,1000 L0,1000 Z" fill="#100c09"/>
   </svg>
 </div>
-
-<header class="hero" id="top">
+<div class="progressbar"><div id="pbar"></div></div>
+<header class="hero">
   <div class="wrap">
     <a class="back" href="/">← All Assessments</a>
-    <div class="label">Doctor</div>
+    <div class="label">Doctor · Part 1 of 3</div>
     <h1>Doctor Readiness <em>&amp; Goals</em></h1>
     <p class="sub">About six minutes of your time</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">Our goal is simply to understand where you are today and how Implanted Wisdom can best support you.</p>
@@ -273,320 +261,104 @@ section.block h2{font-size:2.1rem}
 </header>
 
 <div class="wrap">
-<form id="assessform" novalidate>
+<form id="tform" novalidate>
 
   <section class="block">
-    <div class="secnum">Step 1 of 13</div>
-    <h2>Your Personal Interest in Full-Arch</h2>
-    <p class="hint">Setting the practice aside for a moment — do <em>you</em> personally want to bring full-arch cases into your own practice and workflow?</p>
-    <div class="choices">
-      <label><input type="radio" name="interest" value="Yes — I want to make full-arch a core part of my practice"> Yes — I want full-arch to be a core part of my practice</label>
-      <label><input type="radio" name="interest" value="Yes — a few cases a month would be a welcome addition"> Yes — even a few cases a month would be a welcome addition</label>
-      <label><input type="radio" name="interest" value="Open to it, but have reservations"> I'm open to it, but I have reservations</label>
-      <label><input type="radio" name="interest" value="Not right now"> Not right now</label>
-    </div>
-    <div class="field" style="margin-top:18px"><label for="f_interest_why">What's driving that answer?</label>
-      <textarea id="f_interest_why" placeholder="e.g., Interested, but concerned about chair time compared to thirds and whether my assistants can support it…"></textarea></div>
-    <div class="q" style="margin-top:24px"><div class="qlabel">Ideally, how many full-arch cases per month would you like to be doing?</div>
-      <div class="choices compact">
-        <label><input type="radio" name="ideal_month" value="0 — not planning to"> None right now</label>
-        <label><input type="radio" name="ideal_month" value="1–2 per month"> 1–2</label>
-        <label><input type="radio" name="ideal_month" value="3–5 per month"> 3–5</label>
-        <label><input type="radio" name="ideal_month" value="6–10 per month"> 6–10</label>
-        <label><input type="radio" name="ideal_month" value="10+ per month"> 10+</label>
-      </div></div>
-  </section>
-
-  <section class="block">
-    <div class="secnum">Step 2 of 13</div>
-    <h2>Confidence Across the Workflow</h2>
-    <p class="hint">Where are you strongest, and where would you want the most support?</p>
-    <div class="q"><div class="qlabel">Treatment planning & case selection</div><div class="choices compact"><label><input type="radio" name="conf_plan" data-label="Treatment planning &amp; case selection" value="Least confident"> Least confident</label><label><input type="radio" name="conf_plan" data-label="Treatment planning &amp; case selection" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf_plan" data-label="Treatment planning &amp; case selection" value="Confident"> Confident</label><label><input type="radio" name="conf_plan" data-label="Treatment planning &amp; case selection" value="Most confident"> Most confident</label></div></div>
-    <div class="q"><div class="qlabel">Consult & case acceptance conversation</div><div class="choices compact"><label><input type="radio" name="conf_consult" data-label="Consult &amp; case acceptance conversation" value="Least confident"> Least confident</label><label><input type="radio" name="conf_consult" data-label="Consult &amp; case acceptance conversation" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf_consult" data-label="Consult &amp; case acceptance conversation" value="Confident"> Confident</label><label><input type="radio" name="conf_consult" data-label="Consult &amp; case acceptance conversation" value="Most confident"> Most confident</label></div></div>
-    <div class="q"><div class="qlabel">Surgical placement & bone reduction</div><div class="choices compact"><label><input type="radio" name="conf_surg" data-label="Surgical placement &amp; bone reduction" value="Least confident"> Least confident</label><label><input type="radio" name="conf_surg" data-label="Surgical placement &amp; bone reduction" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf_surg" data-label="Surgical placement &amp; bone reduction" value="Confident"> Confident</label><label><input type="radio" name="conf_surg" data-label="Surgical placement &amp; bone reduction" value="Most confident"> Most confident</label></div></div>
-    <div class="q"><div class="qlabel">Immediate load / same-day conversion</div><div class="choices compact"><label><input type="radio" name="conf_load" data-label="Immediate load / same-day conversion" value="Least confident"> Least confident</label><label><input type="radio" name="conf_load" data-label="Immediate load / same-day conversion" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf_load" data-label="Immediate load / same-day conversion" value="Confident"> Confident</label><label><input type="radio" name="conf_load" data-label="Immediate load / same-day conversion" value="Most confident"> Most confident</label></div></div>
-    <div class="q"><div class="qlabel">Digital workflow — scanning, photogrammetry, printing</div><div class="choices compact"><label><input type="radio" name="conf_digital" data-label="Digital workflow — scanning, photogrammetry, printing" value="Least confident"> Least confident</label><label><input type="radio" name="conf_digital" data-label="Digital workflow — scanning, photogrammetry, printing" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf_digital" data-label="Digital workflow — scanning, photogrammetry, printing" value="Confident"> Confident</label><label><input type="radio" name="conf_digital" data-label="Digital workflow — scanning, photogrammetry, printing" value="Most confident"> Most confident</label></div></div>
-    <div class="q"><div class="qlabel">Prosthetic delivery & occlusion</div><div class="choices compact"><label><input type="radio" name="conf_prosth" data-label="Prosthetic delivery &amp; occlusion" value="Least confident"> Least confident</label><label><input type="radio" name="conf_prosth" data-label="Prosthetic delivery &amp; occlusion" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf_prosth" data-label="Prosthetic delivery &amp; occlusion" value="Confident"> Confident</label><label><input type="radio" name="conf_prosth" data-label="Prosthetic delivery &amp; occlusion" value="Most confident"> Most confident</label></div></div>
-    <div class="q"><div class="qlabel">Managing complications & rescue</div><div class="choices compact"><label><input type="radio" name="conf_comp" data-label="Managing complications &amp; rescue" value="Least confident"> Least confident</label><label><input type="radio" name="conf_comp" data-label="Managing complications &amp; rescue" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf_comp" data-label="Managing complications &amp; rescue" value="Confident"> Confident</label><label><input type="radio" name="conf_comp" data-label="Managing complications &amp; rescue" value="Most confident"> Most confident</label></div></div>
-  </section>
-
-  <section class="block">
-    <div class="secnum">Step 3 of 13</div>
-    <h2>Your First Cases</h2>
-    <p class="hint">Help us set up your first several cases.</p>
-    <div class="q"><div class="qlabel">Would you like Dr. Pulver onsite for your first case(s)?</div>
-      <div class="choices">
-        <label><input type="radio" name="onsite" value="Yes — for the first case"> Yes — for the first case</label>
-        <label><input type="radio" name="onsite" value="Yes — for the first several cases"> Yes — for the first several cases</label>
-        <label><input type="radio" name="onsite" value="Remote support is enough"> Remote / virtual support is enough</label>
-        <label><input type="radio" name="onsite" value="Not needed"> Not needed</label>
-      </div></div>
-    <div class="q"><div class="qlabel">Do you currently have any potential full-arch patients or cases?</div>
-      <div class="choices">
-        <label><input type="radio" name="candidates" value="Yes — one or more ready to schedule"> Yes — one or more ready to schedule</label>
-        <label><input type="radio" name="candidates" value="Yes — a few possible candidates"> Yes — a few possible candidates</label>
-        <label><input type="radio" name="candidates" value="Not yet, but I know where to look"> Not yet, but I know where to look</label>
-        <label><input type="radio" name="candidates" value="No"> No</label>
-      </div></div>
-    <div class="field"><label for="f_candidates_notes">If yes — how many, and where are they in the process? (No patient names, please.)</label>
-      <textarea id="f_candidates_notes" placeholder="e.g., Two patients with failing dentition already consulted; one denture patient asking about fixed options…"></textarea></div>
-    <div class="q"><div class="qlabel">What would make you more comfortable taking on your first several cases? Check all that apply.</div>
-      <div class="checks">
-        <label><input type="checkbox" name="comfort" value="Dr. Pulver onsite"> Dr. Pulver onsite for the surgery</label>
-        <label><input type="checkbox" name="comfort" value="Co-planning the case"> Planning the case together beforehand</label>
-        <label><input type="checkbox" name="comfort" value="Observing a case at Pulver OS"> Observing a live case at Pulver Oral Surgery first</label>
-        <label><input type="checkbox" name="comfort" value="Trained assistant team"> A trained assistant team in place</label>
-        <label><input type="checkbox" name="comfort" value="Lab / prosthetic support"> Reliable lab & prosthetic support</label>
-        <label><input type="checkbox" name="comfort" value="Day-of remote support"> Day-of remote support on call</label>
-        <label><input type="checkbox" name="comfort" value="Clear patient-selection criteria"> Clear patient-selection criteria</label>
-        <label><input type="checkbox" name="comfort" value="Pricing & materials sorted"> Pricing and materials sorted out ahead of time</label>
-      </div></div>
-    <div class="field"><label for="f_comfort_notes">Anything else that would help?</label>
-      <textarea id="f_comfort_notes" placeholder="Anything at all — scheduling, staffing, reimbursement, confidence…"></textarea></div>
-  </section>
-
-  <section class="block">
-    <div class="secnum">Step 4 of 13</div>
+    <div class="secnum">Step 1 of 11</div>
     <h2>Practice Profile</h2>
     <p class="hint">Who you are and where you practice.</p>
-    <div class="grid2">
-      <div class="field"><label for="f_name">Surgeon name *</label><input type="text" id="f_name" required></div>
-      <div class="field"><label for="f_practice">Practice name *</label><input type="text" id="f_practice" required></div>
-      <div class="field"><label for="f_email">Email *</label><input type="email" id="f_email" required></div>
-      <div class="field"><label for="f_phone">Phone</label><input type="tel" id="f_phone"></div>
-      <div class="field"><label for="f_spec">Specialty</label>
-        <select id="f_spec">
-          <option value="">Select…</option>
-          <option>Oral &amp; Maxillofacial Surgery</option>
-          <option>Periodontics</option>
-          <option>Prosthodontics</option>
-          <option>General Dentistry — Implant Focus</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="field"><label for="f_years">Years in practice</label>
-        <select id="f_years">
-          <option value="">Select…</option>
-          <option value="0">In residency / &lt; 1 year</option>
-          <option value="1">1–5 years</option>
-          <option value="2">6–15 years</option>
-          <option value="3">16+ years</option>
-        </select>
-      </div>
-    </div>
-    <div style="margin-top:22px;padding-top:18px;border-top:1px dashed rgba(255,255,255,.15)">
-      <p class="hint" style="margin-bottom:12px"><strong style="font-weight:500;color:var(--gold-soft)">Your full-arch vision.</strong> How do you see full-arch fitting into your practice?</p>
-      <div class="field" style="margin-bottom:14px">
-        <label for="f_enthusiasm">My excitement and enthusiasm to move fully into full-arch (0 = less likely · 10 = most likely)</label>
-        <select id="f_enthusiasm">
-          <option value="">Select 0–10…</option>
-          <option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option>
-          <option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option>
-          <option value="8">8</option><option value="9">9</option><option value="10">10</option>
-        </select>
-      </div>
-      <div class="grid2">
-        <div class="field"><label for="f_casesInitial">Cases per year I'd like to complete initially</label>
-          <select id="f_casesInitial">
-            <option value="">Select…</option><option>1–6</option><option>7–12</option><option>13–24</option><option>25–50</option><option>50+</option>
-          </select>
-        </div>
-        <div class="field"><label for="f_casesFuture">Cases per year I could see myself completing with more experience</label>
-          <select id="f_casesFuture">
-            <option value="">Select…</option><option>1–6</option><option>7–12</option><option>13–24</option><option>25–50</option><option>50+</option>
-          </select>
-        </div>
-      </div>
-    </div>
+    <div class="grid2"><div class="field"><label for="f_name">Surgeon name *</label><input type="text" id="f_name" required autocomplete="name"></div><div class="field"><label for="f_practice">Practice name *</label><input type="text" id="f_practice" required autocomplete="organization"></div><div class="field"><label for="f_email">Email *</label><input type="email" id="f_email" required autocomplete="email"></div><div class="field"><label for="f_phone">Phone</label><input type="tel" id="f_phone" data-label="Phone" autocomplete="tel"></div><div class="field"><label for="f_spec">Specialty</label><select id="f_spec" data-label="Specialty"><option value="">Select…</option><option>Oral &amp; Maxillofacial Surgery</option><option>Periodontics</option><option>Prosthodontics</option><option>General Dentistry — Implant Focus</option><option>Other</option></select></div><div class="field"><label for="f_years">Years in practice</label><select id="f_years" data-label="Years in practice"><option value="">Select…</option><option>In residency / &lt; 1 year</option><option>1–5 years</option><option>6–15 years</option><option>16+ years</option></select></div></div><div style="margin-top:18px;padding-top:18px;border-top:1px dashed rgba(255,255,255,.15)"><div class="field"><label for="f_enthusiasm">My excitement and enthusiasm to move fully into full-arch (0 = less likely · 10 = most likely)</label><select id="f_enthusiasm" data-label="My excitement and enthusiasm to move fully into full-arch (0 = less likely · 10 = most likely)"><option value="">Select 0–10…</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select></div><div class="grid2"><div class="field"><label for="f_casesInitial">Cases per year I'd like to complete initially</label><select id="f_casesInitial" data-label="Cases per year I&#x27;d like to complete initially"><option value="">Select…</option><option>1–6</option><option>7–12</option><option>13–24</option><option>25–50</option><option>50+</option></select></div><div class="field"><label for="f_casesFuture">Cases per year I could see myself completing with more experience</label><select id="f_casesFuture" data-label="Cases per year I could see myself completing with more experience"><option value="">Select…</option><option>1–6</option><option>7–12</option><option>13–24</option><option>25–50</option><option>50+</option></select></div></div></div>
   </section>
-
   <section class="block">
-    <div class="secnum">Step 5 of 13</div>
+    <div class="secnum">Step 2 of 11</div>
+    <h2>Your Personal Interest in Full-Arch</h2>
+    <p class="hint">Setting the practice aside for a moment — do <em>you</em> personally want to bring full-arch cases into your own practice and workflow?</p>
+    <div class="choices"><label><input type="radio" name="interest" data-label="Personal interest" value="Yes — I want full-arch to be a core part of my practice"> Yes — I want full-arch to be a core part of my practice</label><label><input type="radio" name="interest" data-label="Personal interest" value="Yes — even a few cases a month would be a welcome addition"> Yes — even a few cases a month would be a welcome addition</label><label><input type="radio" name="interest" data-label="Personal interest" value="I&#x27;m open to it, but I have reservations"> I'm open to it, but I have reservations</label><label><input type="radio" name="interest" data-label="Personal interest" value="Not right now"> Not right now</label></div><div style="margin-top:18px"><div class="field"><label for="f_interest_why">What's driving that answer?</label><textarea id="f_interest_why" data-label="What&#x27;s driving that answer?" placeholder="e.g., Interested, but concerned about chair time compared to thirds and whether my assistants can support it…"></textarea></div></div><div class="q"><div class="qlabel">Ideally, how many full-arch cases per month would you like to be doing?</div><div class="choices compact"><label><input type="radio" name="ideal_month" data-label="Ideal cases per month" value="None right now"> None right now</label><label><input type="radio" name="ideal_month" data-label="Ideal cases per month" value="1–2 per month"> 1–2</label><label><input type="radio" name="ideal_month" data-label="Ideal cases per month" value="3–5 per month"> 3–5</label><label><input type="radio" name="ideal_month" data-label="Ideal cases per month" value="6–10 per month"> 6–10</label><label><input type="radio" name="ideal_month" data-label="Ideal cases per month" value="10+ per month"> 10+</label></div></div>
+  </section>
+  <section class="block">
+    <div class="secnum">Step 3 of 11</div>
+    <h2>Confidence Across the Workflow</h2>
+    <p class="hint">Where are you strongest, and where would you want the most support?</p>
+    <div class="q"><div class="qlabel">Treatment planning & case selection</div><div class="choices compact"><label><input type="radio" name="conf0" data-label="Treatment planning &amp; case selection" value="Least confident"> Least confident</label><label><input type="radio" name="conf0" data-label="Treatment planning &amp; case selection" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf0" data-label="Treatment planning &amp; case selection" value="Confident"> Confident</label><label><input type="radio" name="conf0" data-label="Treatment planning &amp; case selection" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Diagnosis & planning — FP3 cases</div><div class="choices compact"><label><input type="radio" name="conf1" data-label="Diagnosis &amp; planning — FP3 cases" value="Least confident"> Least confident</label><label><input type="radio" name="conf1" data-label="Diagnosis &amp; planning — FP3 cases" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf1" data-label="Diagnosis &amp; planning — FP3 cases" value="Confident"> Confident</label><label><input type="radio" name="conf1" data-label="Diagnosis &amp; planning — FP3 cases" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Diagnosis & planning — FP1 cases</div><div class="choices compact"><label><input type="radio" name="conf2" data-label="Diagnosis &amp; planning — FP1 cases" value="Least confident"> Least confident</label><label><input type="radio" name="conf2" data-label="Diagnosis &amp; planning — FP1 cases" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf2" data-label="Diagnosis &amp; planning — FP1 cases" value="Confident"> Confident</label><label><input type="radio" name="conf2" data-label="Diagnosis &amp; planning — FP1 cases" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Diagnosis & planning — remote anchorage cases<span class="qsub">Zygomatic / pterygoid</span></div><div class="choices compact"><label><input type="radio" name="conf3" data-label="Diagnosis &amp; planning — remote anchorage cases" value="Least confident"> Least confident</label><label><input type="radio" name="conf3" data-label="Diagnosis &amp; planning — remote anchorage cases" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf3" data-label="Diagnosis &amp; planning — remote anchorage cases" value="Confident"> Confident</label><label><input type="radio" name="conf3" data-label="Diagnosis &amp; planning — remote anchorage cases" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Consult & case acceptance conversation</div><div class="choices compact"><label><input type="radio" name="conf4" data-label="Consult &amp; case acceptance conversation" value="Least confident"> Least confident</label><label><input type="radio" name="conf4" data-label="Consult &amp; case acceptance conversation" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf4" data-label="Consult &amp; case acceptance conversation" value="Confident"> Confident</label><label><input type="radio" name="conf4" data-label="Consult &amp; case acceptance conversation" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Surgical placement & bone reduction</div><div class="choices compact"><label><input type="radio" name="conf5" data-label="Surgical placement &amp; bone reduction" value="Least confident"> Least confident</label><label><input type="radio" name="conf5" data-label="Surgical placement &amp; bone reduction" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf5" data-label="Surgical placement &amp; bone reduction" value="Confident"> Confident</label><label><input type="radio" name="conf5" data-label="Surgical placement &amp; bone reduction" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Immediate load / same-day conversion</div><div class="choices compact"><label><input type="radio" name="conf6" data-label="Immediate load / same-day conversion" value="Least confident"> Least confident</label><label><input type="radio" name="conf6" data-label="Immediate load / same-day conversion" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf6" data-label="Immediate load / same-day conversion" value="Confident"> Confident</label><label><input type="radio" name="conf6" data-label="Immediate load / same-day conversion" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Digital workflow — scanning, photogrammetry, printing</div><div class="choices compact"><label><input type="radio" name="conf7" data-label="Digital workflow — scanning, photogrammetry, printing" value="Least confident"> Least confident</label><label><input type="radio" name="conf7" data-label="Digital workflow — scanning, photogrammetry, printing" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf7" data-label="Digital workflow — scanning, photogrammetry, printing" value="Confident"> Confident</label><label><input type="radio" name="conf7" data-label="Digital workflow — scanning, photogrammetry, printing" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Guided surgery</div><div class="choices compact"><label><input type="radio" name="conf8" data-label="Guided surgery" value="Least confident"> Least confident</label><label><input type="radio" name="conf8" data-label="Guided surgery" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf8" data-label="Guided surgery" value="Confident"> Confident</label><label><input type="radio" name="conf8" data-label="Guided surgery" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Use of fiducial markers</div><div class="choices compact"><label><input type="radio" name="conf9" data-label="Use of fiducial markers" value="Least confident"> Least confident</label><label><input type="radio" name="conf9" data-label="Use of fiducial markers" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf9" data-label="Use of fiducial markers" value="Confident"> Confident</label><label><input type="radio" name="conf9" data-label="Use of fiducial markers" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Prosthetic delivery & occlusion</div><div class="choices compact"><label><input type="radio" name="conf10" data-label="Prosthetic delivery &amp; occlusion" value="Least confident"> Least confident</label><label><input type="radio" name="conf10" data-label="Prosthetic delivery &amp; occlusion" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf10" data-label="Prosthetic delivery &amp; occlusion" value="Confident"> Confident</label><label><input type="radio" name="conf10" data-label="Prosthetic delivery &amp; occlusion" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Managing complications & rescue</div><div class="choices compact"><label><input type="radio" name="conf11" data-label="Managing complications &amp; rescue" value="Least confident"> Least confident</label><label><input type="radio" name="conf11" data-label="Managing complications &amp; rescue" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf11" data-label="Managing complications &amp; rescue" value="Confident"> Confident</label><label><input type="radio" name="conf11" data-label="Managing complications &amp; rescue" value="Most confident"> Most confident</label></div></div><div class="q"><div class="qlabel">Managing interruption to your existing workflow<span class="qsub">Fitting full-arch in alongside thirds, trauma, and the rest of your day</span></div><div class="choices compact"><label><input type="radio" name="conf12" data-label="Managing interruption to your existing workflow" value="Least confident"> Least confident</label><label><input type="radio" name="conf12" data-label="Managing interruption to your existing workflow" value="Somewhat"> Somewhat</label><label><input type="radio" name="conf12" data-label="Managing interruption to your existing workflow" value="Confident"> Confident</label><label><input type="radio" name="conf12" data-label="Managing interruption to your existing workflow" value="Most confident"> Most confident</label></div></div>
+  </section>
+  <section class="block">
+    <div class="secnum">Step 4 of 11</div>
+    <h2>Your First Cases</h2>
+    <p class="hint">Help us set up your first several cases.</p>
+    <p class="hint" style="margin-bottom:10px">Please share your interest in having Dr. Pulver onsite for your first case(s).</p><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">A) For workup</div><div class="choices"><label><input type="radio" name="onsite_workup" value="Yes — for the first case"> Yes — for the first case</label><label><input type="radio" name="onsite_workup" value="Yes — for the first several cases"> Yes — for the first several cases</label><label><input type="radio" name="onsite_workup" value="Remote / virtual support is enough"> Remote / virtual support is enough</label><label><input type="radio" name="onsite_workup" value="Not needed"> Not needed</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">B) For day of surgery</div><div class="choices"><label><input type="radio" name="onsite_surgery" value="Yes — for the first case"> Yes — for the first case</label><label><input type="radio" name="onsite_surgery" value="Yes — for the first several cases"> Yes — for the first several cases</label><label><input type="radio" name="onsite_surgery" value="Remote / virtual support is enough"> Remote / virtual support is enough</label><label><input type="radio" name="onsite_surgery" value="Not needed"> Not needed</label></div></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">Do you currently have any potential full-arch patients or cases?</div><div class="choices"><label><input type="radio" name="candidates" value="Yes — one or more ready to schedule"> Yes — one or more ready to schedule</label><label><input type="radio" name="candidates" value="Yes — a few possible candidates"> Yes — a few possible candidates</label><label><input type="radio" name="candidates" value="Not yet, but I know where to look"> Not yet, but I know where to look</label><label><input type="radio" name="candidates" value="No"> No</label></div></div><div class="field"><label for="f_candidates_notes">If yes — how many, and where are they in the process? (No patient names, please.)</label><textarea id="f_candidates_notes" data-label="If yes — how many, and where are they in the process? (No patient names, please.)" placeholder="e.g., Two patients with failing dentition already consulted; one denture patient asking about fixed options…"></textarea></div><div class="q" style="margin-bottom:22px"><div class="qlabel" style="font-size:.95rem;color:var(--cream-80);margin-bottom:8px">In order to make your first several cases successful, which — if any — of the following do you think could be beneficial?</div><div class="checks"><label><input type="checkbox" name="comfort" value="Dr. Pulver onsite for the surgery"> Dr. Pulver onsite for the surgery</label><label><input type="checkbox" name="comfort" value="Planning the case together beforehand"> Planning the case together beforehand</label><label><input type="checkbox" name="comfort" value="A trained assistant team in place"> A trained assistant team in place</label><label><input type="checkbox" name="comfort" value="Reliable lab &amp; prosthetic support"> Reliable lab & prosthetic support</label><label><input type="checkbox" name="comfort" value="Day-of remote support on call"> Day-of remote support on call</label><label><input type="checkbox" name="comfort" value="Clear patient-selection criteria"> Clear patient-selection criteria</label><label><input type="checkbox" name="comfort" value="Pricing and materials sorted out ahead of time"> Pricing and materials sorted out ahead of time</label></div></div><div class="field"><label for="f_comfort_notes">Anything else that would help?</label><textarea id="f_comfort_notes" data-label="Anything else that would help?" placeholder="Scheduling, staffing, reimbursement, confidence — anything at all."></textarea></div>
+  </section>
+  <section class="block">
+    <div class="secnum">Step 5 of 11</div>
     <h2>Case Experience by Procedure</h2>
     <p class="hint">Approximate lifetime case counts as primary surgeon.</p>
-    <div class="q"><div class="qlabel">All-on-X full arch<span class="qsub">Fixed full-arch on 4–6 implants</span></div><div class="choices compact"><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="0"> None</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="1"> 1–10</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="2"> 11–50</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="3"> 51–200</label><label><input type="radio" name="exp_aox" data-label="All-on-X full arch" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">All-on-X same-day / next-day delivery<span class="qsub">Immediate-load workflow with day-of or next-day prosthesis</span></div><div class="choices compact"><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="0"> None</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="1"> 1–10</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="2"> 11–50</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="3"> 51–200</label><label><input type="radio" name="exp_aoxsd" data-label="All-on-X same-day / next-day delivery" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">FP3 restorations<span class="qsub">Fixed full-arch prosthesis with prosthetic pink</span></div><div class="choices compact"><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="0"> None</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="1"> 1–10</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="2"> 11–50</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="3"> 51–200</label><label><input type="radio" name="exp_fp3" data-label="FP3 restorations" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">FP1 restorations<span class="qsub">Tooth-only fixed prosthesis, no pink</span></div><div class="choices compact"><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="0"> None</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="1"> 1–10</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="2"> 11–50</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="3"> 51–200</label><label><input type="radio" name="exp_fp1" data-label="FP1 restorations" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">Traditional sequenced implant care<span class="qsub">Full-mouth extraction, grafting, immediate/future placement, healing, referral to dentist for prosthesis</span></div><div class="choices compact"><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="0"> None</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="1"> 1–10</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="2"> 11–50</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="3"> 51–200</label><label><input type="radio" name="exp_trad" data-label="Traditional sequenced implant care" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">Guided surgery — individual implant<span class="qsub">Static/dynamic guide for single-implant placement</span></div><div class="choices compact"><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="0"> None</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="1"> 1–10</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="2"> 11–50</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="3"> 51–200</label><label><input type="radio" name="exp_gsi" data-label="Guided surgery — individual implant" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">Guided surgery — full arch<span class="qsub">Guided full-arch treatment</span></div><div class="choices compact"><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="0"> None</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="1"> 1–10</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="2"> 11–50</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="3"> 51–200</label><label><input type="radio" name="exp_gsf" data-label="Guided surgery — full arch" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">Zygomatic implants<span class="qsub">Zygoma-anchored, severe maxillary atrophy</span></div><div class="choices compact"><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="0"> None</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="1"> 1–10</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="2"> 11–50</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="3"> 51–200</label><label><input type="radio" name="exp_zygo" data-label="Zygomatic implants" value="4"> 200+</label></div></div>
-<div class="q"><div class="qlabel">Pterygoid implants<span class="qsub">Posterior maxilla, graftless</span></div><div class="choices compact"><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="0"> None</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="1"> 1–10</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="2"> 11–50</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="3"> 51–200</label><label><input type="radio" name="exp_ptery" data-label="Pterygoid implants" value="4"> 200+</label></div></div>
+    <div class="q"><div class="qlabel">All-on-X full arch<span class="qsub">Fixed full-arch on 4–6 implants</span></div><div class="choices compact"><label><input type="radio" name="exp0" data-label="All-on-X full arch" value="None"> None</label><label><input type="radio" name="exp0" data-label="All-on-X full arch" value="1–10"> 1–10</label><label><input type="radio" name="exp0" data-label="All-on-X full arch" value="11–50"> 11–50</label><label><input type="radio" name="exp0" data-label="All-on-X full arch" value="51–200"> 51–200</label><label><input type="radio" name="exp0" data-label="All-on-X full arch" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">All-on-X same-day / next-day delivery<span class="qsub">Immediate-load workflow with day-of or next-day prosthesis</span></div><div class="choices compact"><label><input type="radio" name="exp1" data-label="All-on-X same-day / next-day delivery" value="None"> None</label><label><input type="radio" name="exp1" data-label="All-on-X same-day / next-day delivery" value="1–10"> 1–10</label><label><input type="radio" name="exp1" data-label="All-on-X same-day / next-day delivery" value="11–50"> 11–50</label><label><input type="radio" name="exp1" data-label="All-on-X same-day / next-day delivery" value="51–200"> 51–200</label><label><input type="radio" name="exp1" data-label="All-on-X same-day / next-day delivery" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">FP3 restorations<span class="qsub">Fixed full-arch prosthesis with prosthetic pink</span></div><div class="choices compact"><label><input type="radio" name="exp2" data-label="FP3 restorations" value="None"> None</label><label><input type="radio" name="exp2" data-label="FP3 restorations" value="1–10"> 1–10</label><label><input type="radio" name="exp2" data-label="FP3 restorations" value="11–50"> 11–50</label><label><input type="radio" name="exp2" data-label="FP3 restorations" value="51–200"> 51–200</label><label><input type="radio" name="exp2" data-label="FP3 restorations" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">FP1 restorations<span class="qsub">Tooth-only fixed prosthesis, no pink</span></div><div class="choices compact"><label><input type="radio" name="exp3" data-label="FP1 restorations" value="None"> None</label><label><input type="radio" name="exp3" data-label="FP1 restorations" value="1–10"> 1–10</label><label><input type="radio" name="exp3" data-label="FP1 restorations" value="11–50"> 11–50</label><label><input type="radio" name="exp3" data-label="FP1 restorations" value="51–200"> 51–200</label><label><input type="radio" name="exp3" data-label="FP1 restorations" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">Edentulous cases<span class="qsub">Dual-arch scan cases</span></div><div class="choices compact"><label><input type="radio" name="exp4" data-label="Edentulous cases" value="None"> None</label><label><input type="radio" name="exp4" data-label="Edentulous cases" value="1–10"> 1–10</label><label><input type="radio" name="exp4" data-label="Edentulous cases" value="11–50"> 11–50</label><label><input type="radio" name="exp4" data-label="Edentulous cases" value="51–200"> 51–200</label><label><input type="radio" name="exp4" data-label="Edentulous cases" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">Traditional sequenced implant care<span class="qsub">Full-mouth extraction, grafting, immediate/future placement</span></div><div class="choices compact"><label><input type="radio" name="exp5" data-label="Traditional sequenced implant care" value="None"> None</label><label><input type="radio" name="exp5" data-label="Traditional sequenced implant care" value="1–10"> 1–10</label><label><input type="radio" name="exp5" data-label="Traditional sequenced implant care" value="11–50"> 11–50</label><label><input type="radio" name="exp5" data-label="Traditional sequenced implant care" value="51–200"> 51–200</label><label><input type="radio" name="exp5" data-label="Traditional sequenced implant care" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">Guided surgery — individual implant<span class="qsub">Static/dynamic guide for single-implant placement</span></div><div class="choices compact"><label><input type="radio" name="exp6" data-label="Guided surgery — individual implant" value="None"> None</label><label><input type="radio" name="exp6" data-label="Guided surgery — individual implant" value="1–10"> 1–10</label><label><input type="radio" name="exp6" data-label="Guided surgery — individual implant" value="11–50"> 11–50</label><label><input type="radio" name="exp6" data-label="Guided surgery — individual implant" value="51–200"> 51–200</label><label><input type="radio" name="exp6" data-label="Guided surgery — individual implant" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">Guided surgery — full arch<span class="qsub">Guided full-arch treatment</span></div><div class="choices compact"><label><input type="radio" name="exp7" data-label="Guided surgery — full arch" value="None"> None</label><label><input type="radio" name="exp7" data-label="Guided surgery — full arch" value="1–10"> 1–10</label><label><input type="radio" name="exp7" data-label="Guided surgery — full arch" value="11–50"> 11–50</label><label><input type="radio" name="exp7" data-label="Guided surgery — full arch" value="51–200"> 51–200</label><label><input type="radio" name="exp7" data-label="Guided surgery — full arch" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">Zygomatic implants<span class="qsub">Zygoma-anchored, severe maxillary atrophy</span></div><div class="choices compact"><label><input type="radio" name="exp8" data-label="Zygomatic implants" value="None"> None</label><label><input type="radio" name="exp8" data-label="Zygomatic implants" value="1–10"> 1–10</label><label><input type="radio" name="exp8" data-label="Zygomatic implants" value="11–50"> 11–50</label><label><input type="radio" name="exp8" data-label="Zygomatic implants" value="51–200"> 51–200</label><label><input type="radio" name="exp8" data-label="Zygomatic implants" value="200+"> 200+</label></div></div><div class="q"><div class="qlabel">Pterygoid implants<span class="qsub">Posterior maxilla, graftless</span></div><div class="choices compact"><label><input type="radio" name="exp9" data-label="Pterygoid implants" value="None"> None</label><label><input type="radio" name="exp9" data-label="Pterygoid implants" value="1–10"> 1–10</label><label><input type="radio" name="exp9" data-label="Pterygoid implants" value="11–50"> 11–50</label><label><input type="radio" name="exp9" data-label="Pterygoid implants" value="51–200"> 51–200</label><label><input type="radio" name="exp9" data-label="Pterygoid implants" value="200+"> 200+</label></div></div>
   </section>
-
   <section class="block">
-    <div class="secnum">Step 6 of 13</div>
-    <h2>Annual Full-Arch Volume</h2>
-    <p class="hint">Arches per year, per individual provider — current pace.</p>
-    <div class="choices">
-      <label><input type="radio" name="volume" value="0"> 0 — not yet offering</label>
-      <label><input type="radio" name="volume" value="3"> 1–12 arches</label>
-      <label><input type="radio" name="volume" value="7"> 13–36 arches</label>
-      <label><input type="radio" name="volume" value="11"> 37–100 arches</label>
-      <label><input type="radio" name="volume" value="15"> 100+ arches</label>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="secnum">Step 7 of 13</div>
+    <div class="secnum">Step 6 of 11</div>
     <h2>Digital Workflow Experience</h2>
     <p class="hint">Which best describes your current digital experience?</p>
-    <div class="choices" style="flex-direction:column;align-items:flex-start">
-      <label><input type="radio" name="digital" value="0"> No digital experience</label>
-      <label><input type="radio" name="digital" value="4"> Minimum digital experience — our lab comes in with a scanner and uses it when needed</label>
-      <label><input type="radio" name="digital" value="8"> Partial digital experience — IOS scans taken and sent to the lab for implant guides; scan-body impressions for referral offices; upper/lower + bite for night guards</label>
-      <label><input type="radio" name="digital" value="12"> Full digital experience — IOS scans taken and implant guides made in-house</label>
-      <label><input type="radio" name="digital" value="15"> All-on-X digital — IOS + CBCT + pre-op wax-up, photogrammetry, IOS reference-cap scan, print hybrid temp, process &amp; place, final photogrammetry, final IOS, final design check, final delivery</label>
-    </div>
-    <div style="margin-top:20px;padding-top:16px;border-top:1px dashed rgba(255,255,255,.15)">
-      <p class="hint" style="margin-bottom:10px">Check the digital impression experience you have today (all that apply).</p>
-      <div class="checks" id="dwtasks">
-        <label><input type="checkbox" name="dw" value="Oversee assistants taking digital impressions"> I have experience overseeing our assistants taking digital impressions</label>
-        <label><input type="checkbox" name="dw" value="Pre-op full arch scans"> Pre-op full-arch scans</label>
-        <label><input type="checkbox" name="dw" value="Night guard creation"> Night guard creation</label>
-        <label><input type="checkbox" name="dw" value="Scan body impressions for referral office"> Scan-body impressions for individual implants (referral office)</label>
-        <label><input type="checkbox" name="dw" value="Conventional impressions"> Conventional impressions for full-arch or individual implant construction</label>
-        <label><input type="checkbox" name="dw" value="No digital impression experience"> I have no experience with digital impressions</label>
-      </div>
-    </div>
+    <div class="choices"><label><input type="radio" name="digital" data-label="Digital experience" value="No digital experience"> No digital experience</label><label><input type="radio" name="digital" data-label="Digital experience" value="Minimum digital experience — our lab comes in with a scanner and photogrammetry unit and uses it when needed"> Minimum digital experience — our lab comes in with a scanner and photogrammetry unit and uses it when needed</label><label><input type="radio" name="digital" data-label="Digital experience" value="Assistants utilize IOS for guided surgery and night guards"> Assistants utilize IOS for guided surgery and night guards</label><label><input type="radio" name="digital" data-label="Digital experience" value="IOS scanning and photogrammetry for full arch — done by lab tech"> IOS scanning and photogrammetry for full arch — done by lab tech</label><label><input type="radio" name="digital" data-label="Digital experience" value="IOS scanning and photogrammetry for full arch — done in-house by our team"> IOS scanning and photogrammetry for full arch — done in-house by our team</label><label><input type="radio" name="digital" data-label="Digital experience" value="3D printing of hybrid temp in-house"> 3D printing of hybrid temp in-house</label></div>
   </section>
-
   <section class="block">
-    <div class="secnum">Step 8 of 13</div>
+    <div class="secnum">Step 7 of 11</div>
     <h2>Current Equipment</h2>
-    <p class="hint">Check everything currently in your practice.</p>
-    <div class="checks" id="equip">
-      <label><input type="checkbox" name="eq" value="cbct" data-pts="2" data-name="CBCT"> CBCT</label>
-      <label><input type="checkbox" name="eq" value="ios" data-pts="3" data-name="Intraoral scanner"> Intraoral scanner (Trios, iTero, Medit, Primescan…)</label>
-      <label><input type="checkbox" name="eq" value="pg" data-pts="4" data-name="Photogrammetry"> Photogrammetry (iMetric iCam, PIC, MicroMapper, Shining 3D, FastMap, TAbutment…)</label>
-      <label><input type="checkbox" name="eq" value="printer" data-pts="2" data-name="3D printer"> 3D printer (in-house)</label>
-      <label><input type="checkbox" name="eq" value="software" data-pts="2" data-name="Design software"> Design software (exocad, 3Shape, BlueSkyPlan…)</label>
-      <label><input type="checkbox" name="eq" value="mill" data-pts="1" data-name="In-house mill"> In-house milling</label>
-      <label><input type="checkbox" name="eq" value="guides" data-pts="1" data-name="Guided surgery system"> Guided surgery planning/system</label>
-    </div>
+    <p class="hint">Check everything currently in your practice, and tell us the unit.</p>
+    <div class="checks" style="grid-template-columns:1fr"><div class="field" style="border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px"><label style="display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:10px;font-size:1.08rem"><input type="checkbox" name="eq" data-label="Equipment in practice" value="CBCT" style="width:20px;height:20px;accent-color:var(--gold)"> CBCT</label><input type="text" id="eq_cbct" data-label="CBCT — make / model" placeholder="Type / model — e.g., Carestream CS 9600, i-CAT FLX…"></div><div class="field" style="border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px"><label style="display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:10px;font-size:1.08rem"><input type="checkbox" name="eq" data-label="Equipment in practice" value="Intraoral scanner" style="width:20px;height:20px;accent-color:var(--gold)"> Intraoral scanner</label><input type="text" id="eq_ios" data-label="Intraoral scanner — make / model" placeholder="Name of unit — Trios, iTero, Medit, Primescan…"></div><div class="field" style="border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px"><label style="display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:10px;font-size:1.08rem"><input type="checkbox" name="eq" data-label="Equipment in practice" value="3D printer (in-house)" style="width:20px;height:20px;accent-color:var(--gold)"> 3D printer (in-house)</label><input type="text" id="eq_printer" data-label="3D printer (in-house) — make / model" placeholder="Name of unit — SprintRay Pro, Formlabs…"></div><div class="field" style="border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px"><label style="display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:10px;font-size:1.08rem"><input type="checkbox" name="eq" data-label="Equipment in practice" value="Photogrammetry" style="width:20px;height:20px;accent-color:var(--gold)"> Photogrammetry</label><input type="text" id="eq_pg" data-label="Photogrammetry — make / model" placeholder="Name of unit — iMetric iCam, PIC, MicroMapper, Shining 3D, FastMap, TAbutment…"></div><div class="field" style="border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px"><label style="display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:10px;font-size:1.08rem"><input type="checkbox" name="eq" data-label="Equipment in practice" value="Design software" style="width:20px;height:20px;accent-color:var(--gold)"> Design software</label><input type="text" id="eq_software" data-label="Design software — make / model" placeholder="e.g., Exocad, 3Shape, Blue Sky Plan…"></div><div class="field" style="border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:14px 16px"><label style="display:flex;align-items:center;gap:12px;cursor:pointer;margin-bottom:10px;font-size:1.08rem"><input type="checkbox" name="eq" data-label="Equipment in practice" value="Guided surgery system" style="width:20px;height:20px;accent-color:var(--gold)"> Guided surgery system</label><input type="text" id="eq_guides" data-label="Guided surgery system — make / model" placeholder="e.g., X-Guide, Navident, static guides…"></div></div>
   </section>
-
   <section class="block">
-    <div class="secnum">Step 9 of 13</div>
+    <div class="secnum">Step 8 of 11</div>
     <h2>Team Structure</h2>
-    <div class="grid2">
-      <div class="field"><label for="f_surgeons">Surgeons placing implants</label>
-        <select id="f_surgeons"><option value="1">1</option><option value="2">2</option><option value="3">3+</option></select>
-      </div>
-      <div class="field"><label for="f_lab">Lab support</label>
-        <select id="f_lab">
-          <option value="">Select…</option>
-          <option value="3">Fully in-house lab technician</option>
-          <option value="2">Dedicated outside lab partner</option>
-          <option value="1">Case-by-case selection by referral</option>
-          <option value="0">No established lab partner</option>
-        </select>
-      </div>
-      <div class="field"><label for="f_dayof">Pre-op &amp; day-of-surgery lab support</label>
-        <select id="f_dayof">
-          <option value="">Select…</option>
-          <option>Full support — pre-op plan, attends surgery, delivery</option>
-          <option>Pre-op design + day-of design offsite</option>
-          <option>Pre-op design + onsite printing</option>
-          <option>Fully in-house lab tech</option>
-          <option>No established lab partner</option>
-        </select>
-      </div>
-      <div class="field"><label for="f_final">Final prosthesis production</label>
-        <select id="f_final">
-          <option value="">Select…</option>
-          <option>Local lab based on referral source</option>
-          <option>Dedicated lab partner</option>
-          <option>In-house milling</option>
-          <option>In-house printing</option>
-          <option>Not established yet</option>
-        </select>
-      </div>
-    </div>
-    <div class="checks" style="margin-top:16px">
-      <label><input type="checkbox" id="t_tc"> Dedicated treatment coordinator</label>
-      <label><input type="checkbox" id="t_sa"> Surgical assistants trained in full-arch</label>
-      <label><input type="checkbox" id="t_rp"> Established restorative partner(s)</label>
-      <label><input type="checkbox" id="t_an"> In-house anesthesia capability</label>
-    </div>
+    
+    <div class="grid2"><div class="field"><label for="f_surgeons">Surgeons placing implants</label><select id="f_surgeons" data-label="Surgeons placing implants"><option value="">Select…</option><option>1</option><option>2</option><option>3+</option></select></div><div class="field"><label for="f_lab">Lab support</label><select id="f_lab" data-label="Lab support"><option value="">Select…</option><option>Fully in-house lab technician</option><option>Dedicated outside lab partner</option><option>Case-by-case selection by referral</option><option>No established lab partner</option></select></div><div class="field"><label for="f_dayof">Pre-op &amp; day-of-surgery lab support</label><select id="f_dayof" data-label="Pre-op &amp; day-of-surgery lab support"><option value="">Select…</option><option>Full support — pre-op plan, attends surgery, delivery</option><option>Pre-op design + day-of design offsite</option><option>Pre-op design + onsite printing</option><option>Fully in-house lab tech</option><option>No established lab partner</option></select></div><div class="field"><label for="f_final">Final prosthesis production</label><select id="f_final" data-label="Final prosthesis production"><option value="">Select…</option><option>Local lab based on referral source</option><option>Dedicated lab partner</option><option>In-house milling</option><option>In-house printing</option><option>Not established yet</option></select></div></div><div class="checks" style="margin-top:6px"><label><input type="checkbox" name="team" data-label="Team" value="Dedicated treatment coordinator"> Dedicated treatment coordinator</label><label><input type="checkbox" name="team" value="Surgical assistants trained in full-arch"> Surgical assistants trained in full-arch</label></div><div style="margin-top:20px"><div class="field"><label for="f_lead_assistant">Assistant you feel may be best suited to be your lead in full-arch</label><input type="text" id="f_lead_assistant" data-label="Assistant you feel may be best suited to be your lead in full-arch" placeholder="Name (and why, if you like)"></div></div>
   </section>
-
   <section class="block">
-    <div class="secnum">Step 10 of 13</div>
+    <div class="secnum">Step 9 of 11</div>
     <h2>Current Full-Arch Workflow</h2>
-    <p class="hint">Briefly describe your current protocol from consult to final prosthesis (or write "not yet offering").</p>
-    <textarea id="f_workflow" placeholder="e.g., CBCT + guided placement, conversion denture day-of, lab-fabricated final at 4 months…"></textarea>
+    
+    <div class="field"><label for="f_workflow">Briefly describe your current protocol from consult to final prosthesis (or write "not yet offering").</label><textarea id="f_workflow" data-label="Briefly describe your current protocol from consult to final prosthesis (or write &quot;not yet offering&quot;)." placeholder="e.g., CBCT + guided placement, conversion denture day-of, lab-fabricated final at 4 months…"></textarea></div>
   </section>
-
   <section class="block">
-    <div class="secnum">Step 11 of 13</div>
+    <div class="secnum">Step 10 of 11</div>
     <h2>Clinical Goals &amp; Training Interests</h2>
     <p class="hint">Check all that apply.</p>
-    <div class="checks">
-      <label><input type="checkbox" name="goal" value="Grow full-arch volume"> Grow full-arch case volume</label>
-      <label><input type="checkbox" name="goal" value="FP1 protocols"> Master FP1 (tooth-only) protocols</label>
-      <label><input type="checkbox" name="goal" value="Zygomatic training"> Add zygomatic implants</label>
-      <label><input type="checkbox" name="goal" value="Pterygoid training"> Add pterygoid implants</label>
-      <label><input type="checkbox" name="goal" value="Same-day digital conversion"> Same-day digital conversion workflow</label>
-      <label><input type="checkbox" name="goal" value="Photogrammetry integration"> Photogrammetry integration</label>
-      <label><input type="checkbox" name="goal" value="Marketing & lead generation"> Patient acquisition &amp; marketing systems</label>
-      <label><input type="checkbox" name="goal" value="Team training"> Team training &amp; treatment coordination</label>
-    </div>
+    <div class="checks"><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Grow full-arch case volume"> Grow full-arch case volume</label><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Master FP1 (tooth-only) protocols"> Master FP1 (tooth-only) protocols</label><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Add zygomatic implants"> Add zygomatic implants</label><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Add pterygoid implants"> Add pterygoid implants</label><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Same-day digital conversion workflow"> Same-day digital conversion workflow</label><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Photogrammetry integration"> Photogrammetry integration</label><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Patient acquisition &amp; marketing systems"> Patient acquisition & marketing systems</label><label><input type="checkbox" name="goal" data-label="Goals &amp; training interests" value="Team training &amp; treatment coordination"> Team training & treatment coordination</label></div>
   </section>
-
   <section class="block">
-    <div class="secnum">Step 12 of 13</div>
+    <div class="secnum">Step 11 of 11</div>
     <h2>What You Want From the IW Program</h2>
-    <p class="hint">What are you hoping to get out of working with Implanted Wisdom?</p>
-    <textarea id="f_want" placeholder="e.g., I want to confidently offer same-day full-arch, build a team that can run the workflow without me, and grow to 50+ arches a year…"></textarea>
+    
+    <div class="field"><label for="f_want">What are you hoping to get out of working with Implanted Wisdom?</label><textarea id="f_want" data-label="What are you hoping to get out of working with Implanted Wisdom?" placeholder="e.g., confidently offering same-day full-arch, a team that can run the workflow without me…"></textarea></div><div class="field"><label for="f_obstacle">What do you see as your biggest concern or obstacle?</label><textarea id="f_obstacle" data-label="What do you see as your biggest concern or obstacle?" placeholder="e.g., chair time, assistant training, lab reliability, case flow…"></textarea></div>
   </section>
 
-  <section class="block">
-    <div class="secnum">Step 13 of 13</div>
-    <h2>Timeline</h2>
-    <p class="hint">When do you want to begin implementation?</p>
-    <div class="choices">
-      <label><input type="radio" name="timeline" value="now"> Ready now</label>
-      <label><input type="radio" name="timeline" value="1-3"> 1–3 months</label>
-      <label><input type="radio" name="timeline" value="3-6"> 3–6 months</label>
-      <label><input type="radio" name="timeline" value="6+"> 6+ months / exploring</label>
-    </div>
-  </section>
-
-  <div class="submitrow">
+  <div class="actions">
     <p class="hint" style="margin-bottom:18px">That's everything.</p>
-    <button type="submit" class="btn btn-gold">Submit My Results →</button>
-    <p class="err" id="errmsg">Please add your name, practice, and email so we know who this is from.</p>
+    <button class="btn btn-gold" type="submit">Submit My Results →</button>
+    <p class="err" id="errmsg" style="color:#e8a598;font-size:.9rem;display:none;width:100%">Please add your name, practice, and email so we know who this is from.</p>
   </div>
 </form>
-</div>
 
-<!-- ================= CONFIRMATION ================= -->
-<div id="profile">
-  <div class="profile-hero">
-    <div class="wrap">
-      <div class="label">Implanted Wisdom · Doctor Readiness & Goals</div>
-      <h2>Thank you, <span id="p_name"></span>.</h2>
-      <p class="sub" style="margin-top:18px;max-width:52ch;margin-left:auto;margin-right:auto"><span id="sendstate">Sending your answers…</span> the IW clinical team will review everything and build your customized implementation plan.</p>
-      <div class="actions" style="margin-top:34px">
-        <button class="btn btn-gold" id="emailbtn" style="display:none">Email My Results Instead →</button>
-        <a class="btn btn-line" href="/">Back to All Assessments</a>
-        <button class="btn btn-line" onclick="location.reload()">Start Over</button>
-        <p class="smallnote">Implanted Wisdom · A Surgeon-Led Boutique Consultancy · Powered by the Patient-Specific Protocol<span class="tm">™</span></p>
-      </div>
+<div id="result">
+  <div class="rcard" style="text-align:center">
+    <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Doctor Readiness & Goals</div>
+    <h2 style="font-weight:400;margin-top:10px">Thank you, <span id="rName"></span>.</h2>
+    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch"><span id="sendstate">Sending your answers…</span> The IW team will review everything and build the implementation plan around you and your team.</p>
+    <div class="actions" style="margin-top:28px">
+      <button class="btn btn-gold" id="emailbtn" style="display:none">Email My Results Instead →</button>
+      <a class="btn btn-gold" href="assess-marketing.html">Continue to Part 2: Current Marketing →</a>
+      <a class="btn btn-line" href="/">Back to All Assessments</a>
+      <button class="btn btn-line" onclick="location.reload()">Retake</button>
     </div>
   </div>
+</div>
 </div>
 
 <script>
 /* ========= SAVE SETTINGS =========
-   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
-   Submissions are stored in your Formspree dashboard and emailed to you.
+   Formspree form ID (from formspree.io → your form → "Integration").
    Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
 var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
 
-/* remember who they are across the three assessments (stored only in this browser) */
+/* remember who they are across assessments (stored only in this browser) */
 var IW_IDS={name:'f_name',practice:'f_practice',email:'f_email'};
 function iwRemember(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&el.value.trim()) o[k]=el.value.trim(); } localStorage.setItem('iw_identity',JSON.stringify(o)); }catch(e){} }
 function iwPrefill(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&!el.value&&o[k]) el.value=o[k]; } }catch(e){} }
@@ -594,135 +366,61 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
 </script>
 <script>
 (function(){
-  const form=document.getElementById('assessform');
-  const pbar=document.getElementById('pbar');
+  var TITLE='IW Doctor Readiness & Goals';
+  var form=document.getElementById('tform'), pbar=document.getElementById('pbar');
+  var nameEl=document.getElementById('f_name'), practEl=document.getElementById('f_practice'), emailEl=document.getElementById('f_email');
 
-  // progress bar as fields complete
-  const reqNames=['exp_aox','exp_aoxsd','exp_fp3','exp_fp1','exp_trad','exp_gsi','exp_gsf','exp_zygo','exp_ptery','volume','digital','timeline'];
   function updateProgress(){
-    let done=0,total=reqNames.length+4;
-    reqNames.forEach(n=>{if(form.querySelector(`[name="${n}"]:checked`))done++;});
-    ['f_name','f_practice','f_email'].forEach(id=>{if(document.getElementById(id).value.trim())done++;});
-    if(document.getElementById('f_lab').value)done++;
-    pbar.style.width=Math.round(done/total*100)+'%';
+    var secs=[].slice.call(form.querySelectorAll('section.block')), done=0;
+    secs.forEach(function(s){ if([].slice.call(s.querySelectorAll('input,select,textarea')).some(function(el){ return (el.type==='radio'||el.type==='checkbox')?el.checked:el.value.trim(); })) done++; });
+    pbar.style.width=Math.round(done/secs.length*100)+'%';
   }
-  form.addEventListener('input',updateProgress);
-  form.addEventListener('change',updateProgress);
+  form.addEventListener('input',updateProgress); form.addEventListener('change',updateProgress);
 
-  const EXP_LABELS=['None','1–10','11–50','51–200','200+'];
-  const VOL_LABELS={0:'0 — not yet offering',3:'1–12 arches/yr',7:'13–36 arches/yr',11:'37–100 arches/yr',15:'100+ arches/yr'};
-  const DIG_LABELS={0:'No digital experience',4:'Minimum digital (lab brings scanner)',8:'Partial digital (IOS to lab)',12:'Full digital (guides in-house)',15:'All-on-X digital (photogrammetry, same-day)'};
-
-  function val(name){const el=form.querySelector(`[name="${name}"]:checked`);return el?+el.value:0;}
-
-  window.computeProfile=function(a){
-    // ---- pillar scores ----
-    const expPts=a.aox*2+a.aoxsd*2+a.fp3*1+a.fp1*1+a.trad*1+a.gsi*0.5+a.gsf*0.5+a.zygo*1+a.ptery*1;  // /40
-    const volPts=a.volume;                                       // /15
-    const digPts=a.digital;                                      // /15
-    const eqPts=Math.min(15,a.equipPts);                         // /15
-    let teamPts=0;
-    teamPts+=a.tc?4:0; teamPts+=a.sa?4:0; teamPts+=a.rp?4:0; teamPts+=a.lab;
-    teamPts=Math.min(15,teamPts);                                // /15
-    const score=Math.round(expPts+volPts+digPts+eqPts+teamPts);
-
-    let band,desc;
-    if(score>=75){band='Elite Partner';desc='Advanced surgical and digital foundation. Onboarding focuses on advanced curriculum, same-day systems, and deploying the full IW growth engine.';}
-    else if(score>=45){band='Growth Partner';desc='Solid full-arch foundation with clear acceleration points. Onboarding pairs targeted clinical training with workflow digitization and volume systems.';}
-    else{band='Foundation Partner';desc='Early in the full-arch journey. Onboarding begins with core clinical curriculum, equipment planning, and team building before scaling volume.';}
-
-    // ---- curriculum ----
-    let curr,currList=[];
-    if(a.aox<=1){
-      curr='FP3 Foundations — Full-Arch Fundamentals';
-      currList=['All-on-X diagnostics, treatment planning, and case selection','FP3 prosthetic design and conversion protocols','Immediate-load principles and complication management','Live-surgery observation at Pulver Oral Surgery'];
-    }else if(a.fp1<=1){
-      curr='FP1 Mastery Track';
-      currList=['FP1 case selection: bone reduction limits and gingival-line planning','Precision placement for tooth-only prosthetics','FP2 transitional protocols for borderline cases','Digital design workflow for FP1 finals'];
-    }else if(a.zygo<=1||a.ptery<=1){
-      curr='Advanced Anatomy Track — Zygomatic & Pterygoid';
-      currList=['Zygomatic implant anatomy, approach, and rescue protocols','Pterygoid placement for graftless posterior maxilla','Remote anchorage treatment planning','Cadaver/live-case pathway with proctored first cases'];
-    }else{
-      curr='Mastery & Mentorship Track';
-      currList=['Same-day photogrammetry-driven delivery optimization','Complex revision and remote-anchorage case review','IW faculty/mentor pathway for partner practices','Growth-engine deployment: marketing, CRM, and team systems'];
-    }
-
-    return {score,band,desc,curr,currList,pillars:[
-      ['Surgical Experience',Math.round(expPts),40],['Case Volume',volPts,15],['Digital Workflow',digPts,15],['Equipment',eqPts,15],['Team',teamPts,15]
-    ]};
-  };
+  /* serialize every answered field, section by section */
+  function bodyText(){
+    var lines=[TITLE,'Name: '+nameEl.value.trim()+(emailEl&&emailEl.value.trim()?' ('+emailEl.value.trim()+')':''),'Practice: '+practEl.value.trim()];
+    [].slice.call(form.querySelectorAll('section.block')).forEach(function(sec){
+      var h=sec.querySelector('h2'); lines.push('','== '+(h?h.textContent.trim():'')+' ==');
+      var seenGroup={};
+      [].slice.call(sec.querySelectorAll('input,select,textarea')).forEach(function(el){
+        if(el===nameEl||el===practEl||el===emailEl) return;
+        if(el.type==='radio'||el.type==='checkbox'){
+          if(seenGroup[el.name]) return; seenGroup[el.name]=1;
+          var group=[].slice.call(sec.querySelectorAll('[name="'+el.name+'"]'));
+          var vals=group.filter(function(g){return g.checked;}).map(function(g){return g.value;});
+          var lbl=el.getAttribute('data-label')||(function(){var q=el.closest('.q');var p=q?q.querySelector('.qlabel'):null;return p?p.textContent.trim():'';})();
+          lines.push((lbl?lbl+': ':'')+(vals.length?vals.join(', '):'—'));
+        }else{
+          var lab=el.getAttribute('data-label')||el.id;
+          lines.push(lab+': '+(el.value.trim()||'—'));
+        }
+      });
+    });
+    return lines.join('\n');
+  }
+  function sendEmail(){ location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent(TITLE+' — '+nameEl.value.trim())+'&body='+encodeURIComponent(bodyText()); }
+  function submitResults(){
+    var st=document.getElementById('sendstate'), eb=document.getElementById('emailbtn');
+    if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
+    st.textContent='Sending your answers…';
+    fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({assessment:TITLE,name:nameEl.value.trim(),email:emailEl?emailEl.value.trim():'',practice:practEl.value.trim(),_subject:TITLE+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
+    .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
+  }
 
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    // validate
-    const need=['f_name','f_practice','f_email'];
-    let ok=true, firstBad=null;
-    need.forEach(id=>{const el=document.getElementById(id);if(!el.value.trim()){ok=false;el.style.borderColor='#8c2f2f';if(!firstBad)firstBad=el;}else el.style.borderColor='';});
+    var ok=true, firstBad=null;
+    [nameEl,practEl].concat(emailEl&&emailEl.hasAttribute('required')?[emailEl]:[]).forEach(function(el){ if(!el.value.trim()){ ok=false; el.style.borderColor='#8c2f2f'; if(!firstBad) firstBad=el; } else el.style.borderColor=''; });
     document.getElementById('errmsg').style.display=ok?'none':'block';
-    if(!ok){firstBad.scrollIntoView({behavior:'smooth',block:'center'});firstBad.focus();return;}
-
-    // gather
-    const eqChecked=[...form.querySelectorAll('input[name=eq]:checked')];
-    const a={
-      aox:val('exp_aox'),aoxsd:val('exp_aoxsd'),fp3:val('exp_fp3'),fp1:val('exp_fp1'),
-      trad:val('exp_trad'),gsi:val('exp_gsi'),gsf:val('exp_gsf'),zygo:val('exp_zygo'),ptery:val('exp_ptery'),
-      volume:val('volume'),digital:val('digital'),
-      equipPts:eqChecked.reduce((s,el)=>s+ +el.dataset.pts,0),
-      tc:document.getElementById('t_tc').checked,
-      sa:document.getElementById('t_sa').checked,
-      rp:document.getElementById('t_rp').checked,
-      lab:+document.getElementById('f_lab').value||0
-    };
-    const r=computeProfile(a);
-    const name=document.getElementById('f_name').value.trim();
-    const practice=document.getElementById('f_practice').value.trim();
-    const tlEl=form.querySelector('[name=timeline]:checked'); const timeline=tlEl?tlEl.value:'';
-    const goals=[...form.querySelectorAll('input[name=goal]:checked')].map(el=>el.value);
-
-    const tlText={'now':'immediate start','1-3':'start within 1–3 months','3-6':'start within 3–6 months','6+':'exploratory — 6+ month horizon','':'—'};
-
-    // email button
-    function bodyText(){
-      return (
-`IW Doctor Readiness & Goals
-Surgeon: ${name} (${document.getElementById('f_email').value})
-Practice: ${practice}
-Specialty: ${document.getElementById('f_spec').value||'—'} | Years: ${document.getElementById('f_years').value?document.getElementById('f_years').selectedOptions[0].text:'—'}
-Enthusiasm: ${document.getElementById('f_enthusiasm').value||'—'}/10 | Cases/yr initial: ${document.getElementById('f_casesInitial').value||'—'} | future: ${document.getElementById('f_casesFuture').value||'—'}
-Score: ${r.score}/100 — ${r.band}
-Curriculum: ${r.curr}
-Personal interest in full-arch: ${(form.querySelector('[name=interest]:checked')||{}).value||'—'}
-Why: ${document.getElementById('f_interest_why').value.trim()||'—'}
-Ideal cases/month: ${(form.querySelector('[name=ideal_month]:checked')||{}).value||'—'}
-Confidence: ${[['Planning','conf_plan'],['Consult','conf_consult'],['Surgery','conf_surg'],['Immediate load','conf_load'],['Digital','conf_digital'],['Prosthetic','conf_prosth'],['Complications','conf_comp']].map(([l,n])=>l+' = '+((form.querySelector('[name='+n+']:checked')||{}).value||'—')).join('; ')}
-Dr. Pulver onsite: ${(form.querySelector('[name=onsite]:checked')||{}).value||'—'}
-Current candidates: ${(form.querySelector('[name=candidates]:checked')||{}).value||'—'} — ${document.getElementById('f_candidates_notes').value.trim()||'—'}
-Comfort for first cases: ${[...form.querySelectorAll('input[name=comfort]:checked')].map(el=>el.value).join(', ')||'—'} — ${document.getElementById('f_comfort_notes').value.trim()||'—'}
-Timeline: ${tlText[timeline]}
-Experience: AoX ${EXP_LABELS[a.aox]}, FP1 ${EXP_LABELS[a.fp1]}, Zygo ${EXP_LABELS[a.zygo]}, Ptery ${EXP_LABELS[a.ptery]}
-Volume: ${VOL_LABELS[a.volume]||'—'} | Digital: ${DIG_LABELS[a.digital]||'—'}
-Pillars: ${r.pillars.map(p=>`${p[0]} ${p[1]}/${p[2]}`).join(', ')}
-Goals: ${goals.join(', ')||'—'}
-Workflow notes: ${document.getElementById('f_workflow').value.trim()||'—'}
-What they want from IW: ${document.getElementById('f_want').value.trim()||'—'}`);
-    }
-    function sendEmail(){ location.href='mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject='+encodeURIComponent('IW Doctor Readiness & Goals'+' — '+name)+'&body='+encodeURIComponent(bodyText()); }
-    function submitResults(){
-      var st=document.getElementById('sendstate'), eb=document.getElementById('emailbtn');
-      if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
-      st.textContent='Sending your answers…';
-      fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({assessment:'IW Doctor Readiness & Goals',name:name,email:document.getElementById('f_email').value.trim(),practice:practice,_subject:'IW Doctor Readiness & Goals'+' — '+name,submitted:new Date().toLocaleString(),results:bodyText()})})
-      .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
-      .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
-    }
+    if(!ok){ firstBad.scrollIntoView({behavior:'smooth',block:'center'}); firstBad.focus(); return; }
     document.getElementById('emailbtn').onclick=sendEmail;
-
-    // show confirmation, then open the email
-    document.getElementById('p_name').textContent=name.split(' ')[0]||name;
+    document.getElementById('rName').textContent=nameEl.value.trim().split(' ')[0];
     form.style.display='none';
     document.querySelector('header.hero').style.display='none';
-    document.getElementById('profile').style.display='block';
+    document.getElementById('result').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
     pbar.style.width='100%';
     iwRemember();

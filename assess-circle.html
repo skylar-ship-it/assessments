@@ -10,8 +10,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,500&family=Jost:wght@300;400;500&family=Courier+Prime:wght@400;700&display=swap');
 :root{--espresso:#17110d;--espresso-deep:#100c09;--espresso-deeper:#0b0807;--ink:#1E1612;
   --gold:#C9A96E;--gold-soft:#d9c099;--teal:#245C5C;--teal-deep:#1c4a4a;
-  --cream:#F2EEE7;--cream-80:rgba(242,238,231,.85);--cream-60:rgba(242,238,231,.6);
-  --line:rgba(242,238,231,.12);
+  --cream:#FFFFFF;--cream-80:rgba(255,255,255,.92);--cream-60:rgba(255,255,255,.72);
+  --line:rgba(255,255,255,.12);
   --display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--mono:'Courier Prime',monospace;
   --easing:cubic-bezier(0.22,1,0.36,1);}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -29,21 +29,21 @@ header.hero a.back:hover{color:var(--gold)}
 header.hero h1{font-size:clamp(2.2rem,5.5vw,3.6rem);font-weight:400}
 header.hero h1 em{font-style:italic;color:var(--gold)}
 header.hero p.sub{max-width:500px;margin:14px auto 0;color:var(--cream-60);font-size:1rem}
-.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(242,238,231,.1)}
+.progressbar{position:sticky;top:0;z-index:40;height:4px;background:rgba(255,255,255,.1)}
 .progressbar>div{height:100%;width:0;background:var(--gold);transition:width .5s var(--easing)}
-section.block{position:relative;z-index:1;background:rgba(242,238,231,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
+section.block{position:relative;z-index:1;background:rgba(255,255,255,.045);border-radius:16px;margin:26px 0;padding:32px 34px}
 .secnum{font-family:var(--mono);color:var(--gold);font-size:.8rem;letter-spacing:.12em}
 section.block h2{font-size:1.45rem;margin:2px 0 4px}
 .hint{color:var(--cream-60);font-size:.9rem;margin-bottom:16px}
 .field{margin-bottom:16px}
 .field label{display:block;font-weight:400;font-size:.92rem;margin-bottom:6px;color:var(--cream-80)}
-.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(242,238,231,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
-.field input::placeholder,textarea::placeholder{color:rgba(242,238,231,.4)}
+.field select,.field input,textarea{width:100%;padding:12px 14px;border:1px solid rgba(255,255,255,.2);border-radius:8px;font-family:var(--body);font-size:.97rem;background:rgba(0,0,0,.24);color:var(--cream)}
+.field input::placeholder,textarea::placeholder{color:rgba(255,255,255,.4)}
 .field select option{background:var(--espresso-deep);color:var(--cream)}
 .field select:focus,textarea:focus,.field input:focus{outline:none;border-color:var(--gold)}
 .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px}
 @media(max-width:640px){.checks{grid-template-columns:1fr}section.block{padding:24px 20px}}
-.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(242,238,231,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
+.checks label{display:flex;align-items:center;gap:10px;font-size:.94rem;font-weight:300;cursor:pointer;padding:10px 13px;border:1px solid rgba(255,255,255,.16);border-radius:10px;transition:all .25s var(--easing);color:var(--cream-80)}
 .checks label:hover{border-color:rgba(201,169,110,.5)}
 .checks label:has(input:checked){border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
 .checks input{width:16px;height:16px;accent-color:var(--gold);flex-shrink:0}
@@ -54,7 +54,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 .btn-gold{background:var(--gold);color:var(--ink)}.btn-gold:hover{background:var(--gold-soft);transform:translateY(-1px)}
 .btn-line{border-color:var(--gold);color:var(--gold);background:transparent}.btn-line:hover{background:rgba(201,169,110,.1);color:var(--gold-soft)}
 #result{display:none;position:relative;z-index:1}
-.rcard{background:rgba(242,238,231,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
+.rcard{background:rgba(255,255,255,.045);border-radius:16px;padding:36px 38px;margin:40px 0}
 @media(max-width:640px){.rcard{padding:26px 20px}}
 .band{font-family:var(--display);font-size:2.1rem;color:var(--gold)}
 .plain{list-style:none;padding:0}
@@ -90,7 +90,7 @@ section.block h2{font-size:1.9rem;margin:6px 0 8px;line-height:1.15}
 .hint,.qlabel{color:var(--cream-80)!important;font-size:1.05rem!important;line-height:1.65;margin-bottom:18px}
 .hint em{color:var(--gold-soft);font-style:italic}
 .field label{font-size:1.02rem;color:var(--cream);margin-bottom:8px;line-height:1.5}
-.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(242,238,231,.26)}
+.field input,.field select,textarea{font-size:1.02rem;padding:14px 16px;border-radius:12px;border-color:rgba(255,255,255,.26)}
 textarea{min-height:120px;line-height:1.6}
 .choices{gap:12px}
 .choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
@@ -155,11 +155,10 @@ section.block h2{font-size:2.1rem}
 <header class="hero">
   <div class="wrap">
     <a class="back" href="/">← All Assessments</a>
-    <div class="label">Doctor · Part Three of Three</div>
+    <div class="label">Doctor · Part 3 of 3</div>
     <h1>Inner Circle <em>Referrals</em></h1>
-    <p class="sub">The health of your referral network. About three minutes.</p>
+    <p class="sub">About three minutes of your time</p>
     <p class="sub" style="margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto">Our goal is simply to understand where you are today and how Implanted Wisdom can best support you.</p>
-    <div class="reassure"><b>Only your name and practice are required.</b> Skip anything that doesn't apply, and use your best guess where you're unsure.</div>
   </div>
 </header>
 
@@ -268,7 +267,7 @@ section.block h2{font-size:2.1rem}
   </section>
 
   <div class="actions">
-    <p class="hint" style="margin-bottom:18px">That's everything. Tap below to send your answers to the IW team.</p>
+    <p class="hint" style="margin-bottom:18px">That's everything.</p>
     <button class="btn btn-gold" type="submit">Submit My Results →</button>
   </div>
 </form>
@@ -277,7 +276,7 @@ section.block h2{font-size:2.1rem}
   <div class="rcard" style="text-align:center">
     <div class="label" style="color:var(--gold-soft)">Implanted Wisdom · Inner Circle Assessment</div>
     <h2 style="font-weight:400;margin-top:10px">Thank you, <span id="rName"></span>.</h2>
-    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch"><span id="sendstate">Sending your answers…</span> the IW team will review everything and build your customized implementation plan.</p>
+    <p style="color:var(--cream-80);margin:16px auto 0;max-width:52ch"><span id="sendstate">Sending your answers…</span> That completes all three parts — the IW team will review everything and build your customized implementation plan.</p>
     <div class="actions" style="margin-top:28px">
       <button class="btn btn-gold" id="emailbtn" style="display:none">Email My Results Instead →</button>
       <a class="btn btn-line" href="/">Back to All Assessments</a>
