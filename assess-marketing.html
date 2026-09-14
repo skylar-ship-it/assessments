@@ -115,6 +115,7 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
     <h2>About you</h2>
     <div class="field"><label for="m_name" style="font-size:1.02rem">Surgeon name *</label><input type="text" id="m_name" required autocomplete="name" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
     <div class="field" style="margin-top:14px"><label for="m_practice" style="font-size:1.02rem">Practice name *</label><input type="text" id="m_practice" required autocomplete="organization" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
+    <div class="field" style="margin-top:14px"><label for="m_email" style="font-size:1.02rem">Email *</label><input type="email" id="m_email" required autocomplete="email" style="font-size:1.05rem;padding:16px;min-height:54px;border-radius:12px"></div>
   </section>
 
   <section class="block">
@@ -238,13 +239,12 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
 
 <script>
 /* ========= SAVE SETTINGS =========
-   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
-   Submissions are stored in your Formspree dashboard and emailed to you.
-   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
-var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
+   Submissions are saved in the IW portal and a copy is emailed via Formspree (set in the portal backend). */
+/* Answers go to the IW portal (saved to the surgeon's login, then forwarded to Formspree for the email). */
+var IW_ENDPOINT='https://portal.implantedwisdom.com/webhooks/onboarding?json=1&step=marketing';
 
 /* remember who they are across the three assessments (stored only in this browser) */
-var IW_IDS={name:'m_name',practice:'m_practice'};
+var IW_IDS={name:'m_name',practice:'m_practice',email:'m_email'};
 function iwRemember(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&el.value.trim()) o[k]=el.value.trim(); } localStorage.setItem('iw_identity',JSON.stringify(o)); }catch(e){} }
 function iwPrefill(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&!el.value&&o[k]) el.value=o[k]; } }catch(e){} }
 document.addEventListener('DOMContentLoaded',iwPrefill);
@@ -254,8 +254,8 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
   var form=document.getElementById('mform');
   form.addEventListener('submit',function(e){
     e.preventDefault();
-    var nameEl=document.getElementById('m_name'),practEl=document.getElementById('m_practice');
-    var okId=true;[nameEl,practEl].forEach(function(el){if(!el.value.trim()){okId=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
+    var nameEl=document.getElementById('m_name'),practEl=document.getElementById('m_practice'),emailEl=document.getElementById('m_email');
+    var okId=true;[nameEl,practEl,emailEl].forEach(function(el){if(!el.value.trim()){okId=false;el.style.borderColor='#8c2f2f';}else el.style.borderColor='';});
     if(!okId){window.scrollTo({top:0,behavior:'smooth'});return;}
     function v(id){return +document.getElementById(id).value;}
     var sources=[...document.querySelectorAll('#sources input:checked')].map(x=>x.value);
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
       if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
       st.textContent='Sending your answers…';
       fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({assessment:'IW Marketing Assessment',name:nameEl.value.trim(),email:'',practice:practEl.value.trim(),_subject:'IW Marketing Assessment'+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
+        body:JSON.stringify({assessment:'IW Marketing Assessment',name:nameEl.value.trim(),email:emailEl.value.trim().toLowerCase(),practice:practEl.value.trim(),_subject:'IW Marketing Assessment'+' — '+nameEl.value.trim(),submitted:new Date().toLocaleString(),results:bodyText()})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
       .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
     }

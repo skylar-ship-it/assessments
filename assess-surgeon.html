@@ -462,10 +462,9 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
 
 <script>
 /* ========= SAVE SETTINGS =========
-   Paste your Formspree form ID below (from formspree.io → your form → "Integration").
-   Submissions are stored in your Formspree dashboard and emailed to you.
-   Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
-var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
+   Submissions are saved in the IW portal and a copy is emailed via Formspree (set in the portal backend). */
+/* Answers go to the IW portal (saved to the surgeon's login, then forwarded to Formspree for the email). */
+var IW_ENDPOINT='https://portal.implantedwisdom.com/webhooks/onboarding?json=1&step=surgeon';
 
 /* remember who they are across the three assessments (stored only in this browser) */
 var IW_IDS={name:'f_name',practice:'f_practice',email:'f_email'};
@@ -586,7 +585,7 @@ What they want from IW: ${document.getElementById('f_want').value.trim()||'—'}
       if(!IW_ENDPOINT||IW_ENDPOINT.indexOf('YOUR_FORM_ID')>-1){ st.textContent='Automatic saving isn\'t set up yet — tap the button below to email your results.'; eb.style.display=''; return; }
       st.textContent='Sending your answers…';
       fetch(IW_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({assessment:'IW Surgeon Experience Assessment',name:name,email:document.getElementById('f_email').value.trim(),practice:practice,_subject:'IW Surgeon Experience Assessment'+' — '+name,submitted:new Date().toLocaleString(),results:bodyText()})})
+        body:JSON.stringify({assessment:'IW Surgeon Experience Assessment',name:name,email:document.getElementById('f_email').value.trim().toLowerCase(),equipment:eqChecked.map(function(el){return el.value;}),goals:goals,timeline:timeline,score:r.score,band:r.band,practice:practice,_subject:'IW Surgeon Experience Assessment'+' — '+name,submitted:new Date().toLocaleString(),results:bodyText()})})
       .then(function(r){ if(!r.ok) throw new Error(r.status); st.textContent='Your answers have been received.'; })
       .catch(function(){ st.textContent='We couldn\'t save automatically — tap the button below to email your results instead.'; eb.style.display=''; });
     }
