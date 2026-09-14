@@ -233,9 +233,6 @@ section.block h2{font-size:2.1rem}
       <label><input type="checkbox" value="Full arch"> Full arch</label>
       <label><input type="checkbox" value="None"> I don't track by procedure</label>
     </div>
-    <div class="field" style="margin-top:12px"><label for="loyalty">How secure are your top referral relationships?</label>
-      <select id="loyalty"><option value="0">At risk / eroding</option><option value="1">Stable</option><option value="2">Strong &amp; loyal</option></select>
-    </div>
     <p class="hint" style="margin:12px 0 8px">Which of these pressures worry you? (check all that apply)</p>
     <div class="checks" id="threats">
       <label><input type="checkbox" value="Retiring offices"> Retiring offices &amp; transitions to new dentists</label>
@@ -247,9 +244,12 @@ section.block h2{font-size:2.1rem}
 
   <section class="block">
     <div class="secnum">Step 5 of 6</div>
-    <h2>The DTC concern</h2>
-    <div class="field"><label for="concern">Do you worry DTC marketing could hurt your GP referrals?</label>
-      <select id="concern"><option value="0">Yes — a real concern</option><option value="1">Somewhat</option><option value="2">No</option></select>
+    <h2>Direct-to-consumer marketing</h2>
+    <div class="field"><label for="dtc">Are you currently marketing direct-to-consumer for implants and third molars?</label>
+      <select id="dtc"><option value="">Select…</option><option>Yes — actively</option><option>A little</option><option>Not yet</option></select>
+    </div>
+    <div class="field"><label for="dtc_notes">What are the benefits and obstacles? What would you like to see different?</label>
+      <textarea id="dtc_notes" placeholder="e.g., it brings in cases but the leads are inconsistent; I'd want better tracking…"></textarea>
     </div>
     <div class="field"><label for="track">Do you track who refers and case outcomes?</label>
       <select id="track"><option value="0">No</option><option value="1">Partially</option><option value="2">Yes</option></select>
@@ -262,7 +262,7 @@ section.block h2{font-size:2.1rem}
   <section class="block">
     <div class="secnum">Step 6 of 6</div>
     <h2>Anything else</h2>
-    <p class="hint">Optional — what's your biggest referral challenge?</p>
+    <p class="hint">Optional — what's your biggest referral challenge today and in the next 2–3 years?</p>
     <textarea id="notes" rows="3" placeholder="e.g., a big referrer started placing their own, or referrals are slowing…"></textarea>
   </section>
 
@@ -312,21 +312,18 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
       ['Referral volume', v('count')],
       ['Structured program', v('program')],
       ['Full-arch awareness', v('aware')],
-      ['Relationship strength', v('loyalty')],
       ['Referral tracking', v('track')],
       ['Referral growth plan', v('future')]
     ];
     var channels=[...document.querySelectorAll('#channels input:checked')].map(x=>x.value);
     var got=dims.reduce((s,d)=>s+d[1],0), max=dims.length*2;
     var score=Math.round(got/max*100);
-    var concern=v('concern');
     var band,desc;
     if(score>=70){band='Strong Network';desc='A loyal referral base. IW protects it with a branded Inner Circle program and layers DTC on top so both grow together.';}
     else if(score>=40){band='Growing Network';desc='Real relationships with room to formalize. IW builds structure, communication, and tracking to deepen loyalty.';}
     else{band='Nascent Network';desc='Early referral base. IW helps build the Inner Circle from the ground up — awareness, communication, and a program that rewards referrers.';}
 
     var gaps=dims.filter(d=>d[1]<=1).sort((a,b)=>a[1]-b[1]).map(d=>d[0]);
-    if(concern===0) gaps.unshift('Protecting referrals while running DTC');
 
     var sv=function(id){var el=document.getElementById(id);return el?el.value:'';};
     var chk=function(sel){return [...document.querySelectorAll(sel+' input:checked')].map(x=>x.value);};
@@ -341,9 +338,9 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
 'Tiers A/B/C/D: '+(sv('tierA')||'—')+' / '+(sv('tierB')||'—')+' / '+(sv('tierC')||'—')+' / '+(sv('tierD')||'—')+'\n'+
 'Top-5 retired (5yr): '+(sv('retired5')||'—')+' | Transition impact: '+(sv('transdrop')||'—')+'\n'+
 'Channels: '+(channels.join(', ')||'—')+'\n'+
-'Full-arch awareness: '+st('aware')+' | Loyalty: '+st('loyalty')+'\n'+
+'Full-arch awareness: '+st('aware')+'\n'+
 'Tracks by procedure: '+(chk('#trackproc').join(', ')||'—')+' | Threats: '+(chk('#threats').join(', ')||'—')+'\n'+
-'DTC concern: '+st('concern')+' | Referral tracking: '+st('track')+' | Growth plan: '+st('future')+'\n'+
+'DTC marketing: '+(sv('dtc')||'—')+' — '+(sv('dtc_notes').trim()||'—')+'\n'+'Referral tracking: '+st('track')+' | Growth plan: '+st('future')+'\n'+
 'Focus areas: '+(gaps.join(', ')||'Optimization only')+'\n'+
 'Notes: '+(document.getElementById('notes').value.trim()||'—'));
     }
