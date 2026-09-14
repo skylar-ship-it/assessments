@@ -213,7 +213,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
 <form id="assessform" novalidate>
 
   <section class="block">
-    <div class="secnum">01 / 09</div>
+    <div class="secnum">01 / 10</div>
     <h2>Practice Profile</h2>
     <p class="hint">Who you are and where you practice.</p>
     <div class="grid2">
@@ -268,7 +268,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">02 / 09</div>
+    <div class="secnum">02 / 10</div>
     <h2>Case Experience by Procedure</h2>
     <p class="hint">Approximate lifetime case counts as primary surgeon.</p>
     <table class="matrix">
@@ -297,7 +297,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">03 / 09</div>
+    <div class="secnum">03 / 10</div>
     <h2>Annual Full-Arch Volume</h2>
     <p class="hint">Arches per year, per individual provider — current pace.</p>
     <div class="choices">
@@ -310,7 +310,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">04 / 09</div>
+    <div class="secnum">04 / 10</div>
     <h2>Digital Workflow Experience</h2>
     <p class="hint">Which best describes your current digital experience?</p>
     <div class="choices" style="flex-direction:column;align-items:flex-start">
@@ -334,7 +334,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">05 / 09</div>
+    <div class="secnum">05 / 10</div>
     <h2>Current Equipment</h2>
     <p class="hint">Check everything currently in your practice.</p>
     <div class="checks" id="equip">
@@ -349,7 +349,7 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">06 / 09</div>
+    <div class="secnum">06 / 10</div>
     <h2>Team Structure</h2>
     <div class="grid2">
       <div class="field"><label for="f_surgeons">Surgeons placing implants</label>
@@ -394,14 +394,14 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">07 / 09</div>
+    <div class="secnum">07 / 10</div>
     <h2>Current Full-Arch Workflow</h2>
     <p class="hint">Briefly describe your current protocol from consult to final prosthesis (or write "not yet offering").</p>
     <textarea id="f_workflow" placeholder="e.g., CBCT + guided placement, conversion denture day-of, lab-fabricated final at 4 months…"></textarea>
   </section>
 
   <section class="block">
-    <div class="secnum">08 / 09</div>
+    <div class="secnum">08 / 10</div>
     <h2>Clinical Goals &amp; Training Interests</h2>
     <p class="hint">Check all that apply.</p>
     <div class="checks">
@@ -417,7 +417,14 @@ ul.plain li.ok::before{content:"✓";color:#9fd0c3}
   </section>
 
   <section class="block">
-    <div class="secnum">09 / 09</div>
+    <div class="secnum">09 / 10</div>
+    <h2>What You Want From the IW Program</h2>
+    <p class="hint">In your own words — what are you hoping to get out of working with Implanted Wisdom? What would make this a success for you and your practice?</p>
+    <textarea id="f_want" placeholder="e.g., I want to confidently offer same-day full-arch, build a team that can run the workflow without me, and grow to 50+ arches a year…"></textarea>
+  </section>
+
+  <section class="block">
+    <div class="secnum">10 / 10</div>
     <h2>Timeline</h2>
     <p class="hint">When do you want to begin implementation?</p>
     <div class="choices">
@@ -559,7 +566,8 @@ Experience: AoX ${EXP_LABELS[a.aox]}, FP1 ${EXP_LABELS[a.fp1]}, Zygo ${EXP_LABEL
 Volume: ${VOL_LABELS[a.volume]} | Digital: ${DIG_LABELS[a.digital]}
 Pillars: ${r.pillars.map(p=>`${p[0]} ${p[1]}/${p[2]}`).join(', ')}
 Goals: ${goals.join(', ')||'—'}
-Workflow notes: ${document.getElementById('f_workflow').value.trim()||'—'}`);
+Workflow notes: ${document.getElementById('f_workflow').value.trim()||'—'}
+What they want from IW: ${document.getElementById('f_want').value.trim()||'—'}`);
       location.href=`mailto:skylar@implantedwisdom.com,eric@pulveroralsurgery.com?subject=${encodeURIComponent('IW Surgeon Experience Assessment — '+name)}&body=${body}`;
     }
     document.getElementById('emailbtn').onclick=sendResults;
