@@ -237,6 +237,12 @@ section.block h2{font-size:1.45rem;margin:2px 0 4px}
    Submissions are stored in your Formspree dashboard and emailed to you.
    Any endpoint that accepts a JSON POST (e.g. a GHL inbound webhook URL) works here too. */
 var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
+
+/* remember who they are across the three assessments (stored only in this browser) */
+var IW_IDS={name:'ic_name',practice:'ic_practice'};
+function iwRemember(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&el.value.trim()) o[k]=el.value.trim(); } localStorage.setItem('iw_identity',JSON.stringify(o)); }catch(e){} }
+function iwPrefill(){ try{ var o=JSON.parse(localStorage.getItem('iw_identity')||'{}'); for(var k in IW_IDS){ var el=document.getElementById(IW_IDS[k]); if(el&&!el.value&&o[k]) el.value=o[k]; } }catch(e){} }
+document.addEventListener('DOMContentLoaded',iwPrefill);
 </script>
 <script>
 (function(){
@@ -303,6 +309,7 @@ var IW_ENDPOINT='https://formspree.io/f/xppzvjpb';
     document.querySelector('header.hero').style.display='none';
     document.getElementById('result').style.display='block';
     window.scrollTo({top:0,behavior:'smooth'});
+    iwRemember();
     submitResults();
   });
 })();
