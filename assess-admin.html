@@ -131,116 +131,23 @@ section.block h2{font-size:2.1rem}
   .choices.compact label{padding:14px 12px;font-size:1rem}
   .field input[type=text],.field input[type=email],.field input[type=tel],.field select,textarea{font-size:1.05rem!important}
 }
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices{gap:12px}
-.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
-.choices input{width:20px;height:20px}
-.choices label,.checks label{padding:16px 18px}
-.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
-.choices.compact label{padding:14px 20px}
-.choices.compact label{padding:14px 12px;font-size:1rem}
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices{gap:12px}
-.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
-.choices input{width:20px;height:20px}
-.choices label,.checks label{padding:16px 18px}
-.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
-.choices.compact label{padding:14px 20px}
-.choices.compact label{padding:14px 12px;font-size:1rem}
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices{gap:12px}
-.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
-.choices input{width:20px;height:20px}
-.choices label,.checks label{padding:16px 18px}
-.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
-.choices.compact label{padding:14px 20px}
-.choices.compact label{padding:14px 12px;font-size:1rem}
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices{gap:12px}
-.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
-.choices input{width:20px;height:20px}
-.choices label,.checks label{padding:16px 18px}
-.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
-.choices.compact label{padding:14px 20px}
-.choices.compact label{padding:14px 12px;font-size:1rem}
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices{gap:12px}
-.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
-.choices input{width:20px;height:20px}
-.choices label,.checks label{padding:16px 18px}
-.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
-.choices.compact label{padding:14px 20px}
-.choices.compact label{padding:14px 12px;font-size:1rem}
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices{gap:12px}
-.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
-.choices input{width:20px;height:20px}
-.choices label,.checks label{padding:16px 18px}
-.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
-.choices.compact label{padding:14px 20px}
-.choices.compact label{padding:14px 12px;font-size:1rem}
-.matrix{width:100%;border-collapse:collapse;margin-top:6px}
-.matrix th,.matrix td{padding:11px 8px;text-align:center;border-bottom:1px solid var(--line);font-size:.92rem}
-.matrix th{font-weight:500;color:var(--cream-80)}
-.matrix td:first-child,.matrix th:first-child{text-align:left;font-weight:400;color:var(--cream)}
-.matrix td:first-child span{display:block;font-weight:300;font-size:.8rem;color:var(--cream-60)}
-.matrix input[type=radio]{width:18px;height:18px;accent-color:var(--gold);cursor:pointer}
-@media(max-width:640px){.matrix th,.matrix td{padding:8px 3px;font-size:.8rem}}
+
+/* ===== selection state without :has (older browsers) + visible radio dot ===== */
+.choices label.sel{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
+.checks label.sel{border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
+.choices input[type=radio]{accent-color:var(--gold);width:20px;height:20px;flex-shrink:0}
+.choices label.sel input[type=radio]{accent-color:var(--ink)}
+.choices label,.checks label{position:relative;z-index:2;-webkit-user-select:none;user-select:none}
+
 .choices{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
-.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:10px;
+.choices label{display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.22);border-radius:10px;padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
 .choices label:hover{border-color:var(--gold)}
 .choices label:has(input:checked){background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
-.choices input{accent-color:var(--espresso);cursor:pointer}
-.choices{flex-direction:column;align-items:stretch}
-.choices label{padding:15px 18px;font-size:1rem;width:100%}
-.matrix input[type=radio]{width:24px;height:24px}
-.choices{gap:12px}
-.choices label{padding:15px 20px;font-size:1.02rem;border-radius:12px;line-height:1.4}
-.choices input{width:20px;height:20px}
-.choices label,.checks label{padding:16px 18px}
+.choices input{cursor:pointer}
 .choices.compact label{padding:12px 16px}
-.choices.compact{flex-direction:row;flex-wrap:wrap}
-.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}
-.choices.compact label input{display:none}
-.choices label,.checks label{font-size:1.08rem;padding:17px 22px}
-.choices.compact label{padding:14px 20px}
-.choices.compact label{padding:14px 12px;font-size:1rem}
-.choices.compact label{padding:12px 16px}
-.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
-.choices.compact label{padding:12px 16px}
-.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
-.choices.compact label{padding:12px 16px}
-.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
-.choices.compact label{padding:12px 16px}
-.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
-.choices.compact label{padding:12px 16px}
-.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
-.choices.compact label{padding:12px 16px}
-.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
-
-.choices.compact label{padding:12px 16px}
-@media(max-width:640px){.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}.choices.compact label input{display:none}}
+@media(max-width:640px){.choices.compact{flex-direction:row;flex-wrap:wrap}.choices.compact label{width:auto;flex:1 1 auto;justify-content:center;padding:13px 12px;font-size:.98rem}}
 .checks input[type=text]{width:100%!important;height:auto!important;min-height:54px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px 22px}
-.choices label{padding:12px 18px;font-size:.94rem;cursor:pointer;font-weight:300;color:var(--cream-80);transition:all .25s var(--easing)}
 .field textarea{min-height:110px}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
@@ -403,6 +310,18 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
     iwRemember();
     submitResults();
   });
+})();
+</script>
+<script>
+/* keep the gold "selected" look in sync on every browser (no :has needed) */
+(function(){
+  function sync(){
+    var ins=document.querySelectorAll('.choices input[type=radio],.choices input[type=checkbox],.checks input[type=checkbox]');
+    for(var i=0;i<ins.length;i++){ var lab=ins[i].closest('label'); if(lab) lab.classList.toggle('sel', ins[i].checked); }
+  }
+  document.addEventListener('change',sync,true);
+  document.addEventListener('click',function(){ setTimeout(sync,0); },true);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',sync); else sync();
 })();
 </script>
 </body>

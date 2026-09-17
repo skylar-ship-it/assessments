@@ -131,6 +131,13 @@ section.block h2{font-size:2.1rem}
   .choices.compact label{padding:14px 12px;font-size:1rem}
   .field input[type=text],.field input[type=email],.field input[type=tel],.field select,textarea{font-size:1.05rem!important}
 }
+
+/* ===== selection state without :has (older browsers) + visible radio dot ===== */
+.choices label.sel{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:400}
+.checks label.sel{border-color:var(--gold);background:rgba(201,169,110,.1);color:var(--cream)}
+.choices input[type=radio]{accent-color:var(--gold);width:20px;height:20px;flex-shrink:0}
+.choices label.sel input[type=radio]{accent-color:var(--ink)}
+.choices label,.checks label{position:relative;z-index:2;-webkit-user-select:none;user-select:none}
 </style>
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -391,6 +398,18 @@ document.addEventListener('DOMContentLoaded',iwPrefill);
     var t=e.target;
     if(t.matches('textarea, input[type=text]') && t.value.trim()){ touched['f'+fields.indexOf(t)]=1; update(); }
   });
+})();
+</script>
+<script>
+/* keep the gold "selected" look in sync on every browser (no :has needed) */
+(function(){
+  function sync(){
+    var ins=document.querySelectorAll('.choices input[type=radio],.choices input[type=checkbox],.checks input[type=checkbox]');
+    for(var i=0;i<ins.length;i++){ var lab=ins[i].closest('label'); if(lab) lab.classList.toggle('sel', ins[i].checked); }
+  }
+  document.addEventListener('change',sync,true);
+  document.addEventListener('click',function(){ setTimeout(sync,0); },true);
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',sync); else sync();
 })();
 </script>
 </body>
